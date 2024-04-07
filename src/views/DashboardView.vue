@@ -1,27 +1,23 @@
 <template lang="pug">
-  .dashboard
-    h1 Dashboard
+.dashboard
+  .overview
+    .container
+      GreetingComponent
+      StatsGridComponent
+  .container
+    TaskList
 </template>
 
 <script>
-
-import Nav from '@/components/Nav.vue'
-import Greeting from '@/components/Greeting.vue'
-import StatsGrid from '@/components/StatsGrid.vue'
-import Stat from '@/components/Stat.vue'
-import TaskList from '@/components/TaskList.vue'
-import Task from '@/components/Task.vue'
-
+import GreetingComponent from '@/components/Greeting.vue';
+import StatsGridComponent from '@/components/StatsGrid.vue';
+import TaskList from '@/components/TaskList.vue';
 
 export default {
-  name: 'DashboardView',
   components: {
-    Nav,
-    Greeting,
-    StatsGrid,
-    Stat,
-    TaskList,
-    Task
+    GreetingComponent,
+    StatsGridComponent,
+    TaskList
   }
 }
 </script>
