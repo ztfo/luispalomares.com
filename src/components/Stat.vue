@@ -1,6 +1,13 @@
 <template lang="pug">
 .stat
-    h1 Stat
+    .card
+        .card-content
+            p.title "Yolo"
+        footer.card-footer
+            p.card-footer-item
+                span View
+            p.card-footer-item
+                span Edit
 </template>
 
 <script>

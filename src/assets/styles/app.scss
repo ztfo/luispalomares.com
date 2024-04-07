@@ -1,10 +1,11 @@
 @import "~bulma/bulma";
 
-$Black: #161719;
-$White: #FEFEFE;
-$Grey: #E4E7EC;
-$Green: #00EDAE;
-
 :root {
-    --bulma-body-background-color: $White;
+    --black: #161719;
+    --white: #FEFEFE;
+    --grey: #E4E7EC;
+    --green: #00EDAE;
+    --bulma-body-background-color: var(--white);
+    --bulma-navbar-background-color: var(--black);
+    --bulma-scheme-main: var(--black);
 }

@@ -19,14 +19,14 @@
                             a(href="#").dropdown-item Other dropdown item
                             hr.dropdown-divider
                             a(href="#").dropdown-item With a divider
-    .level
-        .level-item
+    .columns
+        .column
             StatComponent
-        .level-item
+        .column
             StatComponent
-        .level-item
+        .column
             StatComponent
-        .level-item
+        .column
             StatComponent
 </template>
 

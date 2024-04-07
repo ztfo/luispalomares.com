@@ -21,3 +21,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.overview {
+  background: var(--black);
+}
+</style>

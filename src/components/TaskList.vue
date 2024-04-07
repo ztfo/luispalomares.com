@@ -19,7 +19,7 @@
                 span Type
     .fixed-grid.has-1-cols 
         .grid
-            task-component
+            TaskComponent
 </template>
 
 <script>
