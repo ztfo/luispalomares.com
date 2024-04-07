@@ -2,7 +2,8 @@
 nav.navbar(role="navigation", aria-label="main navigation")
     .navbar-brand
         a.navbar-item(href="/")
-            a.navbar-burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarBasicExample")
+            span signal
+        a.navbar-burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarBasicExample")
             span(aria-hidden="true")
             span(aria-hidden="true")
             span(aria-hidden="true")
@@ -10,18 +11,22 @@ nav.navbar(role="navigation", aria-label="main navigation")
     #navbar.navbar-menu
         .navbar-start
             a.navbar-item Overview
-            a.navbar-item Ledgers
+            a.navbar-item Ledger
             a.navbar-item Payments
-            a.navbar-item Operations
             a.navbar-item Insights
-            a.navbar-item Connectors
         .navbar-end
-            a.navbar-item Payments
             .navbar-item
                 .buttons
-                a.button.is-primary
-                    strong Sign up
-                a.button.is-light Log in
+                a.button.search
+                    font-awesome-icon(icon="search")
+                a.button.notifications
+                    font-awesome-icon(icon="bell")
+                a.button.avatar
+                    .avatar-img z
+                    .avatar-name 
+                        span ztfo
+                        font-awesome-icon(icon="caret-down")
+
 </template>
 
 <script>
