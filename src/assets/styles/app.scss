@@ -1,0 +1,14 @@
+$Black: #161719;
+$White: #FEFEFE;
+$Grey: #E4E7EC;
+$Green: #00EDAE;
+
+$body-background-color: #FEFEFE;
+$body-color: #FFFFFF;
+$main-scheme: #FFFFFF;
+
+@import "~bulma/bulma";
+
+body {
+    background-color: $body-background-color !important;
+}

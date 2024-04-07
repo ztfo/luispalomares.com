@@ -1,13 +1,13 @@
 <template lang="pug">
-    nav.navbar(role="navigation", aria-label="main navigation")
-        .navbar-brand
+nav.navbar(role="navigation", aria-label="main navigation")
+    .navbar-brand
         a.navbar-item(href="/")
             a.navbar-burger(role="button", aria-label="menu", aria-expanded="false", data-target="navbarBasicExample")
             span(aria-hidden="true")
             span(aria-hidden="true")
             span(aria-hidden="true")
             span(aria-hidden="true")
-        #navbar.navbar-menu
+    #navbar.navbar-menu
         .navbar-start
             a.navbar-item Overview
             a.navbar-item Ledgers
