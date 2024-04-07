@@ -1,24 +1,3 @@
-# your-dashboard-name
+# Signal
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This project is a quick exploration of Vue 3 and the SPC model. It also serves as a playground for trying out new CSS tricks.
