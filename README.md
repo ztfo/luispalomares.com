@@ -12,7 +12,6 @@ As of now, the following milestones have been achieved:
 
 3. **Deployment Pipeline**: A deployment pipeline has been set up to GitHub Pages. This allows for continuous deployment of the application, ensuring that the live version is always up to date with the latest changes.
 
-
 ## Deployment
 
 The application is deployed to GitHub Pages. You can view the live application [here](https://ztfo.github.io/signal/).
@@ -20,3 +19,7 @@ The application is deployed to GitHub Pages. You can view the live application [
 ## Future Work
 
 The next steps for this project include enhancing the interactivity of the components, refining the styling, and adding more advanced features. The project will continue to evolve as new Vue 3 features and best practices are explored.
+
+---
+
+This README was generated with the help of [GitHub Copilot](https://copilot.github.com).
