@@ -5,15 +5,21 @@
     --black: #010409;
     --white: #FEFEFE;
     --grey: #E4E7EC;
+    --dark-grey: #717885;
     --red: #FE8D7E;
     --green: rgb(66, 184, 131);
     --lightblue: rgb(62, 113, 250);
+    --gradient-green-blue: linear-gradient(to right, var(--green), var(--lightblue));
+
+    // Borders
+    --border-color: #DDD;
 
     // Transparencies
     --glass: rgba(255, 255, 255, 0.1);
     --thin-glass: rgba(255, 255, 255, 0.07);
     
     // Bulma
+    --bulma-body-color: var(--black);
     --bulma-body-background-color: var(--white);
     --bulma-navbar-background-color: var(--black);
     --bulma-scheme-main: var(--black);
@@ -26,15 +32,14 @@ h1 {
     font-size: 1.5rem;
     font-weight: bolder;
     padding-bottom: 10px;
-    &::before {
+    &.accent-line::before {
         content: "";
         position: absolute;
         bottom: 59%;
-        left: 110px;
+        left: 115%;
         width: 40px;
         height: 1px;
-        background: linear-gradient(to right, var(--green), var(--lightblue));
-        transform: skewX(91deg);
+        background: var(--gradient-green-blue);
     }
 }
 

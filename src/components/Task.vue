@@ -1,31 +1,25 @@
 <template lang="pug">
-.task
-    h1 Task
+.grid.task.mb-0
+    .cell.px-4.py-5 {{ task.date }}
+    .cell.px-4.py-5 {{ task.assignedTo }}
+    .cell.px-4.py-5 {{ task.assignedBy }}
+    .cell.px-4.py-5 {{ task.type }}
 </template>
 
 <script>
 export default {
     name: 'TaskComponent',
-    data() {
-        return {
-
-        };
-    },
-    methods: {
-
-    },
-    computed: {
-
-    },
     props: {
-
-    },
-    components: {
-
+        task: {
+            type: Object,
+            required: true
+        }
     },
 };
 </script>
 
 <style scoped>
-
+.grid.task {
+    border-bottom: none;
+}
 </style>

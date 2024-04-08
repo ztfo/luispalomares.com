@@ -3,7 +3,7 @@
     .level
         .level-left 
             .level-item
-                h1 Status
+                h1.accent-line Overview
         .level-right
             .level-item
                 .dropdown
@@ -40,9 +40,9 @@ export default {
     data() {
         return {
             stats: [
-                { icon: 'money-bill-transfer', label: 'Transaction Volume', amount: '$745,457.11', growth: '+26%', color: '#00EDAE' },
-                { icon: 'comments-dollar', label: 'Reversals', amount: '-$12,112.75', growth: '-12%', color: '#B4E4C9' },
-                { icon: 'umbrella', label: 'Insured Transfers', amount: '68.1%', growth: '+3%', color: '#B1DAFF' },
+                { icon: 'money-bill-transfer', label: 'Transaction Volume', amount: '745,457.11', growth: '+26%', color: '#00EDAE' },
+                { icon: 'comments-dollar', label: 'Reversals', amount: '12,112.75', growth: '-12%', color: '#B4E4C9' },
+                { icon: 'umbrella', label: 'Insured Transfers', amount: '68.1', growth: '+3%', color: '#B1DAFF' },
                 { icon: 'skull-crossbones', label: 'Loss Events', amount: '2', growth: '-7%', color: '#FE8D7E' }
             ]
         };

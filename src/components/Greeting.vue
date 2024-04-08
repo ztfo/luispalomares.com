@@ -9,7 +9,7 @@
                 .media-content
                     .content
                         .greeting-text.is-size-4 Hello, Luis! 👋
-                        span Get that paper.
+                        span.has-text-white Get that paper.
         .level-right
             .level-item
                 .field.is-grouped
