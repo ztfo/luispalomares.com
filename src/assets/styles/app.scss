@@ -1,12 +1,48 @@
 @import "~bulma/bulma";
 
 :root {
-    --black: #161719;
+    // Colors
+    --black: #010409;
     --white: #FEFEFE;
     --grey: #E4E7EC;
-    --green: #00EDAE;
+    --red: #FE8D7E;
+    --green: rgb(66, 184, 131);
+    --lightblue: rgb(62, 113, 250);
+
+    // Transparencies
+    --glass: rgba(255, 255, 255, 0.1);
+    --thin-glass: rgba(255, 255, 255, 0.07);
+    
+    // Bulma
     --bulma-body-background-color: var(--white);
     --bulma-navbar-background-color: var(--black);
     --bulma-scheme-main: var(--black);
     --bulma-navbar-h: var(--white);
+}
+
+h1 {
+    position: relative;
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 59%;
+        left: 110px;
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(to right, var(--green), var(--lightblue));
+        transform: skewX(91deg);
+    }
+}
+
+.button {
+    border-radius: 0px;
+}
+
+.button.is-primary {
+    background-color: var(--green);
+    border-color: var(--green);
 }

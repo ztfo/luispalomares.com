@@ -1,16 +1,15 @@
 <template lang="pug">
-.greeting.p-6
-    .level
+.greeting.pt-6.px-6.pb-0
+    .level.pb-6
         .level-left
-            article.media.level-item
+            article.media.level-item.has-aligned-center
                 figure.media-left
-                    p.image.is-64x64
+                    p.image.is-96x96
                         img.is-rounded(:src="imageUrl")
                 .media-content
                     .content
-                        p
-                            strong Hello Luis! 👋
-                        span We hope you are having a great day!
+                        .greeting-text.is-size-4 Hello, Luis! 👋
+                        span Get that paper.
         .level-right
             .level-item
                 .field.is-grouped
@@ -44,5 +43,14 @@ export default {
 </script>
 
 <style scoped>
-
+.greeting .level {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.greeting-text{
+    font-weight: bold;
+    color: #FFF;;
+}
+.has-aligned-center{
+    align-items: center;
+}
 </style>

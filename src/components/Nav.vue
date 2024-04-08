@@ -24,10 +24,8 @@ nav.navbar.p-5(role="navigation", aria-label="main navigation")
                     a.button.notifications.is-active
                         font-awesome-icon(icon="bell")
                     a.button.avatar
-                        .avatar-name 
-                            span ztfo
                         .avatar-img
-                            font-awesome-icon(icon="user-astronaut")
+                        font-awesome-icon(icon="caret-down")
 
 </template>
 
@@ -83,8 +81,11 @@ export default {
     height: 30px;
     line-height: 30px;
     border-radius: 999px;
-    margin-left: .5rem;
+    margin-right: .5rem;
     background-color: var(--green);
     color: var(--black);
+    background-image: url('https://media.licdn.com/dms/image/C5603AQExCh7BU77PlA/profile-displayphoto-shrink_800_800/0/1652627048072?e=1718236800&v=beta&t=QP66LQ3ahJUSj-43F-igIeB0cBoRJGV8RLz063o5jK4');
+    background-size: cover;
+    background-position: center;
 }
 </style>
