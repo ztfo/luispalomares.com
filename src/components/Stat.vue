@@ -8,7 +8,7 @@
         .level-right
             .level-item
                 .growth(:class="{ 'is-negative': isNegative, 'is-positive': !isNegative }") {{ growth }}
-    .amount.is-size-3 ${{ amount }}                
+    .amount.is-size-3 {{ amount }}                
     .label.is-size-7.mt-2 {{ label }}
 </template>
 
