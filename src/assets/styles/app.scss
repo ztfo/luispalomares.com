@@ -1,4 +1,5 @@
 @import "~bulma/bulma";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
     // Colors
@@ -9,6 +10,7 @@
     --red: #FE8D7E;
     --green: rgb(66, 184, 131);
     --lightblue: rgb(62, 113, 250);
+    --medium-emphasis-text: rgb(204, 204, 204);
     --gradient-green-blue: linear-gradient(to right, var(--green), var(--lightblue));
 
     // Borders
@@ -26,11 +28,15 @@
     --bulma-navbar-h: var(--white);
 }
 
+#app {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
 h1 {
     position: relative;
     color: var(--white);
-    font-size: 1.5rem;
-    font-weight: bolder;
+    font-weight: 700;
     padding-bottom: 10px;
     &.accent-line::before {
         content: "";
@@ -41,6 +47,10 @@ h1 {
         height: 1px;
         background: var(--gradient-green-blue);
     }
+}
+
+p {
+    color: var(--medium-emphasis-text);
 }
 
 .button {

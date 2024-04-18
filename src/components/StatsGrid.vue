@@ -6,19 +6,16 @@
                 h1.accent-line Overview
         .level-right
             .level-item
-                .dropdown
+                .dropdown.is-right(:class="{ 'is-active': dropdownIsActive }")
                     .dropdown-trigger
-                        button.button(aria-haspopup="true", aria-controls="dropdown-menu")
+                        button.button(@click="toggleDropdown" aria-haspopup="true", aria-controls="dropdown-menu")
                             span Date
                             font-awesome-icon(icon="angle-down")
                     .dropdown-menu#dropdown-menu(role="menu")
                         .dropdown-content
-                            a(href="#").dropdown-item Dropdown item
-                            a.dropdown-item Other dropdown item
-                            a(href="#").dropdown-item.is-active Active dropdown item
-                            a(href="#").dropdown-item Other dropdown item
-                            hr.dropdown-divider
-                            a(href="#").dropdown-item With a divider
+                            .calendar
+                                span TO DO: Calendar
+                            a.dropdown-item Ok
     .columns.pb-3
         .column
             StatComponent(v-if="stats[0] && stats[0].icon" v-bind="stats[0]" :iconColor="stats[0].color")
@@ -39,6 +36,7 @@ export default {
     },
     data() {
         return {
+            dropdownIsActive: false,
             stats: [
                 { icon: 'money-bill-transfer', label: 'Transaction Volume', amount: '$745,457.11', growth: '+26%', color: '#00EDAE' },
                 { icon: 'comments-dollar', label: 'Reversals', amount: '-$12,112.75', growth: '-12%', color: '#B4E4C9' },
@@ -48,13 +46,9 @@ export default {
         };
     },
     methods: {
-
-    },
-    computed: {
-
-    },
-    props: {
-
+        toggleDropdown() {
+            this.dropdownIsActive = !this.dropdownIsActive;
+        }
     },
 };
 </script>
