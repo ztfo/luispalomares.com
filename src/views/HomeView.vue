@@ -2,15 +2,17 @@
 .home
     HomePanelComponent
     .home-panel.right
-        p projects listed here
+        HomeScrollComponent
 </template>
 
 <script>
 import HomePanelComponent from '@/components/HomePanel.vue';
+import HomeScrollComponent from '@/components/HomeScroll.vue';
 export default {
     name: 'HomeView',
     components: {
-        HomePanelComponent
+        HomePanelComponent,
+        HomeScrollComponent
     }
 }
 </script>
@@ -27,13 +29,16 @@ export default {
     color: var(--white);
     .home-panel {
         min-width: 500px;
-        width: 50vw;
+        width: 40%;
         min-height: 750px;
         height: 100vh;
         display: flex;
         flex-direction: column;
         align-content: center;
         justify-content: center;
+        &.right {
+            width: 60%;
+        }
     }
 }
 </style>
