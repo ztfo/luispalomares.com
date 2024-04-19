@@ -1,6 +1,6 @@
 <template lang="pug">
 .logo-nav.mr-4
-    img(src="@/assets/graphics/squaregalaxy-dim.svg", alt="Square Galaxy")
+    img(src="@/assets/graphics/squaregalaxy.svg", alt="Square Galaxy")
 </template>
 
 <script>
