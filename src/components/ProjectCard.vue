@@ -30,11 +30,15 @@ export default {
 .card {
     background: #000;
     box-shadow: none;
-    border: 2px solid#92929226;
+    border: 2px solid #92929226;
     background-size: cover;
-    background-position: center;
-    min-height: 24rem;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 44rem;
     border-radius: 2rem;
+    @media (max-width: 768px) {
+        min-height: 24rem;
+    }
 }
 .link-block {
     display: block;
