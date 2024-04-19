@@ -95,4 +95,9 @@ export default {
     margin-top: 1rem;
     background: linear-gradient(var(--green), var(--lightblue));
 }
+.coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
