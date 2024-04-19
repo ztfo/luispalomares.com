@@ -8,7 +8,9 @@ module.exports = defineConfig({
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
-      patterns: []
+      patterns: [
+        './src/styles/app.scss'
+      ]
     }
   }
 })

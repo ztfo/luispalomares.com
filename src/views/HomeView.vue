@@ -1,5 +1,6 @@
 <template lang="pug">
 .home
+    LogoNavComponent
     .home-panel.left
         HomePanelComponent
     .home-panel.right
@@ -9,11 +10,13 @@
 <script>
 import HomePanelComponent from '@/components/HomePanel.vue';
 import HomeScrollComponent from '@/components/HomeScroll.vue';
+import LogoNavComponent from '@/components/LogoNav.vue';
 export default {
     name: 'HomeView',
     components: {
         HomePanelComponent,
-        HomeScrollComponent
+        HomeScrollComponent,
+        LogoNavComponent
     }
 }
 </script>
