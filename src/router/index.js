@@ -1,10 +1,23 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue';
+import ProjectDetail from '../components/ProjectDetail.vue';
+import store from '../store';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
+    component: HomeView,
+    children: [
+      {
+        path: 'project/:id',
+        name: 'project',
+        component: ProjectDetail,
+        props: (route) => ({ 
+          project: store.getters.getProject(route.params.id) 
+        })
+      }
+    ]
   },
   {
     path: '/dashboard',

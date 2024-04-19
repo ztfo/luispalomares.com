@@ -1,19 +1,26 @@
 <template lang="pug">
 .inner-scroll
-    SquareWaveComponent
-    h2.is-size-5.pb-4
-        strong Projects
-    .projects
-        ProjectCardComponent(
-            v-for="project in projects"
-            :key="project.title"
-            :title="project.title"
-            :company="project.company"
-            :backgroundImage="project.backgroundImage"
-        )
+    .projects-container(v-if="!isProjectRoute")
+        SquareWaveComponent
+        h2.is-size-5.pb-4
+            strong Projects
+        .projects
+            ProjectCardComponent(
+                v-for="project in projects"
+                :key="project.id"
+                :id="project.id"
+                :title="project.title"
+                :company="project.company"
+                :backgroundImage="project.backgroundImage"
+                :logo="project.logo"
+                :description="project.description"
+            )
+    .projects-detail-container(v-else)
+        router-view
 </template>
 
 <script>
+import store from '../store';
 import ProjectCardComponent from './ProjectCard.vue';
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 export default { 
@@ -24,35 +31,21 @@ export default {
     },
     data() {
         return {
-            projects: [
-                { 
-                    title: 'Designing a future without wire fraud.', 
-                    company: 'CertifID',
-                    backgroundImage: 'https://cdn.dribbble.com/userupload/12298756/file/original-e2d245aa2def188b9ce241dcbc7228f9.jpg?resize=1600x1200'
-                },
-                { 
-                    title: 'Transparent co-marketing in real estate.', 
-                    company: 'InHouse',
-                    backgroundImage: 'https://cdn.dribbble.com/userupload/9712850/file/original-e7b09bef4ce26ff72f1c908d986bc7ca.png?resize=1024x768'
-                },
-                { 
-                    title: 'The netflix of tortillas.', 
-                    company: 'Signal',
-                    backgroundImage: 'https://cdn.dribbble.com/userupload/13989986/file/original-b777e279bcaeb0e96828d8e8a55771b0.png?resize=1024x768'
-                },                
-            ]
+            isProjectRoute: this.$route.name === 'project',
         };
     },
-    props: {
-    },
     computed: {
+        projects() {
+            return store.state.projects;
+        },
     },
-    methods: {
+    watch: {
+        $route() {
+            this.isProjectRoute = this.$route.name === 'project';
+            console.log('isProjectRoute:', this.isProjectRoute);
+        },
     },
-    mounted() {
-    },
-
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -60,6 +53,9 @@ export default {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+.projects-container {
+    height: 100%;
 }
 .projects {
     height: 100%;

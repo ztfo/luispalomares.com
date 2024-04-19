@@ -1,12 +1,15 @@
 <template lang="pug">
-a.link-block.mt-5
+router-link.link-block.mt-5(:to="{ path: `/project/${id}` }")
     .card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
-    .fixed-grid.project-overview.has-4-cols
+    .fixed-grid.project-overview.has-6-cols.px-3
         .grid
-            .cell.is-col-span-3
-                .project-title.is-size-4 {{ title }}
             .cell.has-text-right
-                .project-description.is-size-6 {{ company }}
+                .project-logo
+                    img(:src="logo", alt="Logo" :title="company")
+            .cell.is-col-span-5
+                .project-title.has-text-right {{ title }}
+            .cell.is-col-span-6
+                p {{ description }}
 </template>
 
 <script>
@@ -15,7 +18,10 @@ export default {
     props: {
         title: String,
         company: String,
-        backgroundImage: String
+        description: String,
+        backgroundImage: String,
+        logo: String,
+        id: String
     },
 }
 </script>
@@ -42,5 +48,12 @@ export default {
     &.has-text-right {
         justify-content: flex-end;
     }
+}
+.project-logo {
+    display: flex;
+    justify-content: center;
+}
+.project-title {
+    width: 100%;
 }
 </style>
