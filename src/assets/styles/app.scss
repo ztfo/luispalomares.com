@@ -63,7 +63,11 @@ p {
 .button.is-primary {
     background-color: transparent !important;
     border: 1px solid var(--green);
-    color: var(--white)
+    color: var(--white);
+    transition: .5s;
+    &:hover {
+        background-color: var(--green) !important;
+    }
 }
 
 // accent and brand elements

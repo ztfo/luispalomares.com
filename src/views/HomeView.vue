@@ -1,6 +1,7 @@
 <template lang="pug">
 .home
-    HomePanelComponent
+    .home-panel.left
+        HomePanelComponent
     .home-panel.right
         HomeScrollComponent
 </template>
@@ -20,6 +21,7 @@ export default {
 <style scoped lang="scss">
 .home {
     display: flex;
+    direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -36,9 +38,26 @@ export default {
         flex-direction: column;
         align-content: center;
         justify-content: center;
+        &.left {
+            padding: 5rem;
+            background: var(--black);
+        }
         &.right {
             width: 60%;
         }
+        @media (max-width: 768px) {
+            &.right,
+            &.left {
+                width: 100%;
+                height: auto;
+                min-height: auto;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        height: auto;
+        min-height: auto;
+        flex-direction: column;
     }
 }
 </style>
