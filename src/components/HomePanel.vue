@@ -9,14 +9,11 @@
         a.link(href="https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank") seed 
         | to 
         a.link(href="https://www.businesswire.com/news/home/20230912425188/en/CertifID-Secures-20M-in-Series-B-Funding-to-Protect-Real-Estate-Industry-from-Fraud", target="_blank") series b.
-    p.is-size-6.mb-6 
+    p.is-size-6.mb-6
         span 📍In Austin, with my wife 
         a.link(href="https://katieannclay.com", target="_blank") Katie, a Ceramic Artist
         span , and Bing our 🐕.
-    .grid
-        .cell
-            a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank") Contact Me
-    p.contact-links.is-size-6
+    p.contact-links.is-size-6.mb-6
         | I like to&nbsp;
         a.link(href="https://dribbble.com/luispalomares", target="_blank") 
             font-awesome-icon(:icon="['fab', 'dribbble']")
@@ -28,6 +25,9 @@
             | &nbsp;
             span code
         | .
+    .grid
+        .cell
+            a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank") Contact Me        
 </template>
 
 <script>
