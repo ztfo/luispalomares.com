@@ -1,5 +1,5 @@
 <template lang="pug">
-a.link-block.mt-6
+a.link-block.mt-5
     .card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
     .fixed-grid.project-overview.has-4-cols
         .grid

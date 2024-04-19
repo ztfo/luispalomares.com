@@ -1,7 +1,7 @@
 <template lang="pug">
 .inner-scroll.p-6
     SquareWaveComponent
-    h2.is-size-5
+    h2.is-size-5.pb-4
         strong Projects
     .projects
         ProjectCardComponent(
@@ -17,7 +17,7 @@
 import ProjectCardComponent from './ProjectCard.vue';
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 export default { 
-    name: 'HomeScrollComponent',
+    name: 'ProjectsComponent',
     components: {
         ProjectCardComponent,
         SquareWaveComponent

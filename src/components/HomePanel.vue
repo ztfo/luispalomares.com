@@ -1,7 +1,9 @@
 <template lang="pug">
 .inner-bio
-    h1.is-size-2.pb-0 Hi, I'm Luis.
-    SquareWaveComponent
+    h1.is-size-2.pb-0
+        LogoNavComponent
+        span Hi, I'm Luis.
+    .simple-divider
     p.is-size-5.my-6
         span A 
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank")
@@ -18,10 +20,6 @@
             span Series B.&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
-    p.is-size-6.mb-6
-        span 📍In Austin, with my wife 
-        a.link(href="https://katieannclay.com", target="_blank") Katie, a Ceramic Artist
-        span , and Bing our 🐕.
     p.contact-links.is-size-6.mb-6
         | I like to&nbsp;
         a.link(href="https://dribbble.com/luispalomares", target="_blank") 
@@ -41,10 +39,12 @@
 
 <script>
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
+import LogoNavComponent from '@/components/LogoNav.vue';
 export default {
     name: 'HomePanelComponent',
     components: {
-        SquareWaveComponent
+        SquareWaveComponent,
+        LogoNavComponent
     },
     data() {
         return {
@@ -55,39 +55,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.link {
-    color: var(--white);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0px;
-        right: 0px;
-        height: 1px;
-        border-radius: 999px;
-        background-image: linear-gradient(90deg, rgb(66, 184, 131), rgb(62, 113, 250));
-        background-size: 200% auto;
-        animation: gradient 2s infinite linear;
-        opacity: .8;
-    }
-    &:hover {
-        &:after {
-            opacity: 1;
-        }
-    }
-    .icon.is-small {
-        width: .7rem;
-        height: .7rem;
-        margin-bottom: 2px;
-        margin-left: -2px;
-    }
-}
 
-@keyframes gradient {
-    0% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
-}
 </style>

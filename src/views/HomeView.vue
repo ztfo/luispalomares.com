@@ -1,22 +1,25 @@
 <template lang="pug">
 .home
-    LogoNavComponent
     .home-panel.left
+        .long-divider
         HomePanelComponent
+        FooterComponent
     .home-panel.right
         HomeScrollComponent
 </template>
 
 <script>
 import HomePanelComponent from '@/components/HomePanel.vue';
-import HomeScrollComponent from '@/components/HomeScroll.vue';
+import HomeScrollComponent from '@/components/Projects.vue';
 import LogoNavComponent from '@/components/LogoNav.vue';
+import FooterComponent from '@/components/Footer.vue';
 export default {
     name: 'HomeView',
     components: {
         HomePanelComponent,
         HomeScrollComponent,
-        LogoNavComponent
+        LogoNavComponent,
+        FooterComponent
     }
 }
 </script>
@@ -42,8 +45,9 @@ export default {
         align-content: center;
         justify-content: center;
         &.left {
-            padding: 5rem;
+            padding: 3rem 5rem;
             background: var(--black);
+            justify-content: space-between;
         }
         &.right {
             width: 60%;
@@ -62,5 +66,10 @@ export default {
         min-height: auto;
         flex-direction: column;
     }
+}
+.long-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-green-blue);
 }
 </style>

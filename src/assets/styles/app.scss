@@ -31,6 +31,7 @@
 #app {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden;
 }
 
 h1 {
@@ -77,4 +78,40 @@ p {
     height: 1px;
     width: 40px;
     margin: 1.5rem 0;
+}
+
+.link {
+    color: var(--white);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0px;
+        right: 0px;
+        height: 1px;
+        border-radius: 999px;
+        background-image: linear-gradient(90deg, rgb(66, 184, 131), rgb(62, 113, 250));
+        background-size: 200% auto;
+        animation: gradient 2s infinite linear;
+        opacity: .8;
+    }
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
+    .icon.is-small {
+        width: .7rem;
+        height: .7rem;
+        margin-bottom: 2px;
+        margin-left: -2px;
+    }
+}
+
+@keyframes gradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
 }
