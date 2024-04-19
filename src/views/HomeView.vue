@@ -25,6 +25,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .home {
     display: flex;
     direction: row;
@@ -74,8 +85,11 @@ export default {
     }
 }
 .long-divider {
-    width: 100%;
-    height: 1px;
-    background: var(--gradient-green-blue);
+  width: 100%;
+  height: 4px;
+  border-radius: 1px;
+  background: linear-gradient(270deg, var(--green), var(--lightblue), var(--green));
+  background-size: 200% 200%;
+  animation: gradient 3s ease-in-out infinite;
 }
 </style>
