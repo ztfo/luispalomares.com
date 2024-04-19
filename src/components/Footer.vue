@@ -1,6 +1,6 @@
 <template lang="pug">
 p.is-size-6.mt-6
-    span 📍I live Austin with my wife&nbsp;
+    span 📍I live in Austin with my wife&nbsp;
     a.link(href="https://katieannclay.com", target="_blank") Katie, a Ceramic Artist
     span &nbsp;&amp; our 🐕 Bing.
 </template>
