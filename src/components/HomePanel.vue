@@ -68,6 +68,10 @@ export default {
     }
 }
 
+.inner-bio img {
+    width: 4rem;
+}
+
 @keyframes gradient {
     0% { background-position: 100% 0; }
     100% { background-position: 0 0; }
