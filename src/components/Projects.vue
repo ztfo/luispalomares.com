@@ -1,16 +1,21 @@
 <template lang="pug">
-.inner-scroll
-    SquareWaveComponent
-    h2.is-size-5.pb-4
-        strong Projects
-    .projects
-        ProjectCardComponent(
-            v-for="project in projects"
-            :key="project.title"
-            :title="project.title"
-            :company="project.company"
-            :backgroundImage="project.backgroundImage"
-        )
+.inner-scroll.p-6.coming-soon
+    .placeholder-box.has-text-centered
+        strong 👨🏽‍🚀 Something is in the works. 
+        span Stay tuned
+        .cursor
+    //.inner-scroll
+        SquareWaveComponent
+        h2.is-size-5.pb-4
+            strong Projects
+        .projects
+            ProjectCardComponent(
+                v-for="project in projects"
+                :key="project.title"
+                :title="project.title"
+                :company="project.company"
+                :backgroundImage="project.backgroundImage"
+            )
 </template>
 
 <script>
@@ -69,10 +74,10 @@ export default {
     background-color: #000;
     width: 100%;
     height: 100vh;
-    padding: 3rem;
+    padding: 3rem 5rem;
     @media (max-width: 768px) {
         height: auto;
-        padding-top: 1.5rem;
+        padding-top: 2.5rem;
     }
 }
 .cursor {

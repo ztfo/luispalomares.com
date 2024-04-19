@@ -1,10 +1,10 @@
 <template lang="pug">
 .home
-    section.home-panel.left.section
+    .home-panel.left
         .long-divider
         HomePanelComponent
         FooterComponent
-    section.home-panel.right.section
+    .home-panel.right
         HomeScrollComponent
 </template>
 
@@ -60,7 +60,7 @@ export default {
                 min-height: auto;
             }
             &.left {
-                padding-bottom: 0;
+                padding-bottom: 2.5rem;
             }
             .long-divider {
                 margin-bottom: 4rem;
