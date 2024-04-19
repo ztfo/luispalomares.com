@@ -1,21 +1,16 @@
 <template lang="pug">
-.inner-scroll.p-6.coming-soon
-    .placeholder-box.has-text-centered
-        strong 👨🏽‍🚀 Something is in the works. 
-        span Stay tuned
-        .cursor
-    //.inner-scroll
-        SquareWaveComponent
-        h2.is-size-5.pb-4
-            strong Projects
-        .projects
-            ProjectCardComponent(
-                v-for="project in projects"
-                :key="project.title"
-                :title="project.title"
-                :company="project.company"
-                :backgroundImage="project.backgroundImage"
-            )
+.inner-scroll
+    SquareWaveComponent
+    h2.is-size-5.pb-4
+        strong Projects
+    .projects
+        ProjectCardComponent(
+            v-for="project in projects"
+            :key="project.title"
+            :title="project.title"
+            :company="project.company"
+            :backgroundImage="project.backgroundImage"
+        )
 </template>
 
 <script>
