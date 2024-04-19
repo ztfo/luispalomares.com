@@ -25,17 +25,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 .home {
     display: flex;
     direction: row;
