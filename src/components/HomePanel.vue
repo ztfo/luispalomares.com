@@ -1,5 +1,6 @@
 <template lang="pug">
 .inner-bio
+    img.mb-4(src="@/assets/graphics/squareswirl.svg", alt="Square Swirl Icon")
     h1.is-size-2.pb-0 Hi, I'm Luis.
     .simple-divider
     p.is-size-5.mb-6
@@ -27,12 +28,17 @@
         | .
     .grid
         .cell
-            a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank") Contact Me        
+            a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank") Email Me
 </template>
 
 <script>
 export default {
     name: 'HomePanelComponent',
+    data() {
+        return {
+            imageUrl: 'https://media.licdn.com/dms/image/C5603AQExCh7BU77PlA/profile-displayphoto-shrink_800_800/0/1652627048072?e=1718236800&v=beta&t=QP66LQ3ahJUSj-43F-igIeB0cBoRJGV8RLz063o5jK4'
+        };
+    },
 }
 </script>
 
@@ -46,13 +52,14 @@ export default {
         content: '';
         position: absolute;
         bottom: -2px;
-        left: -1px;
-        right: -1px;
+        left: 0px;
+        right: 0px;
         height: 1px;
+        border-radius: 999px;
         background-image: linear-gradient(90deg, rgb(66, 184, 131), rgb(62, 113, 250));
         background-size: 200% auto;
-        animation: gradient 1.5s infinite linear;
-        opacity: .5;
+        animation: gradient 2s infinite linear;
+        opacity: .8;
     }
     &:hover {
         &:after {

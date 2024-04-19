@@ -1,9 +1,10 @@
 <template lang="pug">
-.inner-scroll.p-6.coming-soon
-    .placeholder-box
-        strong 👨🏽‍🚀 Something is in the works. 
-        span Stay tuned
-        .cursor
+.inner-scroll.p-6
+    h2.is-size-5
+        strong Projects
+    .line-divider
+    .projects
+        .card.project.mt-6
 </template>
 
 <script>
@@ -31,14 +32,10 @@ export default {
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
-
 .inner-scroll {
     background-color: #000;
     width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     @media (max-width: 768px) {
         height: auto;
     }
@@ -51,5 +48,11 @@ export default {
     background-color: #fff;
     display: inline-block;
     animation: cursorBlink 1s infinite;
+}
+.line-divider {
+    width: 2rem;
+    height: 1px;
+    margin-top: 1rem;
+    background: linear-gradient(var(--green), var(--lightblue));
 }
 </style>
