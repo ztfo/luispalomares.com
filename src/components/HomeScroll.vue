@@ -39,7 +39,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-
     @media (max-width: 768px) {
         height: auto;
     }
@@ -51,6 +50,6 @@ export default {
     margin-bottom: -3px;
     background-color: #fff;
     display: inline-block;
-    animation: cursorBlink-61b858bc 1s infinite;
+    animation: cursorBlink 1s infinite;
 }
 </style>
