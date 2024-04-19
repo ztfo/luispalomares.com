@@ -1,8 +1,8 @@
 <template lang="pug">
 .inner-scroll.p-6
+    SquareWaveComponent
     h2.is-size-5
         strong Projects
-    .line-divider
     .projects
         ProjectCardComponent(
             v-for="project in projects"
@@ -15,10 +15,12 @@
 
 <script>
 import ProjectCardComponent from './ProjectCard.vue';
+import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 export default { 
     name: 'HomeScrollComponent',
     components: {
-        ProjectCardComponent
+        ProjectCardComponent,
+        SquareWaveComponent
     },
     data() {
         return {
