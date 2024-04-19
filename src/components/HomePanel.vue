@@ -3,11 +3,10 @@
     h1.is-size-2.pb-0
         LogoNavComponent
         span Hi, I'm Luis.
-    .simple-divider
-    p.is-size-5.my-6
-        span A 
+    p.is-size-5.is-size-6-mobile.my-6
+        span A mission-driven 
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank")
-            span mission-driven product leader.&nbsp;
+            span product leader.&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
         | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in home lending, and open credit avenues for immigrants, steering startups from 

@@ -1,10 +1,10 @@
 <template lang="pug">
 .home
-    .home-panel.left
+    section.home-panel.left.section
         .long-divider
         HomePanelComponent
         FooterComponent
-    .home-panel.right
+    section.home-panel.right.section
         HomeScrollComponent
 </template>
 
@@ -58,6 +58,12 @@ export default {
                 width: 100%;
                 height: auto;
                 min-height: auto;
+            }
+            &.left {
+                padding-bottom: 0;
+            }
+            .long-divider {
+                margin-bottom: 4rem;
             }
         }
     }

@@ -1,5 +1,5 @@
 <template lang="pug">
-.inner-scroll.p-6
+.inner-scroll
     SquareWaveComponent
     h2.is-size-5.pb-4
         strong Projects
@@ -69,8 +69,10 @@ export default {
     background-color: #000;
     width: 100%;
     height: 100vh;
+    padding: 3rem;
     @media (max-width: 768px) {
         height: auto;
+        padding-top: 1.5rem;
     }
 }
 .cursor {
