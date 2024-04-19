@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "predeploy": "echo 'luispalomares.com' > dist/CNAME",
-    "deploy": "vue-cli-service build && gh-pages -d dist",
+    "deploy": "vue-cli-service build && echo 'luispalomares.com' > dist/CNAME && gh-pages -d dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
