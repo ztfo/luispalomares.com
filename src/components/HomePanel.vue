@@ -3,7 +3,7 @@
     h1.is-size-2.pb-0 Hi, I'm Luis.
     .simple-divider
     p.is-size-5.mb-6
-        span I'm a 
+        span A 
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank") mission-driven leader
         |, who has championed tech initiatives that guard families against wire fraud in real estate, amplify the online presence of lending professionals, and open credit avenues for immigrants, steering startups from 
         a.link(href="https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank") seed 
