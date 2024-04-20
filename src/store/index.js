@@ -22,7 +22,7 @@ export default createStore({
   },
   getters: {
     getProject: (state) => (id) => {
-      return state.projects.find(project => project.id == id);
+      return state.projects.find(project => project.id === id);
     }
   }
 });

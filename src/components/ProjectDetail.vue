@@ -32,28 +32,36 @@ export default {
     computed: {
         ...mapGetters(['getProject']),
     },
+    methods: {
+        fetchProject() {
+            const projectId = this.$route.params.id;
+            this.project = this.getProject(projectId);
+        },
+    },
     watch: {
         $route() {
             this.fetchProject();
         },
     },
     created() {
-    },
-    mounted() {
         this.fetchProject();
     },
-    methods: {
-        fetchProject() {
-            const id = this.$route.params.id;
-            this.project = this.getProject(id);
-        },
-    },
-};
+}
 </script>
 
 <style scoped lang="scss">
 .project-detail {
-    border-bottom: 1px solid var(--glass);
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: var(--glass);
+        position: absolute;
+        bottom: 0;
+        right: .75rem;
+        left: .75rem;
+    }    
 }
 .project-title {
     display: flex;

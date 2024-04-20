@@ -1,33 +1,20 @@
 <template lang="pug">
-router-link.link-block.mt-5(:to="{ path: `/project/${id}` }")
+router-link.link-block.mt-5(v-if="project" :to="{ path: `/project/${project.id}` }")
     //.card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
     .card.project.p-5 
         .has-text-centered
-            .dots.mb-2
+            .no-signal Stand-by for signal
+            .dots
                 span.dot1 .
                 span.dot2 .
                 span.dot3 .
-            .no-signal Stand-by for signal
 </template>
 
 <script>
 export default {
     name: 'ProjectCardComponent',
     props: {
-        title: String,
-        company: String,
-        description: String,
-        backgroundImage: String,
-        logo: String,
-        id: String,
-        overview: String,
-        role: String,
-        team: Array,
-        story: String,
-        opportunity: String,
-        strategy: String,
-        outcomes: String,
-        reflection: String
+        project: Object,
     },
 }
 </script>

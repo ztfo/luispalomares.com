@@ -8,20 +8,7 @@
             ProjectCardComponent(
                 v-for="project in projects"
                 :key="project.id"
-                :id="project.id"
-                :title="project.title"
-                :company="project.company"
-                :backgroundImage="project.backgroundImage"
-                :logo="project.logo"
-                :description="project.description"
-                :overview="project.overview"
-                :role="project.role"
-                :team="project.team"
-                :story="project.story"
-                :opportunity="project.opportunity"
-                :strategy="project.strategy"
-                :outcomes="project.outcomes"
-                :reflection="project.reflection"
+                :project="project"
             )
     .projects-detail-container(v-else)
         router-view
