@@ -28,6 +28,19 @@
     --bulma-navbar-h: var(--white);
 }
 
+// scrollbar
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 #app {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;

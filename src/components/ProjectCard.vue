@@ -1,6 +1,13 @@
 <template lang="pug">
 router-link.link-block.mt-5(:to="{ path: `/project/${id}` }")
-    .card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
+    //.card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
+    .card.project.p-5 
+        .has-text-centered
+            .dots.mb-2
+                span.dot1 .
+                span.dot2 .
+                span.dot3 .
+            .no-signal Stand-by for signal
     .fixed-grid.project-overview.has-6-cols.px-3
         .grid
             .cell.has-text-right
@@ -27,19 +34,52 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.card {
-    background: #000;
-    box-shadow: none;
-    border: 2px solid #92929226;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    min-height: 44rem;
-    border-radius: 2rem;
-    @media (max-width: 768px) {
-        min-height: 24rem;
+@keyframes dot {
+    0%, 20% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.dot1 { animation: dot 1s infinite; }
+.dot2 { animation: dot 1s 0.33s infinite; }
+.dot3 { animation: dot 1s 0.66s infinite; }
+
+.card.project {
+    position: relative;
+    overflow: hidden;
+    .dots {
+        font-size: 2rem;
+    }
+    .dot1, .dot2, .dot3 {
+        background: -webkit-linear-gradient(var(--green), var(--lightblue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
+
+.card {
+    border: 1px solid var(--glass);
+    background: #000;
+    box-shadow: none;
+    border-radius: 2rem;
+    min-height: 10rem;;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+        min-height: auto;
+    }
+    .no-signal {
+        font-size: .8rem;
+        font-weight: 700;
+        color: (var(--medium-emphasis-text));
+    }
+}
+
 .link-block {
     display: block;
     text-decoration: none;
