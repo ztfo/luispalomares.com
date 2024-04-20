@@ -102,6 +102,12 @@ p {
 
 
 // accent and brand elements
+.line-divider {
+    margin: 1rem 0;
+    height: 1px;
+    background-color: var(--thin-glass);
+}
+
 .simple-divider {
     background: var(--gradient-green-blue);
     height: 1px;

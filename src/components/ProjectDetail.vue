@@ -75,9 +75,9 @@ export default {
     width: 40px;
     height: 40px;
     text-align: center;
-    line-height: 40px;
+    line-height: 38px;
     border: 1px solid var(--lightblue);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--white);
     margin-top: -.6rem;
     margin-right: 1rem;

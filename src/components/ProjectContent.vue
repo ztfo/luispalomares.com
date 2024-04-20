@@ -6,23 +6,24 @@
         .cell.is-col-span-3
             .project-header.mb-5
                 h2.is-size-4.has-text-weight-bold {{ project.company }}
-            .project-overview
-                h4.is-size-6.has-text-weight-bold Overview
+                .simple-divider
+            .project-overview.mb-5
+                h3.is-size-5.has-text-weight-bold.mb-3 Overview
+                .line-divider
                 p {{ project.overview }}
-        .cell.is-col-span-1.has-text-right
+        .cell.is-col-span-1.is-row-span-2.has-text-right
+            .metric-block.mb-5
+                p.heading Series
+                p.title {{ project.series }}
             .metric-block.mb-5
                 p.heading Revenue
-                p.title $20M
-            .metric-block.mb-5
-                p.heading Growth
-                p.title 20%
+                p.title {{ project.revenue }}
             .team-block
-                p.heading Team
+                p.heading.has-text-weight-bold Team
                 p(v-for="(member, index) in project.team" :key="index") {{ member }}
-    .timeline
-        .timeline-item
-            .timeline-marker
-            .timeline-content
+        .cell.is-col-span-3
+            h3.is-size-5.heading.has-text-weight-bold.mb-3 Story
+            p.mb-5 {{ project.story }}
 </template>
 
 <script>

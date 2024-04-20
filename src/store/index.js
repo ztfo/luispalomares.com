@@ -6,9 +6,11 @@ export default createStore({
         { 
             id: '0',
             company: 'Built.with.Words.ai',
+            series: 'Seed',
             title: 'Building technology, with words', 
+            revenue: '$20M',
             backgroundImage: '',
-            logo: 'https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/6623df22c332da05e48939b6_builtwithwords.svg',
+            logo: 'https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/66244ea11a738a8c4d78cad0_builtwithwords.svg',
             overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien egestas tincidunt. Nullam nec nunc nec nunc.',
             role: 'Owner',
             team: [ 'Product Manager', 'UX Designer', 'UI Designer', 'Frontend Developer', 'Backend Developer', 'QA' ],
