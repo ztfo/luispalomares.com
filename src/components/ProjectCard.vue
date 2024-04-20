@@ -8,15 +8,6 @@ router-link.link-block.mt-5(:to="{ path: `/project/${id}` }")
                 span.dot2 .
                 span.dot3 .
             .no-signal Stand-by for signal
-    .fixed-grid.project-overview.has-6-cols.px-3
-        .grid
-            .cell.has-text-right
-                .project-logo
-                    img(:src="logo", alt="Logo" :title="company")
-            .cell.is-col-span-5
-                .project-title.has-text-right {{ title }}
-            .cell.is-col-span-6
-                p {{ description }}
 </template>
 
 <script>
@@ -28,7 +19,15 @@ export default {
         description: String,
         backgroundImage: String,
         logo: String,
-        id: String
+        id: String,
+        overview: String,
+        role: String,
+        team: Array,
+        story: String,
+        opportunity: String,
+        strategy: String,
+        outcomes: String,
+        reflection: String
     },
 }
 </script>

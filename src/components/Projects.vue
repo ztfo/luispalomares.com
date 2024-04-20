@@ -14,6 +14,14 @@
                 :backgroundImage="project.backgroundImage"
                 :logo="project.logo"
                 :description="project.description"
+                :overview="project.overview"
+                :role="project.role"
+                :team="project.team"
+                :story="project.story"
+                :opportunity="project.opportunity"
+                :strategy="project.strategy"
+                :outcomes="project.outcomes"
+                :reflection="project.reflection"
             )
     .projects-detail-container(v-else)
         router-view
