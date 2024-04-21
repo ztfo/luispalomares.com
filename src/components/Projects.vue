@@ -3,15 +3,19 @@
     .projects-container(v-if="!isProjectRoute")
         SquareWaveComponent
         h2.is-size-5.pb-4
-            strong Projects
+            strong Projects   
         .projects
             ProjectCardComponent(
                 v-for="project in projects"
                 :key="project.id"
                 :project="project"
-            )
+            )           
     .projects-detail-container(v-else)
         router-view
+        .placeholder-box.has-text-centered.pb-3
+            strong 👨🏽‍🚀 Something is in the works. 
+            span Stay tuned.
+    
 </template>
 
 <script>

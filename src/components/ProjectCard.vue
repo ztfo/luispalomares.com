@@ -4,9 +4,9 @@ router-link.link-block.mt-5(v-if="project" :to="{ path: `/project/${project.id}`
     .card.project.p-5 
         .has-text-centered
             .dots
-                span.dot1 .
-                span.dot2 .
-                span.dot3 .
+                span.dot1 &middot;
+                span.dot2 &middot;
+                span.dot3 &middot;
 </template>
 
 <script>
