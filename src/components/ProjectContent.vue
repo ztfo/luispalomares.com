@@ -13,7 +13,10 @@
     .project-overview.mb-5
             h3.is-size-5.has-text-weight-bold.mb-3 Overview
             .line-divider
-            p {{ project.overview }}
+            p.mb-4 {{ project.overview }}
+            a.link(:href="project.website" target="_blank")
+                font-awesome-icon(icon="link")
+                | &nbsp;Website
     .coming-soon 📻 Stay tuned for a complete write-up on {{ project.company }}.
     .project-component
         component(:is="project.companyComponent")
