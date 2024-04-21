@@ -20,10 +20,10 @@
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
     p.is-size-6.mb-2
-        | By day, I work Product @&nbsp;
+        | Product @&nbsp;
         a.link(href="https://certifid.com", target="_blank") CertifID
     p.contact-links.is-size-6.mb-6
-        | By night, I like to&nbsp;
+        | I like to&nbsp;
         a.link(href="https://dribbble.com/luispalomares", target="_blank") 
             font-awesome-icon(:icon="['fab', 'dribbble']")
             | &nbsp;

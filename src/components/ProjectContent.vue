@@ -8,8 +8,8 @@
                 .simple-divider
         .column
             .metric-block.mb-5.has-text-right
-                p.heading Series
-                p.title {{ project.series }}
+                // p.heading Series
+                // p.title {{ project.series }}
     .project-overview.mb-5
             h3.is-size-5.has-text-weight-bold.mb-3 Overview
             .line-divider

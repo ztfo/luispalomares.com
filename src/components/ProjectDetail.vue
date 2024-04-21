@@ -2,7 +2,7 @@
 .project(v-if="project")
     .project-detail.pb-2.columns.is-mobile
         .project-title.column.is-half-mobile.is-four-fifths-desktop
-            router-link.square-link(to="/")
+            router-link.square-link(to="/" @click.native="scrollToTop")
                 font-awesome-icon(icon="angle-left")
             h2.is-size-6.pb-4.is-hidden-mobile
                 SquareWaveComponent
@@ -36,6 +36,11 @@ export default {
         fetchProject() {
             const projectId = this.$route.params.id;
             this.project = this.getProject(projectId);
+        },
+        scrollToTop() {
+            this.$nextTick(() => {
+                window.scrollTo(0, 0);
+            });
         },
     },
     watch: {

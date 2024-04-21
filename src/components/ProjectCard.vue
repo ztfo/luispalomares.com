@@ -1,5 +1,5 @@
 <template lang="pug">
-router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }")
+router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @click.native="handleClick")
     .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
         .has-text-centered(v-if="!project.backgroundImage")
             .dots
@@ -9,7 +9,7 @@ router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }")
     .levels.card-description
         .level
             .level-left
-                img.logo.is-mobile-only.mb-4(:src="project.logo", alt="Logo" :title="project.company")
+                img.logo.is-hidden-desktop.mb-4(:src="project.logo", alt="Logo" :title="project.company")
                 .is-size-6 
                     span {{ project.title }}
             .level-right.is-hidden-mobile
@@ -21,6 +21,11 @@ export default {
     name: 'ProjectCardComponent',
     props: {
         project: Object,
+    },
+    methods: {
+        handleClick() {
+            this.$emit('cardClicked');
+        },
     },
 }
 </script>

@@ -9,9 +9,10 @@
                 v-for="project in projects"
                 :key="project.id"
                 :project="project"
+                @cardClicked="scrollToTop"
             )           
             ClientsCardComponent
-    .projects-detail-container(v-else)
+    .projects-detail-container(v-else ref="projectsDetailContainer")
         router-view
 </template>
 
@@ -37,6 +38,16 @@ export default {
             return store.state.projects;
         },
     },
+    methods: {
+    scrollToTop() {
+        this.$nextTick(() => {
+            if (this.$refs.projectsDetailContainer) {
+                const top = this.$refs.projectsDetailContainer.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    },
+},
     watch: {
         $route() {
             this.isProjectRoute = this.$route.name === 'project';
