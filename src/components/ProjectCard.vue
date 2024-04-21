@@ -9,8 +9,10 @@ router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }")
     .levels.card-description
         .level
             .level-left
-                .is-size-6 {{ project.title }}
-            .level-right
+                img.logo.is-mobile-only.mb-4(:src="project.logo", alt="Logo" :title="project.company")
+                .is-size-6 
+                    span {{ project.title }}
+            .level-right.is-hidden-mobile
                 img.logo(:src="project.logo", alt="Logo" :title="project.company")
 </template>
 
@@ -60,7 +62,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     @media (max-width: 768px) {
-        min-height: auto;
+        background-position: center;
     }
     .no-signal {
         font-size: .8rem;
