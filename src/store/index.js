@@ -12,7 +12,7 @@ export default createStore({
             revenue: '$15M+',
             backgroundImage: '/img/certifid.jpg',
             logo: 'img/certifid-logo.svg',
-            overview: 'At CertifID, I collaborate with some of the most talented and driven individuals in the industry. Since joining early in its journey, it\'s felt like a continuation of my own entrepreneurial path. I\'ve led and contributed to diverse projects across product design, frontend development, branding, and organizational design. Learning and growing at CertifID has been a privilege, where a powerful mission and incredible culture converge into something truly magical.',
+            overview: 'At CertifID, I collaborate with some of the most talented and driven individuals in the industry. Joining early in its journey felt like a continuation of my entrepreneurial path. I\'ve led and contributed to diverse projects, including a full app redesign, launching three of the flagship products that propelled us to a leading position in the industry, and making impactful contributions to our company\'s brand and web presence. Working with such a talented team on a powerful mission has been the magic I\'ve been looking for, providing constant opportunities for learning and growth.',
             role: 'Product',
         },
         { 
