@@ -5,21 +5,26 @@ export default createStore({
     projects: [
         { 
             id: '0',
-            company: 'Built with Words',
-            series: 'Seed',
-            title: 'Building technology, with words', 
-            revenue: '$20M',
-            backgroundImage: '',
-            logo: 'https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/66244ea11a738a8c4d78cad0_builtwithwords.svg',
-            overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien egestas tincidunt. Nullam nec nunc nec nunc.',
-            role: 'Owner',
-            team: [ 'Product Manager', 'UX Designer', 'UI Designer', 'Frontend Developer', 'Backend Developer', 'QA' ],
-            story: 'Once upon a time, LLMs were invented, and the world changed forever.',
-            opportunity: 'How might I take advantage of this new technology?',
-            strategy: 'Dive in, head first into the deep end.',
-            outcomes: 'We built a product that people loved, and we made a lot of money.',
-            reflection: 'Words are powerful, and can be used to build amazing things.',
-        }     
+            company: 'CertifID',
+            series: 'B',
+            title: 'Designing a future safe from wire fraud', 
+            revenue: '$15M+',
+            backgroundImage: '/img/certifid.jpg',
+            logo: 'img/certifid-logo.svg',
+            overview: 'At CertifID, I collaborate with some of the most talented and driven individuals in the industry. Since joining early in its journey, it\'s felt like a continuation of my own entrepreneurial path. I\'ve led and contributed to diverse projects across product design, frontend development, branding, and organizational design. Learning and growing at CertifID has been a privilege, where a powerful mission and incredible culture converge into something truly magical.',
+            role: 'Product',
+        },
+        { 
+          id: '1',
+          company: 'InHouse',
+          series: 'Seed',
+          title: 'Collaborating with transparency in the home buying process', 
+          revenue: '$1M',
+          backgroundImage: '/img/inhouse.jpg',
+          logo: '/img/inhouse-logo.svg',
+          overview: 'At InHouse, I co-founded and scaled a college side-gig into a national provider for top mortgage brands in the US. We developed niche technology enabling lenders and agents to collaborate transparently and stay compliant with RESPA regulations. As the company expanded, we successfully secured an institutional seed round, building significant traction and trust. Although we eventually closed the business, the invaluable lessons learned continue to shape my career and decision-making',
+          role: 'Founder',
+      }        
     ]
   },
   getters: {

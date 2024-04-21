@@ -1,12 +1,17 @@
 <template lang="pug">
-router-link.link-block.mt-5(v-if="project" :to="{ path: `/project/${project.id}` }")
-    //.card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
-    .card.project.p-5 
-        .has-text-centered
+router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }")
+    .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
+        .has-text-centered(v-if="!project.backgroundImage")
             .dots
                 span.dot1 &middot;
                 span.dot2 &middot;
                 span.dot3 &middot;
+    .levels.card-description
+        .level
+            .level-left
+                .is-size-6 {{ project.title }}
+            .level-right
+                img.logo(:src="project.logo", alt="Logo" :title="project.company")
 </template>
 
 <script>
@@ -43,18 +48,17 @@ export default {
 }
 
 .card {
-    border: 1px solid var(--glass);
+    border: none;
     background: #000;
     box-shadow: none;
-    border-radius: 2rem;
-    min-height: 10rem;;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    border-radius: 0px;
+    min-height: 16rem;
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     @media (max-width: 768px) {
         min-height: auto;
     }
@@ -64,12 +68,19 @@ export default {
         color: (var(--medium-emphasis-text));
     }
 }
-
 .link-block {
     display: block;
     text-decoration: none;
     color: inherit;
-    margin-bottom: 7rem;
+    transition: .5s;
+    .project {
+        transition: .5s;
+    }
+    &:hover {
+        .project {
+            transform: scale(1.02);
+        }
+    }
 }
 .cell {
     display: flex;
@@ -78,11 +89,10 @@ export default {
         justify-content: flex-end;
     }
 }
-.project-logo {
-    display: flex;
-    justify-content: center;
+.card-description {
+    margin-bottom: 5rem;
 }
-.project-title {
-    width: 100%;
+.logo {
+    max-width: 150px;
 }
 </style>

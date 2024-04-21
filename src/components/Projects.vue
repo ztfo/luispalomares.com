@@ -2,7 +2,7 @@
 .inner-scroll
     .projects-container(v-if="!isProjectRoute")
         SquareWaveComponent
-        h2.is-size-5.pb-4
+        h2.is-size-5.pb-4.mb-5
             strong Projects   
         .projects
             ProjectCardComponent(
@@ -10,23 +10,22 @@
                 :key="project.id"
                 :project="project"
             )           
+            ClientsCardComponent
     .projects-detail-container(v-else)
         router-view
-        .placeholder-box.has-text-centered.pb-3
-            strong 👨🏽‍🚀 Something is in the works. 
-            span Stay tuned.
-    
 </template>
 
 <script>
 import store from '../store';
 import ProjectCardComponent from './ProjectCard.vue';
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
+import ClientsCardComponent from './ClientsCard.vue';
 export default { 
     name: 'ProjectsComponent',
     components: {
         ProjectCardComponent,
-        SquareWaveComponent
+        SquareWaveComponent,
+        ClientsCardComponent
     },
     data() {
         return {
