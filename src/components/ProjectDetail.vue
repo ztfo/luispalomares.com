@@ -4,10 +4,10 @@
         .project-title.column.is-half-mobile.is-four-fifths-desktop
             router-link.square-link(to="/")
                 font-awesome-icon(icon="angle-left")
-            h2.is-size-6.pb-4
+            h2.is-size-6.pb-4.is-hidden-mobile
                 SquareWaveComponent
                 br
-                span.is-hidden-mobile {{ project.title }}
+                span {{ project.title }}
         .project-logo.column.is-half-mobile
             img(:src="project.logo", alt="Logo" :title="project.company")
     ProjectContentComponent(v-if="project", :project="project")
@@ -91,7 +91,7 @@ export default {
     justify-content: flex-end;
     align-items: center;
     img {
-        max-width: 9.5rem;
+        width: 100%;
     }
 }
 .project-header {

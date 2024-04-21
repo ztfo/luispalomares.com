@@ -24,6 +24,8 @@
         .cell.is-col-span-3
             h3.is-size-5.heading.has-text-weight-bold.mb-3 Story
             p.mb-5 {{ project.story }}
+    .project-component
+        component(:is="project.companyComponent")
 </template>
 
 <script>
@@ -31,6 +33,11 @@ export default {
     name: 'ProjectContentComponent',
     props: {
         project: Object,
+    },
+    computed: {
+        projectComponent() {
+            return () => import(`./Projects/${this.currentProject.company}.vue`);
+        },
     },
 }
 </script>

@@ -3,7 +3,6 @@ router-link.link-block.mt-5(v-if="project" :to="{ path: `/project/${project.id}`
     //.card.project(:style="{ backgroundImage: 'url(' + backgroundImage + ')' }")
     .card.project.p-5 
         .has-text-centered
-            .no-signal Stand-by for signal
             .dots
                 span.dot1 .
                 span.dot2 .

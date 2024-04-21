@@ -5,7 +5,7 @@ export default createStore({
     projects: [
         { 
             id: '0',
-            company: 'Built.with.Words.ai',
+            company: 'Built with Words',
             series: 'Seed',
             title: 'Building technology, with words', 
             revenue: '$20M',
