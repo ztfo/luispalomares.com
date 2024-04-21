@@ -9,7 +9,7 @@
             span product leader.&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
-        | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in home lending, and open credit avenues for immigrants, steering startups from 
+        | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in mortgage lending, and open credit avenues for immigrants, steering startups from 
         a.link(href="https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank") 
             span seed&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
@@ -19,18 +19,23 @@
             span Series B.&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
+    p.is-size-6.mb-2
+        | Product @&nbsp;
+        a.link(href="https://certifid.com", target="_blank") CertifID
     p.contact-links.is-size-6.mb-6
         | I like to&nbsp;
         a.link(href="https://dribbble.com/luispalomares", target="_blank") 
             font-awesome-icon(:icon="['fab', 'dribbble']")
             | &nbsp;
             span design
-        | &nbsp;and&nbsp;
+        | ,&nbsp;
         a.link(href="https://github.com/ztfo", target="_blank")
             font-awesome-icon(:icon="['fab', 'github']")
             | &nbsp;
             span code
-        | .
+        | ,&nbsp;and&nbsp;
+        a.link(href="https://www.foreignsymbols.com", target="_blank")
+            span make dance music.
     .grid
         .cell
             a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank") Email Me

@@ -10,6 +10,6 @@ export default {
 
 <style scoped lang="scss">
 .square-wave {
-    width: 60px;
+    width: 3.5rem;
 }
 </style>

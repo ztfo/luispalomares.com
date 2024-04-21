@@ -28,6 +28,19 @@
     --bulma-navbar-h: var(--white);
 }
 
+// scrollbar
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 #app {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -89,6 +102,12 @@ p {
 
 
 // accent and brand elements
+.line-divider {
+    margin: 1rem 0;
+    height: 1px;
+    background-color: var(--thin-glass);
+}
+
 .simple-divider {
     background: var(--gradient-green-blue);
     height: 1px;
