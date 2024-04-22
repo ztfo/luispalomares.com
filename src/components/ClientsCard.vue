@@ -28,18 +28,18 @@ export default {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border:  none;
     box-shadow: none;
     border-radius: 0;
-    background-image: url('https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/66258afe1524d2ef8c97dbf9_clients.png');
+    border: 1px solid var(--glass);
+    background-image: url('https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/6625d154d9d453253f5cd031_clients.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
     @media screen and (max-width: 768px) {
-        background-size: auto;
+        background-size: cover;
         background-repeat: repeat-x;
         background-color: transparent;
-        animation: scroll 20s linear infinite;
+        animation: scroll 30s linear infinite;
         padding: 1rem;
     }
 }
