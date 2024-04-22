@@ -36,7 +36,7 @@ export default {
     background-repeat: no-repeat;
     background-color: transparent;
     @media screen and (max-width: 768px) {
-        background-size: auto 100%;
+        background-size: auto;
         background-repeat: repeat-x;
         background-color: transparent;
         animation: scroll 20s linear infinite;
