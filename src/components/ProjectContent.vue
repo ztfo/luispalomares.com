@@ -17,7 +17,7 @@
             a.link(:href="project.website" target="_blank")
                 font-awesome-icon(icon="link")
                 | &nbsp;Website
-    .coming-soon 📻 Stay tuned for a complete write-up on {{ project.company }}.
+    .coming-soon 📝 Full write-up in the works.
     .project-component
         component(:is="project.companyComponent")
 </template>
