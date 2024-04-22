@@ -67,7 +67,7 @@ export default {
     height: 100%;
 }
 .projects {
-    height: 100%;
+    height: calc(100vh - 11rem);
     overflow: scroll;
 }
 .inner-scroll {
