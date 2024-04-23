@@ -35,6 +35,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
+    background-position: center;
     @media screen and (max-width: 768px) {
         background-size: cover;
         background-repeat: repeat-x;
