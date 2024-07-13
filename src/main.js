@@ -9,7 +9,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { VueGtag } from 'vue-gtag-next'
+import VueGtag from 'vue-gtag-next'
 
 library.add(fas, far, fab)
 
@@ -17,6 +17,10 @@ const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 
-app.use(store).use(router).use(VueGtag, {
-    property: { id: "G-5LBNH722JB" }
-  }).mount('#app')
+app.use(VueGtag, {
+  property: {
+    id: "G-5LBNH722JB"
+  }
+});
+
+app.use(store).use(router).mount('#app');
