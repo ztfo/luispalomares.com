@@ -5,7 +5,7 @@
 
 <script>
 export default {
-    name: 'CertifIDContent',
+    name: 'InHouseContent',
     data() {
         return {
         };
@@ -19,4 +19,4 @@ export default {
 
 <style scoped lang="scss">
 
-</style>
+    </style>

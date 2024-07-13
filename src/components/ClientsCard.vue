@@ -1,9 +1,9 @@
 <template lang="pug">
-    .client-card.card.p-6.has-text-centered
-        .is-size-3 📻
-        .simple-divider.center
-        .header.has-text-weight-bold I've been fortunate to work and contract with some amazing companies.
-        .is-size-6 Stay tuned.
+.client-card.card.p-6.has-text-centered
+    .is-size-3 📻
+    .simple-divider.center
+    .header.has-text-weight-bold I've been fortunate to work and contract with some amazing companies.
+    .is-size-6 Stay tuned.
 </template>
 
 <script>

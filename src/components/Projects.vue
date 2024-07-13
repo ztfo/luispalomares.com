@@ -78,6 +78,7 @@ export default {
     width: 100%;
     height: 100vh;
     padding: 3rem 5rem;
+    overflow-y: scroll;
     @media (max-width: 768px) {
         height: auto;
         padding-top: 2.5rem;

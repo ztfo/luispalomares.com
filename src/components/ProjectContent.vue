@@ -29,7 +29,7 @@ export default {
         project: Object,
     },
     computed: {
-        projectComponent() {
+        companyComponent() {
             return () => import(`./Projects/${this.currentProject.company}.vue`);
         },
     },
