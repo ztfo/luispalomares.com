@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkLuis"]=self["webpackChunkLuis"]||[]).push([[648],{3648:function(n,t,s){s.r(t),s.d(t,{default:function(){return l}});var e=s(5796);const u={class:"company-component"},c=(0,e.Lk)("div",{class:"columns"},[(0,e.Lk)("div",{class:"column"},"test"),(0,e.Lk)("div",{class:"column"},"test")],-1),a=[c];function o(n,t,s,c,o,r){return(0,e.uX)(),(0,e.CE)("div",u,a)}var r={name:"CertifIDContent",data(){return{}},methods:{},mounted(){}},i=s(1241);const d=(0,i.A)(r,[["render",o]]);var l=d}}]);
+//# sourceMappingURL=648.402bd04c.js.map
