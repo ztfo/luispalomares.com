@@ -20,7 +20,7 @@
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "vue": "^3.2.13",
-    "vue-gtag": "^2.0.1",
+    "vue-gtag-next": "^1.14.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.2"
   },
