@@ -1,5 +1,5 @@
 <template lang="pug">
-router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @click.native="handleClick")
+router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @click="handleClick")
     .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
         .has-text-centered(v-if="!project.backgroundImage")
             .dots
@@ -24,6 +24,13 @@ export default {
     },
     methods: {
         handleClick() {
+            if (window.gtag) {
+                window.gtag('event', 'click', {
+                    event_category: 'Project Card',
+                    event_label: this.project.title,
+                    value: this.project.id
+                });
+            }
             this.$emit('cardClicked');
         },
     },
