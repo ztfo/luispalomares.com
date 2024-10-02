@@ -6,9 +6,10 @@
     p.is-size-5.is-size-6-mobile.my-6
         span A mission-driven 
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank" @click="trackClick('LinkedIn Profile')")
-            span product leader.&nbsp;
+            span product leader&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
+        span .
         | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in mortgage lending, and open credit avenues for immigrants, steering startups from 
         a.link(href="https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank" @click="trackClick('Tucson Tech Article')")
             span seed&nbsp;
@@ -16,9 +17,10 @@
             | &nbsp;
         | to 
         a.link(href="https://www.businesswire.com/news/home/20230912425188/en/CertifID-Secures-20M-in-Series-B-Funding-to-Protect-Real-Estate-Industry-from-Fraud", target="_blank" @click="trackClick('CertifID Series B Article')")
-            span Series B.&nbsp;
+            span Series B&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
+        span .
     p.is-size-6.mb-2
         | Product @&nbsp;
         a.link(href="https://certifid.com", target="_blank" @click="trackClick('CertifID Website')") CertifID
