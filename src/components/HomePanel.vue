@@ -37,6 +37,8 @@
             span code
         | ,&nbsp;and&nbsp;
         a.link(href="https://www.foreignsymbols.com", target="_blank" @click="trackClick('Foreign Symbols Website')")
+            font-awesome-icon(:icon="['fa', 'circle-play']")
+            | &nbsp;
             span make dance music.
     .grid
         .cell
