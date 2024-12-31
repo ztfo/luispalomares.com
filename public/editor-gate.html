@@ -2,16 +2,59 @@
 <html>
 <head>
     <title>Access</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .form {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+        input {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem;
+            color: #fff;
+            margin-right: 0.5rem;
+        }
+        button {
+            background: #4CAF50;
+            border: none;
+            padding: 0.5rem 1rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <div class="form">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="verify()">Enter</button>
+    </div>
     <script>
-        let attempts = parseInt(localStorage.getItem('accessAttempts') || '0');
-        if (attempts >= 50) {
-            alert("Access denied.");
-            window.location.href = '/';
-        } else {
-            localStorage.setItem('editor_access', 'true');
-            window.location.href = '/#/editor';
+        function verify() {
+            const password = document.getElementById('password').value;
+            if (password === 'your-secure-password-here') {
+                localStorage.setItem('editor_access', 'true');
+                window.location.href = '/#/editor';
+            } else {
+                let attempts = parseInt(localStorage.getItem('accessAttempts') || '0');
+                attempts++;
+                localStorage.setItem('accessAttempts', attempts);
+                if (attempts >= 50) {
+                    window.location.href = '/';
+                } else {
+                    alert('Invalid password');
+                }
+            }
         }
     </script>
 </body>

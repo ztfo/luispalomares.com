@@ -10,14 +10,13 @@ async function secureBuild() {
     // Regular build
     execSync('vue-cli-service build', { stdio: 'inherit' });
 
-    // Install staticrypt and terser if not already installed
-    execSync('npm install -g staticrypt terser', { stdio: 'inherit' });
+    // Copy editor-gate.html to dist
+    fs.copyFileSync('public/editor-gate.html', 'dist/editor-gate.html');
 
-    // Encrypt the gate file
-    execSync(`staticrypt dist/editor-gate.html "${EDITOR_PASSWORD}" --template-no-css --template-no-script`, { stdio: 'inherit' });
-
-    // Obfuscate the encrypted file
-    execSync('terser dist/editor-gate.html --compress --mangle -o dist/editor-gate.html', { stdio: 'inherit' });
+    // Replace password placeholder
+    let gateContent = fs.readFileSync('dist/editor-gate.html', 'utf8');
+    gateContent = gateContent.replace('your-secure-password-here', EDITOR_PASSWORD);
+    fs.writeFileSync('dist/editor-gate.html', gateContent);
 
     // Add CNAME
     fs.writeFileSync('dist/CNAME', 'luispalomares.com');
