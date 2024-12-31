@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "deploy": "vue-cli-service build && echo 'luispalomares.com' > dist/CNAME && gh-pages -d dist",
+    "build": "node scripts/secure-build.js",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -36,7 +36,9 @@
     "node-sass": "^9.0.0",
     "sass": "^1.74.1",
     "sass-loader": "^14.1.1",
+    "staticrypt": "^3.5.0",
     "style-resources-loader": "^1.4.1",
+    "terser": "^5.37.0",
     "vue-cli-plugin-style-resources-loader": "~0.1.5"
   },
   "eslintConfig": {

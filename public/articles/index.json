@@ -1,0 +1,9 @@
+{
+  "articles": [
+    {
+      "id": "first",
+      "title": "Getting Started with Vue 3",
+      "dateCreated": "2024-03-15T00:00:00.000Z"
+    }
+  ]
+} 

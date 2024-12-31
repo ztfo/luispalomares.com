@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Access</title>
+</head>
+<body>
+    <script>
+        let attempts = parseInt(localStorage.getItem('accessAttempts') || '0');
+        if (attempts >= 50) {
+            alert("Access denied.");
+            window.location.href = '/';
+        } else {
+            localStorage.setItem('editor_access', 'true');
+            window.location.href = '/#/editor';
+        }
+    </script>
+</body>
+</html> 

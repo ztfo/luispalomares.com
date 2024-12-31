@@ -2,6 +2,7 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
+    articles: [],
     projects: [
         { 
             id: '0',
@@ -29,7 +30,38 @@ export default createStore({
       }        
     ]
   },
+  mutations: {
+    SET_ARTICLES(state, articles) {
+      state.articles = articles;
+    },
+    ADD_ARTICLE(state, article) {
+      state.articles.push(article);
+    },
+    UPDATE_ARTICLE(state, updatedArticle) {
+      const index = state.articles.findIndex(a => a.id === updatedArticle.id);
+      if (index !== -1) {
+        state.articles[index] = updatedArticle;
+      }
+    },
+    DELETE_ARTICLE(state, articleId) {
+      state.articles = state.articles.filter(a => a.id !== articleId);
+    }
+  },
+  actions: {
+    async loadArticles({ commit }) {
+      try {
+        const response = await fetch('/articles/index.json');
+        const articles = await response.json();
+        commit('SET_ARTICLES', articles);
+      } catch (error) {
+        console.error('Failed to load articles:', error);
+      }
+    }
+  },
   getters: {
+    getArticle: (state) => (id) => {
+      return state.articles.find(article => article.id === id);
+    },
     getProject: (state) => (id) => {
       return state.projects.find(project => project.id === id);
     }
