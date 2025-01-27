@@ -6,13 +6,13 @@
         .timeline-content zero
     .timeline-item
         .timeline-marker 
-        .timeline-content One
+        .timeline-content one
     .timeline-item
         .timeline-marker 
-        .timeline-content Two
+        .timeline-content two
     .timeline-item.is-last
         .timeline-marker
-        .timeline-content Three
+        .timeline-content three
 </template>
 
 <script>
