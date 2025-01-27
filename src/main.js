@@ -26,7 +26,7 @@ app.use(VueGtag, {
   },
   appName: 'Luis Portfolio',
   enabled: true,
-  debug: true
+  debug: process.env.NODE_ENV !== 'production'
 });
 
 app.use(store).use(router).mount('#app');
