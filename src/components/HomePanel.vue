@@ -61,13 +61,11 @@ export default {
     },
     methods: {
         trackClick(label) {
-            if (window.gtag) {
-                window.gtag('event', 'click', {
-                    event_category: 'Link',
-                    event_label: label,
-                    transport_type: 'beacon'
-                });
-            }
+            this.$gtag.event('click', {
+                event_category: 'Link',
+                event_label: label,
+                transport_type: 'beacon'
+            });
         }
     }
 }

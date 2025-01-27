@@ -1,0 +1,1 @@
+export const EDITOR_PASSWORD = 'your-secure-password-here'; 

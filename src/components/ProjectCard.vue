@@ -24,13 +24,11 @@ export default {
     },
     methods: {
         handleClick() {
-            if (window.gtag) {
-                window.gtag('event', 'click', {
-                    event_category: 'Project Card',
-                    event_label: this.project.title,
-                    value: this.project.id
-                });
-            }
+            this.$gtag.event('project_click', {
+                event_category: 'Project',
+                event_label: this.project.title,
+                project_id: this.project.id
+            });
             this.$emit('cardClicked');
         },
     },

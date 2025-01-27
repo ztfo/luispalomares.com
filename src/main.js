@@ -19,8 +19,14 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(VueGtag, {
   property: {
-    id: "G-5LBNH722JB"
-  }
+    id: "G-5LBNH722JB",
+    params: {
+      send_page_view: true
+    }
+  },
+  appName: 'Luis Portfolio',
+  enabled: true,
+  debug: true
 });
 
 app.use(store).use(router).mount('#app');

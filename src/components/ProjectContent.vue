@@ -14,7 +14,7 @@
             h3.is-size-5.has-text-weight-bold.mb-3 Overview
             .line-divider
             p.mb-4 {{ project.overview }}
-            a.link(:href="project.website" target="_blank")
+            a.link(:href="project.website" target="_blank" @click="trackWebsiteClick")
                 font-awesome-icon(icon="link")
                 | &nbsp;Website
     .coming-soon 📝 Full write-up in the works.
@@ -33,6 +33,15 @@ export default {
             return () => import(`./Projects/${this.currentProject.company}.vue`);
         },
     },
+    methods: {
+        trackWebsiteClick() {
+            this.$gtag.event('website_click', {
+                event_category: 'Project',
+                event_label: this.project.company,
+                website_url: this.project.website
+            });
+        }
+    }
 }
 </script>
 
