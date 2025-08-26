@@ -36,7 +36,7 @@
             | &nbsp;
             span code
         | ,&nbsp;and&nbsp;
-        a.link(href="https://www.foreignsymbols.com", target="_blank" @click="trackClick('Foreign Symbols Website')")
+        a.link(href="https://7thst.music", target="_blank" @click="trackClick('7thSt Music Website')")
             font-awesome-icon(:icon="['fa', 'circle-play']")
             | &nbsp;
             span make dance music.
