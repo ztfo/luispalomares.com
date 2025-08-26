@@ -8,8 +8,9 @@
                 .simple-divider
         .column
             .metric-block.mb-5.has-text-right
-                // p.heading Series
-                // p.title {{ project.series }}
+                p.heading {{ project.projectType === 'main' ? 'Series' : 'Type' }}
+                p.title {{ project.series }}
+                p.subtitle {{ project.revenue }}
     .project-overview.mb-5
             h3.is-size-5.has-text-weight-bold.mb-3 Overview
             .line-divider
@@ -17,8 +18,7 @@
             a.link(:href="project.website" target="_blank" @click="trackWebsiteClick")
                 font-awesome-icon(icon="link")
                 | &nbsp;Website
-    .coming-soon 📝 Full write-up in the works.
-    .project-component
+    .project-component(v-if="project.projectType === 'main'")
         component(:is="project.companyComponent")
 </template>
 
@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         companyComponent() {
-            return () => import(`./Projects/${this.currentProject.company}.vue`);
+            return () => import(`./Projects/${this.project.company}.vue`);
         },
     },
     methods: {

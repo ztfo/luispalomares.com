@@ -9,11 +9,12 @@ export default createStore({
             series: 'B',
             title: 'Designing a future safe from wire fraud.', 
             website: 'https://certifid.com',
-            revenue: '$15M+',
+            revenue: '$20M+',
             backgroundImage: '/img/certifid.jpg',
             logo: 'img/certifid-logo.svg',
             overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path. I\'ve led and contributed to diverse projects, including a full app redesign, launching three of the flagship products that propelled us to a leading position in the industry, and making impactful contributions to our company\'s brand and web presence. Working with such a talented team on a powerful mission has been the magic I\'ve been looking for, providing constant opportunities for learning and growth.',
             role: 'Product',
+            projectType: 'main'
         },
         { 
           id: '1',
@@ -26,12 +27,48 @@ export default createStore({
           logo: '/img/inhouse-logo.svg',
           overview: 'At InHouse, I co-founded and scaled a college side-gig into a national provider for top mortgage brands in the US. We developed niche technology enabling mortgage lenders and real estate agents to collaborate transparently and stay compliant with RESPA regulations. As the company expanded, we successfully secured an institutional seed round, building significant traction and trust. Although we eventually closed the business, the invaluable lessons learned continue to shape my career and decision-making.',
           role: 'Founder',
+          projectType: 'main'
+      },
+      { 
+        id: '2',
+        company: 'Arreglo.ai',
+        series: 'Side Project',
+        title: 'AI-powered music arrangement generator for Figma.', 
+        website: 'https://arreglo.ai',
+        revenue: 'Free',
+        backgroundImage: '/img/arreglo-ai.jpg',
+        logo: '/img/arreglo-ai-logo.svg',
+        overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered generator that could transform track ideas into complete arrangements in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
+        role: 'Founder & Developer',
+        projectType: 'side'
+      },
+      { 
+        id: '3',
+        company: 'Drawberry.ai',
+        series: 'Side Project',
+        title: 'AI-powered coloring book generator with a cause.', 
+        website: 'https://drawberry.ai/',
+        revenue: 'Coming Soon',
+        backgroundImage: '/img/drawberry-ai.jpg',
+        logo: '/img/drawberry-ai-logo.svg',
+        overview: 'The idea for Drawberry came after watching my niece and nephew get really into coloring pages. I thought about how AI could transform any photo into a coloring book, and then realized this could be more than just a fun tool - it could help fund arts programs in schools. Every book created helps provide pencils, paper, and creative spaces for kids who deserve to imagine and create.',
+        role: 'Founder & Developer',
+        projectType: 'side'
       }        
     ]
   },
   getters: {
     getProject: (state) => (id) => {
       return state.projects.find(project => project.id === id);
+    },
+    getProjectsByType: (state) => (type) => {
+      return state.projects.filter(project => project.projectType === type);
+    },
+    getMainQuests: (state) => {
+      return state.projects.filter(project => project.projectType === 'main');
+    },
+    getSideQuests: (state) => {
+      return state.projects.filter(project => project.projectType === 'side');
     }
   }
 });

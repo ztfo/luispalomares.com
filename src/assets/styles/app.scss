@@ -67,6 +67,22 @@ p {
     color: var(--medium-emphasis-text);
 }
 
+// helpers
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.flex-3 {
+    flex: 3;
+}
+.center-items {
+    align-items: center;
+    justify-content: center;
+}
+
 // animations
 
 @keyframes gradient {
@@ -144,4 +160,107 @@ p {
         margin-bottom: 2px;
         margin-left: -2px;
     }
+}
+
+// Header section styling
+.header-section {
+  .is-size-5 {
+    margin-bottom: 0;
+  }
+  
+  .tab-navigation {
+    margin-top: 0.5rem;
+  }
+}
+
+// Tab system styling
+.tabs {
+  &.is-boxed {
+    li {
+      a {
+        border-radius: 0;
+        border: none;
+        color: var(--medium-emphasis-text);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: var(--white);
+          background-color: var(--thin-glass);
+          border-bottom: 2px solid var(--green);
+        }
+      }
+      
+      &.is-active {
+        a {
+          color: var(--white);
+          background-color: var(--thin-glass);
+          border-bottom: 2px solid var(--green);
+        }
+      }
+    }
+  }
+}
+
+// Project content enhancements
+.project-content {
+  .metric-block {
+    .heading {
+      color: var(--medium-emphasis-text);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .title {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    
+    .subtitle {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Tab navigation specific styling
+.tab-navigation {
+  .tabs {
+    
+    ul {
+      border-bottom: none;
+      
+      li {
+        a {
+          color: var(--medium-emphasis-text);
+          border: none;
+          border-radius: 0;
+          padding: 0.75rem 1.5rem;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: var(--white);
+            background-color: var(--thin-glass);
+            border-bottom: 2px solid var(--green);
+          }
+        }
+        
+        &.is-active {
+          a {
+            color: var(--white);
+            background-color: var(--green);
+            border-bottom: 2px solid var(--green);
+          }
+        }
+      }
+    }
+  }
+  
+  .icon {
+    font-size: 0.9rem;
+  }
 }
