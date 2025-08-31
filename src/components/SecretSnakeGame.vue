@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { trackEvent } from '@/utils/analytics';
+
 export default {
   name: 'SecretSnakeGame',
   props: {
@@ -49,7 +51,10 @@ export default {
       score: 0,
       gameOver: false,
       gameSpeed: 150,
-      ctx: null
+      ctx: null,
+      gameStartTime: null,
+      totalFoodEaten: 0,
+      maxScore: 0
     }
   },
   watch: {
@@ -58,13 +63,89 @@ export default {
         this.$nextTick(() => {
           this.initGame();
           this.startGameLoop();
+          this.trackGameDiscovery();
         });
       } else {
         this.stopGameLoop();
+        if (this.gameStartTime) {
+          this.trackGameSession();
+        }
       }
     }
   },
   methods: {
+    trackGameDiscovery() {
+      // Track when someone discovers the secret snake game
+      trackEvent('easter_egg_discovered', {
+        feature_name: 'secret_snake_game',
+        location: 'portfolio_bio_section',
+        trigger_method: 'square_icon_click',
+        timestamp: new Date().toISOString()
+      });
+    },
+
+    trackGameStart() {
+      this.gameStartTime = Date.now();
+      trackEvent('game_started', {
+        game_name: 'secret_snake_game',
+        initial_speed: this.gameSpeed,
+        timestamp: new Date().toISOString()
+      });
+    },
+
+    trackFoodEaten() {
+      this.totalFoodEaten++;
+      this.maxScore = Math.max(this.maxScore, this.score);
+      
+      trackEvent('food_eaten', {
+        game_name: 'secret_snake_game',
+        current_score: this.score,
+        food_count: this.totalFoodEaten,
+        game_speed: this.gameSpeed,
+        timestamp: new Date().toISOString()
+      });
+    },
+
+    trackGameOver() {
+      const sessionDuration = this.gameStartTime ? Date.now() - this.gameStartTime : 0;
+      
+      trackEvent('game_over', {
+        game_name: 'secret_snake_game',
+        final_score: this.score,
+        max_score: this.maxScore,
+        total_food_eaten: this.totalFoodEaten,
+        session_duration_ms: sessionDuration,
+        session_duration_seconds: Math.round(sessionDuration / 1000),
+        timestamp: new Date().toISOString()
+      });
+    },
+
+    trackGameRestart() {
+      trackEvent('game_restarted', {
+        game_name: 'secret_snake_game',
+        previous_score: this.score,
+        restart_count: 1, // You could track this if you want
+        timestamp: new Date().toISOString()
+      });
+    },
+
+    trackGameSession() {
+      if (!this.gameStartTime) return;
+      
+      const sessionDuration = Date.now() - this.gameStartTime;
+      
+      trackEvent('game_session_ended', {
+        game_name: 'secret_snake_game',
+        final_score: this.score,
+        max_score: this.maxScore,
+        total_food_eaten: this.totalFoodEaten,
+        session_duration_ms: sessionDuration,
+        session_duration_seconds: Math.round(sessionDuration / 1000),
+        exit_method: 'user_closed',
+        timestamp: new Date().toISOString()
+      });
+    },
+
     initGame() {
       const canvas = this.$refs.gameCanvas;
       this.ctx = canvas.getContext('2d');
@@ -79,10 +160,16 @@ export default {
       this.direction = 'right';
       this.score = 0;
       this.gameOver = false;
+      this.gameSpeed = 150;
+      this.totalFoodEaten = 0;
+      this.maxScore = 0;
       this.generateFood();
       
       // Focus canvas for keyboard input
       canvas.focus();
+      
+      // Track game start
+      this.trackGameStart();
     },
     
     generateFood() {
@@ -148,6 +235,7 @@ export default {
       if (head.x === this.food.x && head.y === this.food.y) {
         this.score += 10;
         this.generateFood();
+        this.trackFoodEaten();
         // Increase speed slightly
         if (this.gameSpeed > 50) {
           this.gameSpeed -= 2;
@@ -233,27 +321,45 @@ export default {
     endGame() {
       this.gameOver = true;
       this.stopGameLoop();
+      this.trackGameOver();
     },
     
     restartGame() {
       this.gameOver = false;
       this.score = 0;
       this.gameSpeed = 150;
+      this.totalFoodEaten = 0;
+      this.maxScore = 0;
       this.initGame();
       this.startGameLoop();
+      this.trackGameRestart();
     },
     
     closeGame() {
       this.$emit('close-game');
+      this.trackGameSession();
     },
-    
+
     handleOverlayClick() {
+      // Track when user clicks outside to close
+      if (this.gameStartTime) {
+        trackEvent('game_closed', {
+          game_name: 'secret_snake_game',
+          close_method: 'overlay_click',
+          final_score: this.score,
+          session_duration_ms: Date.now() - this.gameStartTime,
+          timestamp: new Date().toISOString()
+        });
+      }
       this.closeGame();
     }
   },
   
   beforeUnmount() {
     this.stopGameLoop();
+    if (this.gameStartTime) {
+      this.trackGameSession();
+    }
   }
 }
 
