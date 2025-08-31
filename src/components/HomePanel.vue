@@ -1,7 +1,7 @@
 <template lang="pug">
 .inner-bio
     h1.is-size-2.pb-0
-        LogoNavComponent
+        LogoNavComponent(@trigger-snake-game="activateSnakeGame")
         span Hi, I'm Luis.
     p.is-size-5.is-size-6-mobile.my-6
         span A mission-driven 
@@ -43,25 +43,41 @@
     .grid
         .cell
             a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank" @click="trackClick('Email Link')") Email Me
+
+// Secret Snake Game
+SecretSnakeGame(:isActive="snakeGameActive" @close-game="deactivateSnakeGame")
 </template>
 
 <script>
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 import LogoNavComponent from '@/components/LogoNav.vue';
+import SecretSnakeGame from '@/components/SecretSnakeGame.vue';
 import { trackExternalLink } from '@/utils/analytics';
 
 export default {
     name: 'HomePanelComponent',
     components: {
         SquareWaveComponent,
-        LogoNavComponent
+        LogoNavComponent,
+        SecretSnakeGame
     },
     data() {
         return {
-            imageUrl: 'https://media.licdn.com/dms/image/C5603AQExCh7BU77PlA/profile-displayphoto-shrink_800_800/0/1652627048072?e=1718236800&v=beta&t=QP66LQ3ahJUSj-43F-igIeB0cBoRJGV8RLz063o5jK4'
+            imageUrl: 'https://media.licdn.com/dms/image/C5603AQExCh7BU77PlA/profile-displayphoto-shrink_800_800/0/1652627048072?e=1718236800&v=beta&t=QP66LQ3ahJUSj-43F-igIeB0cBoRJGV8RLz063o5jK4',
+            snakeGameActive: false
         };
     },
     methods: {
+        activateSnakeGame() {
+            this.snakeGameActive = true;
+            // Track this secret interaction
+            this.trackClick('Secret Snake Game Triggered');
+        },
+        
+        deactivateSnakeGame() {
+            this.snakeGameActive = false;
+        },
+        
         trackClick(label) {
             // Enhanced tracking with more context using utility function
             const linkConfigs = {
@@ -102,29 +118,30 @@ export default {
                 },
                 '7thSt Music Website': {
                     url: 'https://7thst.music',
-                    linkType: 'personal_project',
+                    linkType: 'personal_website',
                     location: 'interests_section',
-                    additionalData: { 
-                        interest_type: 'music',
-                        project_type: 'music_website'
-                    }
+                    additionalData: { interest_type: 'music' }
                 },
                 'Email Link': {
                     url: 'mailto:hello@builtwithwords.ai',
                     linkType: 'contact',
                     location: 'contact_section',
                     additionalData: { contact_method: 'email' }
+                },
+                'Secret Snake Game Triggered': {
+                    url: 'internal_game',
+                    linkType: 'secret_feature',
+                    location: 'bio_section',
+                    additionalData: { feature_type: 'easter_egg', game: 'snake' }
                 }
             };
 
             const config = linkConfigs[label];
             if (config) {
-                trackExternalLink({
-                    url: config.url,
-                    label: label,
-                    linkType: config.linkType,
+                trackExternalLink(config.url, {
+                    link_type: config.linkType,
                     location: config.location,
-                    additionalData: config.additionalData || {}
+                    ...config.additionalData
                 });
             }
         }
@@ -133,5 +150,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.inner-bio {
+    // ... existing styles ...
+}
 </style>
