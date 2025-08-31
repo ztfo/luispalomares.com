@@ -2,7 +2,7 @@
 .project(v-if="project")
     .project-detail.pb-2.columns.is-mobile
         .project-title.column.is-half-mobile.is-four-fifths-desktop
-            router-link.square-link(to="/" @click.native="scrollToTop")
+            router-link.square-link(to="/" @click.native="handleBackNavigation")
                 font-awesome-icon(icon="angle-left")
             h2.is-size-6.pb-4.is-hidden-mobile
                 SquareWaveComponent
@@ -17,6 +17,7 @@
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 import ProjectContentComponent from './ProjectContent.vue';
 import { mapGetters } from 'vuex';
+import { trackProjectEvent, trackTimeSpent } from '@/utils/analytics';
 
 export default {
     name: 'ProjectDetail',
@@ -27,6 +28,7 @@ export default {
     data() {
         return {
             project: null,
+            pageLoadTime: null,
         };
     },
     computed: {
@@ -36,6 +38,30 @@ export default {
         fetchProject() {
             const projectId = this.$route.params.id;
             this.project = this.getProject(projectId);
+            this.pageLoadTime = Date.now();
+            
+            // Track project view engagement using utility function
+            if (this.project) {
+                trackProjectEvent('project_view', this.project, {
+                    page_location: window.location.href,
+                    timestamp: this.pageLoadTime
+                });
+            }
+        },
+        handleBackNavigation() {
+            // Track back navigation using utility function
+            if (this.project && this.pageLoadTime) {
+                const timeSpent = Date.now() - this.pageLoadTime;
+                
+                trackTimeSpent(timeSpent, {
+                    event_label: 'back_to_home',
+                    from_project: this.project.company,
+                    project_id: this.project.id,
+                    navigation_type: 'back_button'
+                });
+            }
+            
+            this.scrollToTop();
         },
         scrollToTop() {
             this.$nextTick(() => {
@@ -51,6 +77,19 @@ export default {
     created() {
         this.fetchProject();
     },
+    beforeUnmount() {
+        // Track time spent on project page when leaving using utility function
+        if (this.project && this.pageLoadTime) {
+            const timeSpent = Date.now() - this.pageLoadTime;
+            
+            trackTimeSpent(timeSpent, {
+                event_label: this.project.company,
+                project_id: this.project.id,
+                project_company: this.project.company,
+                exit_page: window.location.href
+            });
+        }
+    }
 }
 </script>
 

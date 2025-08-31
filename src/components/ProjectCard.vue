@@ -17,6 +17,8 @@ router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @
 </template>
 
 <script>
+import { trackProjectEvent } from '@/utils/analytics';
+
 export default {
     name: 'ProjectCardComponent',
     props: {
@@ -24,11 +26,12 @@ export default {
     },
     methods: {
         handleClick() {
-            this.$gtag.event('project_click', {
-                event_category: 'Project',
-                event_label: this.project.title,
-                project_id: this.project.id
+            // Enhanced project click tracking using utility function
+            trackProjectEvent('project_click', this.project, {
+                click_location: 'project_card',
+                event_label: this.project.title
             });
+            
             this.$emit('cardClicked');
         },
     },

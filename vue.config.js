@@ -4,10 +4,12 @@ module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   transpileDependencies: true,
 
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: ['./src/styles/app.scss']
+  css: {
+    loaderOptions: {
+      sass: {
+        // Enable modern Sass features
+        additionalData: `@use "sass:math"; @use "sass:color";`
+      }
     }
   },
 

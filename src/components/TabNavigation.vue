@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { trackTabNavigation } from '@/utils/analytics';
+
 export default {
   name: 'TabNavigationComponent',
   props: {
@@ -22,6 +24,9 @@ export default {
   emits: ['tab-changed'],
   methods: {
     setActiveTab(tab) {
+      // Track tab navigation clicks using utility function
+      trackTabNavigation(this.activeTab, tab, 'projects_section');
+      
       this.$emit('tab-changed', tab);
     }
   }
@@ -35,6 +40,7 @@ export default {
     
     ul {
       border-bottom: none;
+      padding-bottom: 1px;
       
       li {
         a {

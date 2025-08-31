@@ -124,7 +124,7 @@ $layer: 50;
 
     @for $i from 1 through $layer {
       &:nth-child(#{$i}) {
-        transform: translateZ($i * $size / $layer - $size / 2);
+        transform: translateZ(calc($i * $size / $layer - $size / 2));
       }
       
       &:nth-child(#{$i}) &_item {

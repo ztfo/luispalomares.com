@@ -48,6 +48,8 @@
 <script>
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 import LogoNavComponent from '@/components/LogoNav.vue';
+import { trackExternalLink } from '@/utils/analytics';
+
 export default {
     name: 'HomePanelComponent',
     components: {
@@ -61,11 +63,70 @@ export default {
     },
     methods: {
         trackClick(label) {
-            this.$gtag.event('click', {
-                event_category: 'Link',
-                event_label: label,
-                transport_type: 'beacon'
-            });
+            // Enhanced tracking with more context using utility function
+            const linkConfigs = {
+                'LinkedIn Profile': {
+                    url: 'https://www.linkedin.com/in/luis-palomares/',
+                    linkType: 'social_professional',
+                    location: 'bio_section'
+                },
+                'Tucson Tech Article': {
+                    url: 'https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html',
+                    linkType: 'media_article',
+                    location: 'bio_section',
+                    additionalData: { article_topic: 'startup_investment' }
+                },
+                'CertifID Series B Article': {
+                    url: 'https://www.businesswire.com/news/home/20230912425188/en/CertifID-Secures-20M-in-Series-B-Funding-to-Protect-Real-Estate-Industry-from-Fraud',
+                    linkType: 'media_article',
+                    location: 'bio_section',
+                    additionalData: { article_topic: 'series_b_funding' }
+                },
+                'CertifID Website': {
+                    url: 'https://certifid.com',
+                    linkType: 'company_website',
+                    location: 'bio_section',
+                    additionalData: { company: 'CertifID' }
+                },
+                'Dribbble Profile': {
+                    url: 'https://dribbble.com/luispalomares',
+                    linkType: 'social_creative',
+                    location: 'interests_section',
+                    additionalData: { interest_type: 'design' }
+                },
+                'GitHub Profile': {
+                    url: 'https://github.com/ztfo',
+                    linkType: 'social_technical',
+                    location: 'interests_section',
+                    additionalData: { interest_type: 'coding' }
+                },
+                '7thSt Music Website': {
+                    url: 'https://7thst.music',
+                    linkType: 'personal_project',
+                    location: 'interests_section',
+                    additionalData: { 
+                        interest_type: 'music',
+                        project_type: 'music_website'
+                    }
+                },
+                'Email Link': {
+                    url: 'mailto:hello@builtwithwords.ai',
+                    linkType: 'contact',
+                    location: 'contact_section',
+                    additionalData: { contact_method: 'email' }
+                }
+            };
+
+            const config = linkConfigs[label];
+            if (config) {
+                trackExternalLink({
+                    url: config.url,
+                    label: label,
+                    linkType: config.linkType,
+                    location: config.location,
+                    additionalData: config.additionalData || {}
+                });
+            }
         }
     }
 }

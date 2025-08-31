@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { trackProjectEvent } from '@/utils/analytics';
+
 export default {
     name: 'ProjectContentComponent',
     props: {
@@ -35,10 +37,11 @@ export default {
     },
     methods: {
         trackWebsiteClick() {
-            this.$gtag.event('website_click', {
-                event_category: 'Project',
-                event_label: this.project.company,
-                website_url: this.project.website
+            // Enhanced website click tracking using utility function
+            trackProjectEvent('website_click', this.project, {
+                website_url: this.project.website,
+                click_location: 'project_content',
+                event_label: this.project.company
             });
         }
     }

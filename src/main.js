@@ -10,6 +10,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueGtag from 'vue-gtag-next'
+import { initEnhancedAnalytics } from '@/utils/analytics'
 
 library.add(fas, far, fab)
 
@@ -30,3 +31,14 @@ app.use(VueGtag, {
 });
 
 app.use(store).use(router).mount('#app');
+
+// Initialize enhanced analytics after app is mounted
+// Use setTimeout to ensure GA is available and add error handling
+setTimeout(() => {
+  try {
+    initEnhancedAnalytics();
+  } catch (error) {
+    console.warn('Analytics initialization failed:', error);
+    // Don't break the app if analytics fails
+  }
+}, 1000);

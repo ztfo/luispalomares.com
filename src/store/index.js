@@ -9,7 +9,7 @@ export default createStore({
             series: 'B',
             title: 'Designing a future safe from wire fraud.', 
             website: 'https://certifid.com',
-            revenue: '$20M+',
+            revenue: '$25M+',
             backgroundImage: '/img/certifid.jpg',
             logo: 'img/certifid-logo.svg',
             overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path. I\'ve led and contributed to diverse projects, including a full app redesign, launching three of the flagship products that propelled us to a leading position in the industry, and making impactful contributions to our company\'s brand and web presence. Working with such a talented team on a powerful mission has been the magic I\'ve been looking for, providing constant opportunities for learning and growth.',
@@ -38,7 +38,7 @@ export default createStore({
         revenue: 'Free',
         backgroundImage: '/img/arreglo-ai.jpg',
         logo: '/img/arreglo-ai-logo.svg',
-        overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered generator that could transform track ideas into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
+        overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered tool that could take my track ideas and turn them into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
         role: 'Founder & Developer',
         projectType: 'side'
       },
@@ -51,7 +51,7 @@ export default createStore({
         revenue: 'Coming Soon',
         backgroundImage: '/img/drawberry-ai.jpg',
         logo: '/img/drawberry-ai-logo.svg',
-        overview: 'The idea for Drawberry came after watching my niece and nephew get really into coloring pages. I thought about how AI could transform any photo into a coloring book, and then realized this could be more than just a fun tool, it could help fund arts programs in schools. Any profits generated from each book created will be donated to local arts programs.',
+        overview: 'The idea for Drawberry came while on a trip with my niece and nephew. They loved coloring books, and I imagined how amazing it would be if AI could turn our own family photos into coloring pages from that trip. That spark grew into Drawberry, a way to create personal coloring books while also helping fund arts programs for kids.',
         role: 'Founder & Developer',
         projectType: 'side'
       }        
