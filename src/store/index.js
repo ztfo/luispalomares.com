@@ -38,7 +38,7 @@ export default createStore({
         revenue: 'Free',
         backgroundImage: '/img/arreglo-ai.jpg',
         logo: '/img/arreglo-ai-logo.svg',
-        overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered generator that could transform track ideas into complete arrangements in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
+        overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered generator that could transform track ideas into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
         role: 'Founder & Developer',
         projectType: 'side'
       },
@@ -51,7 +51,7 @@ export default createStore({
         revenue: 'Coming Soon',
         backgroundImage: '/img/drawberry-ai.jpg',
         logo: '/img/drawberry-ai-logo.svg',
-        overview: 'The idea for Drawberry came after watching my niece and nephew get really into coloring pages. I thought about how AI could transform any photo into a coloring book, and then realized this could be more than just a fun tool - it could help fund arts programs in schools. Every book created helps provide pencils, paper, and creative spaces for kids who deserve to imagine and create.',
+        overview: 'The idea for Drawberry came after watching my niece and nephew get really into coloring pages. I thought about how AI could transform any photo into a coloring book, and then realized this could be more than just a fun tool, it could help fund arts programs in schools. Any profits generated from each book created will be donated to local arts programs.',
         role: 'Founder & Developer',
         projectType: 'side'
       }        
