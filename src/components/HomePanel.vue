@@ -16,8 +16,8 @@
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
         | to 
-        a.link(href="https://www.businesswire.com/news/home/20230912425188/en/CertifID-Secures-20M-in-Series-B-Funding-to-Protect-Real-Estate-Industry-from-Fraud", target="_blank" @click="trackClick('CertifID Series B Article')")
-            span Series B&nbsp;
+        a.link(href="https://www.businesswire.com/news/home/20250715516305/en/CertifID-Raises-%2447.5-Million-Series-C-Led-by-Centana-Growth-Partners", target="_blank" @click="trackClick('CertifID Series C Article')")
+            span Series C&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
         span .
@@ -92,11 +92,11 @@ export default {
                     location: 'bio_section',
                     additionalData: { article_topic: 'startup_investment' }
                 },
-                'CertifID Series B Article': {
-                    url: 'https://www.businesswire.com/news/home/20230912425188/en/CertifID-Secures-20M-in-Series-B-Funding-to-Protect-Real-Estate-Industry-from-Fraud',
+                'CertifID Series C Article': {
+                    url: 'https://www.businesswire.com/news/home/20250715516305/en/CertifID-Raises-%2447.5-Million-Series-C-Led-by-Centana-Growth-Partners',
                     linkType: 'media_article',
                     location: 'bio_section',
-                    additionalData: { article_topic: 'series_b_funding' }
+                    additionalData: { article_topic: 'series_c_funding' }
                 },
                 'CertifID Website': {
                     url: 'https://certifid.com',
