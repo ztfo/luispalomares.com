@@ -11,7 +11,7 @@
             | &nbsp;
         span .
         | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in mortgage lending, and open credit avenues for immigrants, steering startups from 
-        a.link(href="https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank" @click="trackClick('Tucson Tech Article')")
+        a.link(href="https://tucson.com/business/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank" @click="trackClick('Tucson Tech Article')")
             span seed&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
@@ -87,7 +87,7 @@ export default {
                     location: 'bio_section'
                 },
                 'Tucson Tech Article': {
-                    url: 'https://tucson.com/business/tucson-tech-ua-real-estate-services-startup-wins-major-investment/article_cf74558c-5f18-552b-81a0-cf60679257cf.html',
+                    url: 'https://tucson.com/business/article_cf74558c-5f18-552b-81a0-cf60679257cf.html',
                     linkType: 'media_article',
                     location: 'bio_section',
                     additionalData: { article_topic: 'startup_investment' }
