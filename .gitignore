@@ -3,3 +3,6 @@ node_modules
 dist
 /docs
 /docs/*
+
+# Claude Code
+.claude/sessions/

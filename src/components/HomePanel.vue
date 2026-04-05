@@ -26,15 +26,17 @@
         a.link(href="https://certifid.com", target="_blank" @click="trackClick('CertifID Website')") CertifID
     p.contact-links.is-size-6.mb-6
         | I like to&nbsp;
-        a.link(href="https://dribbble.com/luispalomares", target="_blank" @click="trackClick('Dribbble Profile')") 
+        a.link(href="https://dribbble.com/luispalomares", target="_blank" @click="trackClick('Dribbble Profile')")
             font-awesome-icon(:icon="['fab', 'dribbble']")
             | &nbsp;
             span design
         | ,&nbsp;
-        a.link(href="https://github.com/ztfo", target="_blank" @click="trackClick('GitHub Profile')") 
+        a.link(href="https://github.com/ztfo", target="_blank" @click="trackClick('GitHub Profile')")
             font-awesome-icon(:icon="['fab', 'github']")
             | &nbsp;
             span code
+        | ,&nbsp;
+        span build with AI
         | ,&nbsp;and&nbsp;
         a.link(href="https://7thst.music", target="_blank" @click="trackClick('7thSt Music Website')")
             font-awesome-icon(:icon="['fa', 'circle-play']")

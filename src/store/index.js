@@ -29,11 +29,11 @@ export default createStore({
           role: 'Founder',
           projectType: 'main'
       },
-      { 
+      {
         id: '2',
         company: 'Arreglo.ai',
         series: 'Side Project',
-        title: 'AI-powered music arrangement generator for Figma.', 
+        title: 'AI-powered music arrangement generator for Figma.',
         website: 'https://arreglo.ai',
         revenue: 'Free',
         backgroundImage: '/img/arreglo-ai.jpg',
@@ -42,19 +42,33 @@ export default createStore({
         role: 'Founder & Developer',
         projectType: 'side'
       },
-      { 
-        id: '3',
-        company: 'Drawberry.ai',
-        series: 'Side Project',
-        title: 'AI-powered coloring book generator with a cause.', 
-        website: 'https://drawberry.ai/',
-        revenue: 'Coming Soon',
-        backgroundImage: '/img/drawberry-ai.jpg',
-        logo: '/img/drawberry-ai-logo.svg',
-        overview: 'The idea for Drawberry came while on a trip with my niece and nephew. They loved coloring books, and I imagined how amazing it would be if AI could turn our own family photos into coloring pages from that trip. That spark grew into Drawberry, a way to create personal coloring books while also helping fund arts programs for kids.',
-        role: 'Founder & Developer',
-        projectType: 'side'
-      }        
+      // TODO: Uncomment when images/logos are ready
+      // {
+      //   id: '3',
+      //   company: 'CraftMarkets',
+      //   series: 'Side Project',
+      //   title: 'Discover local craft markets and artisan events near you.',
+      //   website: '',
+      //   revenue: '',
+      //   backgroundImage: '',
+      //   logo: '',
+      //   overview: 'Built a craft market directory to help people discover local artisan events. Features interactive maps powered by Mapbox, search and filtering, and detailed market listings with vendor info. A passion project inspired by our love of local markets and the artisan community.',
+      //   role: 'Co-Founder & Developer',
+      //   projectType: 'side'
+      // },
+      // {
+      //   id: '4',
+      //   company: 'Katie Ann Clay Mailer',
+      //   series: 'Side Project',
+      //   title: 'Transactional email service for a ceramic artist\'s studio.',
+      //   website: 'https://katieannclay.com',
+      //   revenue: '',
+      //   backgroundImage: '',
+      //   logo: '',
+      //   overview: 'Built a lightweight transactional email service to power order confirmations and studio updates for my wife\'s ceramic art business. Serverless architecture using Vercel Functions and Resend API, designed to be simple and reliable.',
+      //   role: 'Developer',
+      //   projectType: 'side'
+      // }        
     ]
   },
   getters: {

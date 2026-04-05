@@ -30,15 +30,6 @@ const routes = [
       }
     ]
   },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import(/* webpackChunkName: "dashboard" */ '../views/DashboardView.vue'),
-    meta: {
-      title: 'Dashboard | Luis Palomares',
-      gaPage: 'dashboard'
-    }
-  }
 ]
 
 const router = createRouter({
