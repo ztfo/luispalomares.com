@@ -46,8 +46,9 @@
         .cell
             a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank" @click="trackClick('Email Link')") Email Me
 
-// Secret Snake Game
-SecretSnakeGame(:isActive="snakeGameActive" @close-game="deactivateSnakeGame")
+// Secret Snake Game — canvas/keyboard interaction, client-only
+ClientOnly
+    SecretSnakeGame(:isActive="snakeGameActive" @close-game="deactivateSnakeGame")
 </template>
 
 <script>
