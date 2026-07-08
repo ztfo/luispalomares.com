@@ -430,7 +430,7 @@ export default {
 
 .score-display {
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter Variable', 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -460,7 +460,7 @@ export default {
     color: #ffffff;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
   }
@@ -469,7 +469,7 @@ export default {
     color: #cccccc;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
@@ -482,7 +482,7 @@ export default {
     margin: 0 0.5rem;
     cursor: pointer;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 700;
     text-transform: capitalize;
     transition: .5s;

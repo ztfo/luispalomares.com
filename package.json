@@ -14,6 +14,7 @@
     "deploy": "nuxi generate && echo 'luispalomares.com' > .output/public/CNAME && gh-pages -d .output/public"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
+    "nuxt-purgecss": "^2.0.0",
     "pug": "^3.0.2",
     "sass": "^1.74.1"
   },
