@@ -14,9 +14,6 @@ importers:
       '@fortawesome/free-brands-svg-icons':
         specifier: ^6.5.2
         version: 6.7.2
-      '@fortawesome/free-regular-svg-icons':
-        specifier: ^6.5.2
-        version: 6.7.2
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.5.2
         version: 6.7.2
@@ -413,10 +410,6 @@ packages:
 
   '@fortawesome/free-brands-svg-icons@6.7.2':
     resolution: {integrity: sha512-zu0evbcRTgjKfrr77/2XX+bU+kuGfjm0LbajJHVIgBWNIDzrhpRxiCPNT8DW5AdmSsq7Mcf9D1bH0aSeSUSM+Q==}
-    engines: {node: '>=6'}
-
-  '@fortawesome/free-regular-svg-icons@6.7.2':
-    resolution: {integrity: sha512-7Z/ur0gvCMW8G93dXIQOkQqHo2M5HLhYrRVC0//fakJXxcF1VmMPsxnG6Ee8qEylA8b8Q3peQXWMNZ62lYF28g==}
     engines: {node: '>=6'}
 
   '@fortawesome/free-solid-svg-icons@6.7.2':
@@ -4465,10 +4458,6 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
-  '@fortawesome/free-regular-svg-icons@6.7.2':
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 6.7.2
-
   '@fortawesome/free-solid-svg-icons@6.7.2':
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
@@ -5367,12 +5356,12 @@ snapshots:
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 8.56.12
-      '@types/estree': 1.0.6
+      '@types/estree': 1.0.9
     optional: true
 
   '@types/eslint@8.56.12':
     dependencies:
-      '@types/estree': 1.0.6
+      '@types/estree': 1.0.9
       '@types/json-schema': 7.0.15
     optional: true
 
@@ -8038,7 +8027,7 @@ snapshots:
 
   terser-webpack-plugin@5.3.11(esbuild@0.28.1)(webpack@5.97.1(esbuild@0.28.1)):
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
@@ -8407,12 +8396,12 @@ snapshots:
   webpack@5.97.1(esbuild@0.28.1):
     dependencies:
       '@types/eslint-scope': 3.7.7
-      '@types/estree': 1.0.6
+      '@types/estree': 1.0.9
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      acorn: 8.14.0
-      browserslist: 4.24.3
+      acorn: 8.17.0
+      browserslist: 4.28.5
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.0
       es-module-lexer: 1.6.0

@@ -2,7 +2,7 @@
   <div v-if="isActive" class="secret-snake-overlay" @click="handleOverlayClick">
     <div class="snake-game-container" @click.stop>
       <button @click="closeGame" class="close-button" aria-label="Close game">
-        <font-awesome-icon :icon="['fas', 'times']" />
+        <font-awesome-icon :icon="['fas', 'xmark']" />
       </button>
       
       <div class="canvas-wrapper">

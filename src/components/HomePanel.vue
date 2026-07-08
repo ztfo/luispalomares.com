@@ -39,7 +39,7 @@
         span build with AI
         | ,&nbsp;and&nbsp;
         a.link(href="https://7thst.music", target="_blank" @click="trackClick('7thSt Music Website')")
-            font-awesome-icon(:icon="['fa', 'circle-play']")
+            font-awesome-icon(:icon="['fas', 'circle-play']")
             | &nbsp;
             span make dance music.
     .grid

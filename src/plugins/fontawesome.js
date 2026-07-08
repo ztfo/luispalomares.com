@@ -1,14 +1,27 @@
 import { library, config } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import {
+  faAngleLeft,
+  faArrowUpRightFromSquare,
+  faLink,
+  faCirclePlay,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons'
+import { faDribbble, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// We import the Font Awesome core CSS via nuxt.config's css array, so tell the
-// library not to inject it again at runtime (avoids a flash of oversized icons).
+// Import only the icons the site actually uses instead of the whole library —
+// keeps the client bundle tiny (the full fas/far/fab set is ~1.8 MB).
 config.autoAddCss = false
 
-library.add(fas, far, fab)
+library.add(
+  faAngleLeft,
+  faArrowUpRightFromSquare,
+  faLink,
+  faCirclePlay,
+  faXmark,
+  faDribbble,
+  faGithub,
+)
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('font-awesome-icon', FontAwesomeIcon)

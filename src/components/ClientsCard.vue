@@ -31,7 +31,7 @@ export default {
     box-shadow: none;
     border-radius: 0;
     border: 1px solid var(--glass);
-    background-image: url('https://uploads-ssl.webflow.com/5ce48a38b7568a828f2a0807/6625daec7847404b7802a821_clients.png');
+    background-image: url('/img/clients.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
