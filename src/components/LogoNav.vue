@@ -1,9 +1,14 @@
 <template lang="pug">
 .logo-nav.mr-4
     img(
-        src="@/assets/graphics/squaregalaxy.svg", 
+        src="@/assets/graphics/squaregalaxy.svg",
         alt="Square Galaxy"
+        role="button"
+        tabindex="0"
+        aria-label="Play the secret snake game"
         @click="triggerSnakeGame"
+        @keydown.enter="triggerSnakeGame"
+        @keydown.space.prevent="triggerSnakeGame"
         class="clickable-logo"
     )
 </template>

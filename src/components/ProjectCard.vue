@@ -9,11 +9,11 @@ NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handle
     .levels.card-description
         .level
             .level-left
-                img.logo.is-hidden-desktop.mb-4(:src="project.logo", alt="Logo" :title="project.company")
+                img.logo.is-hidden-desktop.mb-4(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
                 .is-size-6 
                     span {{ project.title }}
             .level-right.is-hidden-mobile
-                img.logo(:src="project.logo", alt="Logo" :title="project.company")
+                img.logo(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
 </template>
 
 <script>

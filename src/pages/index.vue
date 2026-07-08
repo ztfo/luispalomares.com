@@ -7,11 +7,12 @@
     TabNavigation.flex-3(:activeTab="activeTab" @tab-changed="handleTabChange")
   .projects
     ProjectCard(
-      v-for="project in filteredProjects"
+      v-for="project in projects"
+      v-show="project.projectType === activeTab"
       :key="project.id"
       :project="project"
     )
-    ClientsCard(v-if="activeTab === 'main'")
+    ClientsCard(v-show="activeTab === 'main'")
 </template>
 
 <script setup>
@@ -20,12 +21,11 @@ import TabNavigation from '@/components/TabNavigation.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ClientsCard from '@/components/ClientsCard.vue'
 
-const { getMainQuests, getSideQuests } = useProjects()
+// Render every project so all /project/:id links exist in the prerendered
+// HTML (crawlable); the tab just toggles visibility client-side via v-show.
+const { projects } = useProjects()
 
 const activeTab = ref('main')
-const filteredProjects = computed(() =>
-  activeTab.value === 'main' ? getMainQuests() : getSideQuests(),
-)
 
 function handleTabChange(tab) {
   activeTab.value = tab
@@ -44,6 +44,9 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: siteUrl,
   ogImage,
+  ogImageAlt: 'Luis Palomares — Product Leader, Designer & Founder',
+  ogSiteName: 'Luis Palomares',
+  ogLocale: 'en_US',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Luis Palomares — Product Leader, Designer & Founder',
   twitterDescription: description,
@@ -60,6 +63,7 @@ useHead({
         '@type': 'Person',
         name: 'Luis Palomares',
         url: siteUrl,
+        image: ogImage,
         jobTitle: 'Product Leader',
         description:
           'Mission-driven product leader, designer, and founder who builds with design, code, and AI.',
@@ -79,6 +83,7 @@ useHead({
           'https://www.linkedin.com/in/luis-palomares/',
           'https://github.com/ztfo',
           'https://dribbble.com/luispalomares',
+          'https://7thst.music',
         ],
       }),
     },

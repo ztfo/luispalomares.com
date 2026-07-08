@@ -9,7 +9,7 @@
                 br
                 span {{ project.title }}
         .project-logo.column.is-half-mobile
-            img(:src="project.logo", alt="Logo" :title="project.company")
+            img(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
     ProjectContentComponent(v-if="project", :project="project")
 </template>
 

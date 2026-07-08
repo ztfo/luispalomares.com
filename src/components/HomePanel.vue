@@ -141,10 +141,12 @@ export default {
 
             const config = linkConfigs[label];
             if (config) {
-                trackExternalLink(config.url, {
-                    link_type: config.linkType,
+                trackExternalLink({
+                    url: config.url,
+                    label,
+                    linkType: config.linkType,
                     location: config.location,
-                    ...config.additionalData
+                    additionalData: config.additionalData || {}
                 });
             }
         }
