@@ -2,7 +2,7 @@
 .project(v-if="project")
     .project-detail.pb-2.columns.is-mobile
         .project-title.column.is-half-mobile.is-four-fifths-desktop
-            router-link.square-link(to="/" @click.native="handleBackNavigation")
+            NuxtLink.square-link(to="/" @click="handleBackNavigation")
                 font-awesome-icon(icon="angle-left")
             h2.is-size-6.pb-4.is-hidden-mobile
                 SquareWaveComponent
@@ -16,7 +16,6 @@
 <script>
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 import ProjectContentComponent from './ProjectContent.vue';
-import { mapGetters } from 'vuex';
 import { trackProjectEvent, trackTimeSpent } from '@/utils/analytics';
 
 export default {
@@ -25,34 +24,25 @@ export default {
         SquareWaveComponent,
         ProjectContentComponent
     },
+    props: {
+        // Resolved on the server by the page and passed in, so the detail
+        // renders in the prerendered HTML (crawlable, no client fetch needed).
+        project: {
+            type: Object,
+            default: null
+        }
+    },
     data() {
         return {
-            project: null,
             pageLoadTime: null,
         };
     },
-    computed: {
-        ...mapGetters(['getProject']),
-    },
     methods: {
-        fetchProject() {
-            const projectId = this.$route.params.id;
-            this.project = this.getProject(projectId);
-            this.pageLoadTime = Date.now();
-            
-            // Track project view engagement using utility function
-            if (this.project) {
-                trackProjectEvent('project_view', this.project, {
-                    page_location: window.location.href,
-                    timestamp: this.pageLoadTime
-                });
-            }
-        },
         handleBackNavigation() {
-            // Track back navigation using utility function
-            if (this.project && this.pageLoadTime) {
+            // Track back navigation using utility function (client only)
+            if (import.meta.client && this.project && this.pageLoadTime) {
                 const timeSpent = Date.now() - this.pageLoadTime;
-                
+
                 trackTimeSpent(timeSpent, {
                     event_label: 'back_to_home',
                     from_project: this.project.company,
@@ -60,28 +50,32 @@ export default {
                     navigation_type: 'back_button'
                 });
             }
-            
+
             this.scrollToTop();
         },
         scrollToTop() {
+            if (!import.meta.client) return;
             this.$nextTick(() => {
                 window.scrollTo(0, 0);
             });
         },
     },
-    watch: {
-        $route() {
-            this.fetchProject();
-        },
-    },
-    created() {
-        this.fetchProject();
+    mounted() {
+        // Runs client-side only, so window/analytics access is safe here.
+        this.pageLoadTime = Date.now();
+
+        if (this.project) {
+            trackProjectEvent('project_view', this.project, {
+                page_location: window.location.href,
+                timestamp: this.pageLoadTime
+            });
+        }
     },
     beforeUnmount() {
         // Track time spent on project page when leaving using utility function
-        if (this.project && this.pageLoadTime) {
+        if (import.meta.client && this.project && this.pageLoadTime) {
             const timeSpent = Date.now() - this.pageLoadTime;
-            
+
             trackTimeSpent(timeSpent, {
                 event_label: this.project.company,
                 project_id: this.project.id,

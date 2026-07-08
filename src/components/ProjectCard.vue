@@ -1,5 +1,5 @@
 <template lang="pug">
-router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @click="handleClick")
+NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handleClick")
     .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
         .has-text-centered(v-if="!project.backgroundImage")
             .dots

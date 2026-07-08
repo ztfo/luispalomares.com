@@ -2,13 +2,16 @@
   "name": "Luis",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "predeploy": "pnpm run build",
-    "deploy": "vue-cli-service build && echo 'luispalomares.com' > dist/CNAME && gh-pages -d dist",
-    "lint": "vue-cli-service lint"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare",
+    "predeploy": "pnpm run generate",
+    "deploy": "nuxi generate && echo 'luispalomares.com' > .output/public/CNAME && gh-pages -d .output/public"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -16,50 +19,16 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
-    "bl": "^6.0.19",
     "bulma": "^1.0.4",
-    "core-js": "^3.45.1",
-    "eslint": "^8.0.0",
-    "pug": "^3.0.2",
-    "pug-plain-loader": "^1.1.0",
-    "vue": "^3.2.13",
+    "nuxt": "^3.14.0",
+    "vue": "^3.5.0",
     "vue-gtag-next": "^1.14.0",
-    "vue-router": "^4.0.3",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@babel/plugin-transform-nullish-coalescing-operator": "^7.27.1",
-    "@babel/plugin-transform-optional-chaining": "^7.27.1",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint-plugin-vue": "^8.0.3",
     "gh-pages": "^6.3.0",
-    "sass": "^1.74.1",
-    "sass-loader": "^14.1.1"
+    "pug": "^3.0.2",
+    "sass": "^1.74.1"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ],
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }

@@ -6,3 +6,7 @@ dist
 
 # Claude Code
 .claude/sessions/
+# Nuxt
+.nuxt
+.output
+.data
