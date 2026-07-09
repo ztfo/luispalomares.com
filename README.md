@@ -5,4 +5,4 @@ A mission-driven product [leader](https://www.linkedin.com/in/luis-palomares/). 
 
 Product @ [CertifID](https://certifid.com)
 
-I like to  [design](https://dribbble.com/luispalomares),  code, and  [make dance music](https://7thSt.music).
+I like to [design](https://dribbble.com/luispalomares), [code](https://github.com/ztfo), build with AI, and [make dance music](https://7thst.music).

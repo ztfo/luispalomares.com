@@ -18,8 +18,6 @@
             a.link(:href="project.website" target="_blank" @click="trackWebsiteClick")
                 font-awesome-icon(icon="link")
                 | &nbsp;Website
-    .project-component(v-if="project.projectType === 'main'")
-        component(:is="project.companyComponent")
 </template>
 
 <script>
@@ -30,14 +28,8 @@ export default {
     props: {
         project: Object,
     },
-    computed: {
-        companyComponent() {
-            return () => import(`./Projects/${this.project.company}.vue`);
-        },
-    },
     methods: {
         trackWebsiteClick() {
-            // Enhanced website click tracking using utility function
             trackProjectEvent('website_click', this.project, {
                 website_url: this.project.website,
                 click_location: 'project_content',

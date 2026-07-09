@@ -1,27 +1,17 @@
 <template lang="pug">
 .home
-    .home-panel.left
-        .long-divider
-        HomePanelComponent
-        FooterComponent
-    .home-panel.right
-        HomeScrollComponent
+  .home-panel.left
+    .long-divider
+    HomePanel
+    Footer
+  .home-panel.right
+    .inner-scroll
+      slot
 </template>
 
-<script>
-import HomePanelComponent from '@/components/HomePanel.vue';
-import HomeScrollComponent from '@/components/Projects.vue';
-import LogoNavComponent from '@/components/LogoNav.vue';
-import FooterComponent from '@/components/Footer.vue';
-export default {
-    name: 'HomeView',
-    components: {
-        HomePanelComponent,
-        HomeScrollComponent,
-        LogoNavComponent,
-        FooterComponent
-    }
-}
+<script setup>
+import HomePanel from '@/components/HomePanel.vue'
+import Footer from '@/components/Footer.vue'
 </script>
 
 <style scoped lang="scss">
@@ -80,5 +70,16 @@ export default {
   background: linear-gradient(270deg, var(--green), var(--lightblue), var(--green));
   background-size: 200% 200%;
   animation: gradient 3s ease-in-out infinite;
+}
+.inner-scroll {
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    padding: 3rem 5rem;
+    overflow-y: scroll;
+    @media (max-width: 768px) {
+        height: auto;
+        padding-top: 2.5rem;
+    }
 }
 </style>

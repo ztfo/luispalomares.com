@@ -2,7 +2,7 @@
   <div v-if="isActive" class="secret-snake-overlay" @click="handleOverlayClick">
     <div class="snake-game-container" @click.stop>
       <button @click="closeGame" class="close-button" aria-label="Close game">
-        <font-awesome-icon :icon="['fas', 'times']" />
+        <font-awesome-icon :icon="['fas', 'xmark']" />
       </button>
       
       <div class="canvas-wrapper">
@@ -79,8 +79,7 @@ export default {
       trackEvent('easter_egg_discovered', {
         feature_name: 'secret_snake_game',
         location: 'portfolio_bio_section',
-        trigger_method: 'square_icon_click',
-        timestamp: new Date().toISOString()
+        trigger_method: 'square_icon_click'
       });
     },
 
@@ -88,8 +87,7 @@ export default {
       this.gameStartTime = Date.now();
       trackEvent('game_started', {
         game_name: 'secret_snake_game',
-        initial_speed: this.gameSpeed,
-        timestamp: new Date().toISOString()
+        initial_speed: this.gameSpeed
       });
     },
 
@@ -101,8 +99,7 @@ export default {
         game_name: 'secret_snake_game',
         current_score: this.score,
         food_count: this.totalFoodEaten,
-        game_speed: this.gameSpeed,
-        timestamp: new Date().toISOString()
+        game_speed: this.gameSpeed
       });
     },
 
@@ -115,17 +112,14 @@ export default {
         max_score: this.maxScore,
         total_food_eaten: this.totalFoodEaten,
         session_duration_ms: sessionDuration,
-        session_duration_seconds: Math.round(sessionDuration / 1000),
-        timestamp: new Date().toISOString()
+        session_duration_seconds: Math.round(sessionDuration / 1000)
       });
     },
 
     trackGameRestart() {
       trackEvent('game_restarted', {
         game_name: 'secret_snake_game',
-        previous_score: this.score,
-        restart_count: 1, // You could track this if you want
-        timestamp: new Date().toISOString()
+        previous_score: this.score
       });
     },
 
@@ -141,8 +135,7 @@ export default {
         total_food_eaten: this.totalFoodEaten,
         session_duration_ms: sessionDuration,
         session_duration_seconds: Math.round(sessionDuration / 1000),
-        exit_method: 'user_closed',
-        timestamp: new Date().toISOString()
+        exit_method: 'user_closed'
       });
     },
 
@@ -347,8 +340,7 @@ export default {
           game_name: 'secret_snake_game',
           close_method: 'overlay_click',
           final_score: this.score,
-          session_duration_ms: Date.now() - this.gameStartTime,
-          timestamp: new Date().toISOString()
+          session_duration_ms: Date.now() - this.gameStartTime
         });
       }
       this.closeGame();
@@ -430,7 +422,7 @@ export default {
 
 .score-display {
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter Variable', 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -460,7 +452,7 @@ export default {
     color: #ffffff;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
   }
@@ -469,7 +461,7 @@ export default {
     color: #cccccc;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
@@ -482,7 +474,7 @@ export default {
     margin: 0 0.5rem;
     cursor: pointer;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 700;
     text-transform: capitalize;
     transition: .5s;

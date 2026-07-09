@@ -1,5 +1,5 @@
 <template lang="pug">
-router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @click="handleClick")
+NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handleClick")
     .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
         .has-text-centered(v-if="!project.backgroundImage")
             .dots
@@ -9,11 +9,11 @@ router-link.link-block(v-if="project" :to="{ path: `/project/${project.id}` }" @
     .levels.card-description
         .level
             .level-left
-                img.logo.is-hidden-desktop.mb-4(:src="project.logo", alt="Logo" :title="project.company")
+                img.logo.is-hidden-desktop.mb-4(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
                 .is-size-6 
                     span {{ project.title }}
             .level-right.is-hidden-mobile
-                img.logo(:src="project.logo", alt="Logo" :title="project.company")
+                img.logo(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
 </template>
 
 <script>
@@ -26,13 +26,10 @@ export default {
     },
     methods: {
         handleClick() {
-            // Enhanced project click tracking using utility function
             trackProjectEvent('project_click', this.project, {
                 click_location: 'project_card',
                 event_label: this.project.title
             });
-            
-            this.$emit('cardClicked');
         },
     },
 }
@@ -77,11 +74,6 @@ export default {
     @media (max-width: 768px) {
         background-position: center;
     }
-    .no-signal {
-        font-size: .8rem;
-        font-weight: 700;
-        color: (var(--medium-emphasis-text));
-    }
 }
 .link-block {
     display: block;
@@ -95,13 +87,6 @@ export default {
         .project {
             transform: scale(1.02);
         }
-    }
-}
-.cell {
-    display: flex;
-    align-items: center;
-    &.has-text-right {
-        justify-content: flex-end;
     }
 }
 .card-description {
