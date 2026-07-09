@@ -96,7 +96,9 @@ useHead({
   border-bottom: 1px solid var(--glass);
   padding-bottom: 1rem;
 
-  h2 {
+  h2,
+  h2 strong {
+    color: var(--white);
     margin-bottom: 0;
   }
 }
