@@ -29,7 +29,11 @@ pnpm preview    # preview the built site
 
 ## Deploy
 
-Deploys to GitHub Pages (custom domain `luispalomares.com`):
+Deploys to GitHub Pages (custom domain `luispalomares.com`). Pushes to `main`
+deploy automatically via GitHub Actions (`.github/workflows/deploy.yml`), which
+publishes `.output/public` to the `gh-pages` branch.
+
+Manual fallback:
 
 ```bash
 pnpm deploy     # generate + push .output/public via gh-pages

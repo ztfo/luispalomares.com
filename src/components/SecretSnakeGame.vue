@@ -79,8 +79,7 @@ export default {
       trackEvent('easter_egg_discovered', {
         feature_name: 'secret_snake_game',
         location: 'portfolio_bio_section',
-        trigger_method: 'square_icon_click',
-        timestamp: new Date().toISOString()
+        trigger_method: 'square_icon_click'
       });
     },
 
@@ -88,8 +87,7 @@ export default {
       this.gameStartTime = Date.now();
       trackEvent('game_started', {
         game_name: 'secret_snake_game',
-        initial_speed: this.gameSpeed,
-        timestamp: new Date().toISOString()
+        initial_speed: this.gameSpeed
       });
     },
 
@@ -101,8 +99,7 @@ export default {
         game_name: 'secret_snake_game',
         current_score: this.score,
         food_count: this.totalFoodEaten,
-        game_speed: this.gameSpeed,
-        timestamp: new Date().toISOString()
+        game_speed: this.gameSpeed
       });
     },
 
@@ -115,17 +112,14 @@ export default {
         max_score: this.maxScore,
         total_food_eaten: this.totalFoodEaten,
         session_duration_ms: sessionDuration,
-        session_duration_seconds: Math.round(sessionDuration / 1000),
-        timestamp: new Date().toISOString()
+        session_duration_seconds: Math.round(sessionDuration / 1000)
       });
     },
 
     trackGameRestart() {
       trackEvent('game_restarted', {
         game_name: 'secret_snake_game',
-        previous_score: this.score,
-        restart_count: 1, // You could track this if you want
-        timestamp: new Date().toISOString()
+        previous_score: this.score
       });
     },
 
@@ -141,8 +135,7 @@ export default {
         total_food_eaten: this.totalFoodEaten,
         session_duration_ms: sessionDuration,
         session_duration_seconds: Math.round(sessionDuration / 1000),
-        exit_method: 'user_closed',
-        timestamp: new Date().toISOString()
+        exit_method: 'user_closed'
       });
     },
 
@@ -347,8 +340,7 @@ export default {
           game_name: 'secret_snake_game',
           close_method: 'overlay_click',
           final_score: this.score,
-          session_duration_ms: Date.now() - this.gameStartTime,
-          timestamp: new Date().toISOString()
+          session_duration_ms: Date.now() - this.gameStartTime
         });
       }
       this.closeGame();

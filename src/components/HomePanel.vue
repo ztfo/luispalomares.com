@@ -52,7 +52,6 @@ ClientOnly
 </template>
 
 <script>
-import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
 import LogoNavComponent from '@/components/LogoNav.vue';
 import SecretSnakeGame from '@/components/SecretSnakeGame.vue';
 import { trackExternalLink } from '@/utils/analytics';
@@ -60,29 +59,25 @@ import { trackExternalLink } from '@/utils/analytics';
 export default {
     name: 'HomePanelComponent',
     components: {
-        SquareWaveComponent,
         LogoNavComponent,
         SecretSnakeGame
     },
     data() {
         return {
-            imageUrl: 'https://media.licdn.com/dms/image/C5603AQExCh7BU77PlA/profile-displayphoto-shrink_800_800/0/1652627048072?e=1718236800&v=beta&t=QP66LQ3ahJUSj-43F-igIeB0cBoRJGV8RLz063o5jK4',
             snakeGameActive: false
         };
     },
     methods: {
         activateSnakeGame() {
             this.snakeGameActive = true;
-            // Track this secret interaction
             this.trackClick('Secret Snake Game Triggered');
         },
-        
+
         deactivateSnakeGame() {
             this.snakeGameActive = false;
         },
-        
+
         trackClick(label) {
-            // Enhanced tracking with more context using utility function
             const linkConfigs = {
                 'LinkedIn Profile': {
                     url: 'https://www.linkedin.com/in/luis-palomares/',
@@ -153,9 +148,3 @@ export default {
     }
 }
 </script>
-
-<style scoped lang="scss">
-.inner-bio {
-    // ... existing styles ...
-}
-</style>

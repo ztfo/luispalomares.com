@@ -45,9 +45,6 @@ export const projects = [
 
 export function useProjects() {
   const getProject = (id) => projects.find((project) => project.id === id)
-  const getProjectsByType = (type) => projects.filter((project) => project.projectType === type)
-  const getMainQuests = () => getProjectsByType('main')
-  const getSideQuests = () => getProjectsByType('side')
 
-  return { projects, getProject, getProjectsByType, getMainQuests, getSideQuests }
+  return { projects, getProject }
 }

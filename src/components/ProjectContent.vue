@@ -30,7 +30,6 @@ export default {
     },
     methods: {
         trackWebsiteClick() {
-            // Enhanced website click tracking using utility function
             trackProjectEvent('website_click', this.project, {
                 website_url: this.project.website,
                 click_location: 'project_content',

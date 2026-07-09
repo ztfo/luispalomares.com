@@ -26,13 +26,10 @@ export default {
     },
     methods: {
         handleClick() {
-            // Enhanced project click tracking using utility function
             trackProjectEvent('project_click', this.project, {
                 click_location: 'project_card',
                 event_label: this.project.title
             });
-            
-            this.$emit('cardClicked');
         },
     },
 }
@@ -77,11 +74,6 @@ export default {
     @media (max-width: 768px) {
         background-position: center;
     }
-    .no-signal {
-        font-size: .8rem;
-        font-weight: 700;
-        color: (var(--medium-emphasis-text));
-    }
 }
 .link-block {
     display: block;
@@ -95,13 +87,6 @@ export default {
         .project {
             transform: scale(1.02);
         }
-    }
-}
-.cell {
-    display: flex;
-    align-items: center;
-    &.has-text-right {
-        justify-content: flex-end;
     }
 }
 .card-description {

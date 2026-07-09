@@ -3,10 +3,10 @@
   .tabs.is-boxed.is-right
     ul
       li(:class="{ 'is-active': activeTab === 'main' }")
-        a(@click="setActiveTab('main')") 
+        a(role="button" tabindex="0" @click="setActiveTab('main')" @keydown.enter="setActiveTab('main')")
           span Main Quests
       li(:class="{ 'is-active': activeTab === 'side' }")
-        a(@click="setActiveTab('side')") 
+        a(role="button" tabindex="0" @click="setActiveTab('side')" @keydown.enter="setActiveTab('side')")
           span Side Quests
 </template>
 
@@ -24,9 +24,7 @@ export default {
   emits: ['tab-changed'],
   methods: {
     setActiveTab(tab) {
-      // Track tab navigation clicks using utility function
       trackTabNavigation(this.activeTab, tab, 'projects_section');
-      
       this.$emit('tab-changed', tab);
     }
   }
@@ -70,10 +68,6 @@ export default {
         }
       }
     }
-  }
-  
-  .icon {
-    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 768px) {

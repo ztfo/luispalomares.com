@@ -39,7 +39,6 @@ export default {
     },
     methods: {
         handleBackNavigation() {
-            // Track back navigation using utility function (client only)
             if (import.meta.client && this.project && this.pageLoadTime) {
                 const timeSpent = Date.now() - this.pageLoadTime;
 
@@ -72,7 +71,6 @@ export default {
         }
     },
     beforeUnmount() {
-        // Track time spent on project page when leaving using utility function
         if (import.meta.client && this.project && this.pageLoadTime) {
             const timeSpent = Date.now() - this.pageLoadTime;
 
@@ -105,8 +103,6 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    @media (max-width: 768px) {
-    }    
 }
 .square-link {
     display: block;
@@ -131,10 +127,5 @@ export default {
     img {
         width: 100%;
     }
-}
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 </style>
