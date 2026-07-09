@@ -3,7 +3,7 @@
 
 export const projects = [
   {
-    id: '0',
+    id: 'certifid',
     company: 'CertifID',
     series: 'C',
     title: 'Designing a future safe from wire fraud.',
@@ -16,7 +16,7 @@ export const projects = [
     projectType: 'main',
   },
   {
-    id: '1',
+    id: 'inhouse',
     company: 'InHouse',
     series: 'Seed',
     title: 'Collaborating with transparency in the home buying process.',
@@ -29,7 +29,7 @@ export const projects = [
     projectType: 'main',
   },
   {
-    id: '2',
+    id: 'arreglo',
     company: 'Arreglo.ai',
     series: 'Side Project',
     title: 'AI-powered music arrangement generator for Figma.',
