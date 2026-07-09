@@ -8,7 +8,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     property: {
       id: 'G-5LBNH722JB',
       params: {
-        send_page_view: true,
+        // trackRouter() below reports every page view, including the initial
+        // one — leaving this on double-counts the first page_view.
+        send_page_view: false,
       },
     },
     appName: 'Luis Portfolio',

@@ -13,6 +13,15 @@ export default defineNuxtConfig({
 
   modules: ['nuxt-purgecss'],
 
+  // vue-fontawesome ships CJS-only (no exports map), so in the Nitro server
+  // runtime it loads a second copy of fontawesome-svg-core: library.add()
+  // registers icons in the ESM copy while the component looks them up in the
+  // CJS copy, and every icon prerenders empty (hydration mismatch on every
+  // page). Transpiling it into the server bundle keeps one module instance.
+  build: {
+    transpile: ['@fortawesome/vue-fontawesome'],
+  },
+
   app: {
     baseURL: '/',
     head: {
@@ -43,21 +52,26 @@ export default defineNuxtConfig({
   // literally in templates (Font Awesome SVG classes, active-link classes)
   // plus Bulma's is-/has- modifier families for safety.
   purgecss: {
-    // Our source lives under src/, so point the scanner there (the module's
-    // defaults are relative to the project root and would miss everything,
-    // purging classes that are actually used).
+    // nuxt-purgecss joins relative content paths to srcDir (src/), so these
+    // must NOT be prefixed with src/ — a src/ prefix resolves to src/src/**
+    // and matches nothing. error.vue must be listed explicitly: the module's
+    // built-in globs cover components/layouts/pages/app.vue but omit it, so
+    // its classes get silently purged (unstyled 404 page).
     content: [
-      'src/components/**/*.vue',
-      'src/layouts/**/*.vue',
-      'src/pages/**/*.vue',
-      'src/app.vue',
-      'src/error.vue',
-      'src/plugins/**/*.{js,ts}',
-      'src/composables/**/*.{js,ts}',
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'app.vue',
+      'error.vue',
+      'plugins/**/*.{js,ts}',
+      'composables/**/*.{js,ts}',
     ],
     // The module's default extractor includes "." in its token charset, which
     // mangles Pug's dot-chained class syntax (`.home-panel.left` becomes one
     // token instead of two) and wrongly purges those classes. Split on dots.
+    // Note: purge runs before Vue adds data-v scope attributes, so the
+    // data-v- safelist below cannot protect scoped styles — only content
+    // scanning does.
     defaultExtractor: (content) => {
       const withoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
       return withoutStyleBlocks.match(/[\w-]+/g) || []
