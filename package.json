@@ -9,9 +9,7 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "postinstall": "nuxi prepare",
-    "predeploy": "pnpm run generate",
-    "deploy": "gh-pages -d .output/public"
+    "postinstall": "nuxi prepare"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
@@ -25,7 +23,6 @@
     "vue-gtag-next": "^1.14.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "pug": "^3.0.2",
     "sass": "^1.74.1"
   },
