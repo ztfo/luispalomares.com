@@ -20,7 +20,9 @@ const p = project.value
 const description =
   p.overview.length > 157 ? `${p.overview.slice(0, 157).trimEnd()}…` : p.overview
 const ogImage = `${siteUrl}${p.backgroundImage}`
-const pageUrl = `${siteUrl}/project/${p.id}`
+// Trailing slash matches how GitHub Pages serves directory indexes (the
+// slash-less form 301s), keeping canonical/og URLs redirect-free.
+const pageUrl = `${siteUrl}/project/${p.id}/`
 const title = `${p.company} — ${p.title} | Luis Palomares`
 
 useSeoMeta({

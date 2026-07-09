@@ -7,7 +7,7 @@ const SITE_URL = 'https://luispalomares.com'
 export default defineEventHandler((event) => {
   const urls = [
     { loc: `${SITE_URL}/`, priority: '1.0' },
-    ...projects.map((p) => ({ loc: `${SITE_URL}/project/${p.id}`, priority: '0.8' })),
+    ...projects.map((p) => ({ loc: `${SITE_URL}/project/${p.id}/`, priority: '0.8' })),
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
