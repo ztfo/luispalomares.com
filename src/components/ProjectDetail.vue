@@ -1,6 +1,7 @@
 <template lang="pug">
 .project(v-if="project")
     .project-detail.pb-2.columns.is-mobile
+        ShaderCanvas.detail-shader(effect="stream-convergence" :opacity="0.28" :speed="0.5" :brightness="0.8")
         .project-title.column.is-half-mobile.is-four-fifths-desktop
             NuxtLink.square-link(to="/" @click="handleBackNavigation")
                 font-awesome-icon(icon="angle-left")
@@ -15,6 +16,7 @@
 
 <script>
 import SquareWaveComponent from '@/components/Visuals/SquareWave.vue';
+import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue';
 import ProjectContentComponent from './ProjectContent.vue';
 import { trackProjectEvent, trackTimeSpent } from '@/utils/analytics';
 
@@ -22,6 +24,7 @@ export default {
     name: 'ProjectDetail',
     components: {
         SquareWaveComponent,
+        ShaderCanvas,
         ProjectContentComponent
     },
     props: {
@@ -99,10 +102,20 @@ export default {
         left: .75rem;
     }    
 }
+// Masked to hug the hairline divider under the header, so the effect reads as
+// a lit underline rather than a panel behind the title and logo.
+.detail-shader {
+    z-index: 0;
+    --detail-shader-mask: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.28) 30%, transparent 55%);
+    -webkit-mask-image: var(--detail-shader-mask);
+    mask-image: var(--detail-shader-mask);
+}
 .project-title {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 .square-link {
     display: block;
@@ -124,6 +137,8 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
+    z-index: 1;
     img {
         width: 100%;
     }

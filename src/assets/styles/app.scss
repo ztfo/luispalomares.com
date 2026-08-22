@@ -174,3 +174,13 @@ p {
     }
   }
 }
+
+// The shader backgrounds hold a still frame when reduced motion is requested,
+// so the decorative gradient loop should stop too — otherwise the setting only
+// half-applies. The underline keeps its gradient, just frozen. Declared last so
+// it wins over the .link rule above at equal specificity.
+@media (prefers-reduced-motion: reduce) {
+    .link:after {
+        animation: none;
+    }
+}
