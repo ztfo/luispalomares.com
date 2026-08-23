@@ -77,6 +77,11 @@ p {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        // Delay must go too: `animation-fill-mode: both` includes `backwards`,
+        // which paints the `from` keyframe for the full delay — so zeroing only
+        // the duration would leave the stagger intact, just as a series of pops.
+        animation-delay: 0s !important;
+        transition-delay: 0s !important;
     }
 }
 
@@ -212,5 +217,3 @@ p {
   }
 }
 
-// Matches the shader canvases, which hold a still frame under the same setting.
-// Declared last so it wins over the .link rule above at equal specificity.

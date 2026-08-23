@@ -143,6 +143,9 @@ export function useShaderCanvas({ effect, getSettings }) {
         return false
       }
 
+      // Cleared on success: a prior failed restore may have set this false, and
+      // `.is-unsupported` display:none-s the canvas we are about to draw into.
+      supported.value = true
       gl.useProgram(compiled.program)
 
       quadBuffer = gl.createBuffer()
@@ -306,6 +309,9 @@ export function useShaderCanvas({ effect, getSettings }) {
     }
 
     if (!setup()) {
+      // The gradient fallback paints on the same wrapper `ready` gates, so it
+      // stays invisible unless we mark it ready here.
+      ready.value = true
       // Release the context: a GPU that can't compile the shader would otherwise
       // leak one live context per mount until the browser force-loses others.
       onBeforeUnmount(() => gl.getExtension('WEBGL_lose_context')?.loseContext())

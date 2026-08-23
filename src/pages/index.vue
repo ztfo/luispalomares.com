@@ -44,7 +44,8 @@ function handleTabChange(tab) {
   intro.value = false
 }
 
-// Cards continue the left panel's ordinal scale (which ends at 6, the footer).
+// Cards share the left panel's ordinal scale. They start at 6, alongside the
+// footer rather than after it, so the two columns land together.
 // Rank is within a card's own tab group, not its v-for position — otherwise a
 // side quest sitting between two main quests leaves gaps in the visible cascade.
 // `projects` is a module constant, so this runs once, not per render.
