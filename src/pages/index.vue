@@ -1,7 +1,7 @@
 <template lang="pug">
 .projects-container
   SquareWave
-  .header-section.flex.center-items
+  .header-section.flex.center-items.rise(style="--rise-index: 4")
     h2.is-size-5.mb-0.flex-1
       strong {{ activeTab === 'main' ? 'Main Quests' : 'Side Quests' }}
     TabNavigation.flex-3(:activeTab="activeTab" @tab-changed="handleTabChange")
@@ -11,8 +11,14 @@
       v-show="project.projectType === activeTab"
       :key="project.id"
       :project="project"
+      :class="{ rise: intro }"
+      :style="{ '--rise-index': introIndex(project) }"
     )
-    ClientsCard(v-show="activeTab === 'main'")
+    ClientsCard(
+      v-show="activeTab === 'main'"
+      :class="{ rise: intro }"
+      :style="{ '--rise-index': clientsIndex }"
+    )
 </template>
 
 <script setup>
@@ -27,9 +33,32 @@ const { projects } = useProjects()
 
 const activeTab = ref('main')
 
+// Cards are v-show-filtered, and display:none -> visible restarts a CSS
+// animation, so a tab switch would replay the cascade. A switch can only happen
+// after mount, so dropping the class there ends the intro exactly when it stops
+// being wanted — no timer to keep in sync with the delays or the duration.
+const intro = ref(true)
+
 function handleTabChange(tab) {
   activeTab.value = tab
+  intro.value = false
 }
+
+// Cards continue the left panel's ordinal scale (which ends at 6, the footer).
+// Rank is within a card's own tab group, not its v-for position — otherwise a
+// side quest sitting between two main quests leaves gaps in the visible cascade.
+// `projects` is a module constant, so this runs once, not per render.
+const CARDS_START = 6
+const cardIndex = {}
+const perType = {}
+
+for (const p of projects) {
+  perType[p.projectType] = perType[p.projectType] ?? 0
+  cardIndex[p.id] = CARDS_START + perType[p.projectType]++
+}
+
+const introIndex = (project) => cardIndex[project.id]
+const clientsIndex = CARDS_START + (perType.main ?? 0)
 
 const siteUrl = 'https://luispalomares.com'
 const description =

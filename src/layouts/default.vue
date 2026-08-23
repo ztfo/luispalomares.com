@@ -1,9 +1,12 @@
 <template lang="pug">
 .home
   .home-panel.left
-    .long-divider
-    HomePanel
-    Footer
+    ShaderCanvas.panel-shader(effect="ribbon-field" :opacity="0.8")
+    .panel-scrim
+    .panel-content
+      .long-divider
+      HomePanel
+      Footer.rise(style="--rise-index: 6")
   .home-panel.right
     .inner-scroll
       slot
@@ -12,6 +15,7 @@
 <script setup>
 import HomePanel from '@/components/HomePanel.vue'
 import Footer from '@/components/Footer.vue'
+import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
 </script>
 
 <style scoped lang="scss">
@@ -38,6 +42,11 @@ import Footer from '@/components/Footer.vue'
             padding: 3rem 5rem;
             background: var(--black);
             justify-content: space-between;
+            // Containing block for the shader and scrim (both inset: 0).
+            // Do NOT add `isolation: isolate` or a z-index — either makes this
+            // a stacking context and traps the snake game's fixed overlay
+            // (z-index: 9999) behind the projects column.
+            position: relative;
         }
         &.right {
             width: 60%;
@@ -63,13 +72,56 @@ import Footer from '@/components/Footer.vue'
         flex-direction: column;
     }
 }
+// Shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
+// Masked to the empty lower-right corner; full-bleed, the dot matrix fights
+// the body copy.
+.panel-shader {
+  z-index: 0;
+  --panel-shader-mask: radial-gradient(
+    ellipse 76% 58% at 88% 78%,
+    #000 0%,
+    rgba(0, 0, 0, 0.62) 42%,
+    transparent 76%
+  );
+  -webkit-mask-image: var(--panel-shader-mask);
+  mask-image: var(--panel-shader-mask);
+}
+
+// Keeps the brightest ribbons from lifting the panel off --black.
+.panel-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(1, 4, 9, 0.72) 0%,
+    rgba(1, 4, 9, 0.52) 45%,
+    rgba(1, 4, 9, 0.30) 100%
+  );
+}
+
+.panel-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .long-divider {
   width: 100%;
   height: 4px;
   border-radius: 1px;
   background: linear-gradient(270deg, var(--green), var(--lightblue), var(--green));
   background-size: 200% 200%;
-  animation: gradient 3s ease-in-out infinite;
+  // Both animations declared here: this scoped rule carries an extra [data-v-*]
+  // selector, so the global `.rise` shorthand would lose to it. Timing comes from
+  // the shared tokens so it cannot drift from the elements rising beside it.
+  animation:
+    rise-in var(--rise-duration) var(--rise-ease) both,
+    gradient 3s ease-in-out infinite;
 }
 .inner-scroll {
     background-color: #000;

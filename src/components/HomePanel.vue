@@ -1,9 +1,9 @@
 <template lang="pug">
 .inner-bio
-    h1.is-size-2.pb-0
+    h1.is-size-2.pb-0.rise(style="--rise-index: 1")
         LogoNavComponent(@trigger-snake-game="activateSnakeGame")
         span Hi, I'm Luis.
-    p.is-size-5.is-size-6-mobile.my-6
+    p.is-size-5.is-size-6-mobile.my-6.rise(style="--rise-index: 2")
         span A mission-driven 
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank" @click="trackClick('LinkedIn Profile')")
             span product leader&nbsp;
@@ -21,10 +21,10 @@
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
             | &nbsp;
         span .
-    p.is-size-6.mb-2
+    p.is-size-6.mb-2.rise(style="--rise-index: 3")
         | Product @&nbsp;
         a.link(href="https://certifid.com", target="_blank" @click="trackClick('CertifID Website')") CertifID
-    p.contact-links.is-size-6.mb-6
+    p.contact-links.is-size-6.mb-6.rise(style="--rise-index: 4")
         | I like to&nbsp;
         a.link(href="https://dribbble.com/luispalomares", target="_blank" @click="trackClick('Dribbble Profile')")
             font-awesome-icon(:icon="['fab', 'dribbble']")
@@ -42,7 +42,7 @@
             font-awesome-icon(:icon="['fas', 'circle-play']")
             | &nbsp;
             span make dance music.
-    .grid
+    .grid.rise(style="--rise-index: 5")
         .cell
             a.button.is-primary.mb-3(href="mailto:hello@builtwithwords.ai", target="_blank" @click="trackClick('Email Link')") Email Me
 
