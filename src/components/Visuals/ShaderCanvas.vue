@@ -1,6 +1,6 @@
 <template lang="pug">
-.shader-canvas(ref="rootRef" :class="[`shader-canvas--${resolved.name}`, { 'is-unsupported': !supported }]")
-  canvas.shader-canvas__surface(ref="canvasRef" :style="canvasStyle" aria-hidden="true")
+.shader-canvas(ref="rootRef" :style="gradeStyle" :class="[`shader-canvas--${resolved.name}`, { 'is-unsupported': !supported }]")
+  canvas.shader-canvas__surface(ref="canvasRef" aria-hidden="true")
 </template>
 
 <script setup>
@@ -27,30 +27,42 @@ const props = defineProps({
   brightness: { type: Number, default: undefined },
 })
 
-const resolved = computed(() => getEffect(props.effect))
+// Read once: the program is compiled in onMounted and never recompiled, so a
+// computed here would imply a reactivity the runtime does not honour.
+const resolved = getEffect(props.effect)
 
 const settings = computed(() => {
-  const merged = { ...resolved.value.defaults }
-  for (const key of Object.keys(merged)) {
-    if (props[key] !== undefined) merged[key] = props[key]
+  const merged = { ...resolved.defaults }
+  // Iterate the props, not the defaults: an effect that omits a key from its
+  // defaults would otherwise silently ignore that prop.
+  for (const key of Object.keys(props)) {
+    if (key !== 'effect' && props[key] !== undefined) merged[key] = props[key]
   }
-  // Effect-specific scalars aren't always present in defaults.
-  if (props.fidelity !== undefined) merged.fidelity = props.fidelity
   return merged
 })
 
 // Settings are read fresh each frame, so prop changes take effect without
 // recompiling the program.
-const { rootRef, canvasRef, supported } = useShaderCanvas({
-  effect: resolved.value,
+const { rootRef, canvasRef, supported, ready } = useShaderCanvas({
+  effect: resolved,
   getSettings: () => settings.value,
 })
 
-const canvasStyle = computed(() => {
+// On the wrapper rather than the canvas, so the no-WebGL gradient fallback is
+// graded to match instead of showing at full strength.
+const gradeStyle = computed(() => {
   const { opacity = 1, hue = 0, saturation = 1, brightness = 1 } = settings.value
+  // An identity filter is still a filter: it forces a compositing layer and a
+  // full-surface pass on every repaint. The home page passes no grading at all.
+  const graded = hue !== 0 || saturation !== 1 || brightness !== 1
+
   return {
-    opacity,
-    filter: `hue-rotate(${hue}deg) saturate(${saturation}) brightness(${brightness})`,
+    // Held at 0 until there is something to show — a drawn frame, or the CSS
+    // fallback when WebGL is unavailable.
+    opacity: ready.value ? opacity : 0,
+    filter: graded
+      ? `hue-rotate(${hue}deg) saturate(${saturation}) brightness(${brightness})`
+      : 'none',
   }
 })
 </script>
@@ -60,6 +72,7 @@ const canvasStyle = computed(() => {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  transition: opacity 0.6s ease;
   // Purely decorative: never intercept clicks or text selection. Pointer
   // tracking still works — the runtime listens on the positioned ancestor,
   // which does receive events.
@@ -71,6 +84,7 @@ const canvasStyle = computed(() => {
   width: 100%;
   height: 100%;
 }
+
 
 // No WebGL (old browser, blocklisted GPU, headless): fall back to a static
 // wash in the same palette instead of a black hole where the effect should be.

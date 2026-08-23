@@ -1,23 +1,14 @@
 # Third-party notice
 
-The shader effects in this folder are ported from [ThreeUI](https://threeui.com)
-([MengTo/threeui](https://github.com/MengTo/threeui)), which is MIT licensed.
+The shader effects in this folder are ported from
+[ThreeUI](https://threeui.com) ([MengTo/threeui](https://github.com/MengTo/threeui)),
+MIT licensed. The GLSL was copied and adapted by hand; nothing is installed from
+the `@designcodeio/threeui` package, and only Community-tier (MIT) components
+were used.
 
-Nothing is installed from the `@designcodeio/threeui` package. Each effect's
-GLSL was copied and adapted by hand, and the React wrappers were replaced with
-our own Vue runtime (`src/composables/useShaderCanvas.js` +
-`src/components/Visuals/ShaderCanvas.vue`). Only Community-tier components —
-the ones published under MIT — were used; no Pro components are included.
-
-Changes made to the upstream shaders:
-
-- Palettes retuned from upstream's teal/indigo/violet to this site's
-  green (`#42b883`) → blue (`#3e71fa`) accent ramp.
-- Background base colours matched to `--black` (`#010409`).
-- `stream-convergence`: upstream drives its three bands straight into the r/g/b
-  channels; here each band is tinted with a palette colour instead.
-
-Ported effects: `ribbon-field`, `stream-convergence`.
+Adapted: palettes retuned to this site's green/blue ramp, base colours matched to
+`--black`, and `stream-convergence`'s bands tinted per-palette rather than driven
+straight into r/g/b.
 
 ---
 

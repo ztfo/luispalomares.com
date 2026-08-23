@@ -6,7 +6,7 @@
     .panel-content
       .long-divider
       HomePanel
-      Footer
+      Footer.rise(style="--rise-index: 6")
   .home-panel.right
     .inner-scroll
       slot
@@ -42,14 +42,10 @@ import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
             padding: 3rem 5rem;
             background: var(--black);
             justify-content: space-between;
-            // Containing block for the ambient shader and its scrim, both of
-            // which are absolutely positioned to inset: 0.
-            //
-            // Deliberately no `isolation: isolate` and no z-index here: either
-            // would make this panel a stacking context and trap the secret
-            // snake game's full-viewport overlay (position: fixed, z-index:
-            // 9999) behind the projects column. `position: relative` alone is
-            // enough to position the canvas.
+            // Containing block for the shader and scrim (both inset: 0).
+            // Do NOT add `isolation: isolate` or a z-index — either makes this
+            // a stacking context and traps the snake game's fixed overlay
+            // (z-index: 9999) behind the projects column.
             position: relative;
         }
         &.right {
@@ -76,12 +72,9 @@ import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
         flex-direction: column;
     }
 }
-// Ambient shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
-//
-// Masked to the lower-right corner rather than left full-bleed. The effect's
-// dot matrix is high-frequency enough to fight body copy, so it's confined to
-// the empty area below the CTA and beside the footer, where it reads as an
-// ambient glow rising off the seam between the two columns.
+// Shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
+// Masked to the empty lower-right corner; full-bleed, the dot matrix fights
+// the body copy.
 .panel-shader {
   z-index: 0;
   --panel-shader-mask: radial-gradient(
@@ -94,8 +87,7 @@ import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
   mask-image: var(--panel-shader-mask);
 }
 
-// A light, even veil now that the mask does the heavy lifting — just enough to
-// stop the brightest ribbons from lifting the panel off --black.
+// Keeps the brightest ribbons from lifting the panel off --black.
 .panel-scrim {
   position: absolute;
   inset: 0;
@@ -124,15 +116,12 @@ import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
   border-radius: 1px;
   background: linear-gradient(270deg, var(--green), var(--lightblue), var(--green));
   background-size: 200% 200%;
-  animation: gradient 3s ease-in-out infinite;
-
-  // Matches the shader canvases, which hold a still frame under the same
-  // setting. Nested here rather than written as a global rule: scoped styles
-  // carry an extra [data-v-*] attribute selector, so a global `.long-divider`
-  // would lose to the animation declared just above it.
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
+  // Both animations declared here: this scoped rule carries an extra [data-v-*]
+  // selector, so the global `.rise` shorthand would lose to it. Timing comes from
+  // the shared tokens so it cannot drift from the elements rising beside it.
+  animation:
+    rise-in var(--rise-duration) var(--rise-ease) both,
+    gradient 3s ease-in-out infinite;
 }
 .inner-scroll {
     background-color: #000;

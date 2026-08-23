@@ -1,17 +1,12 @@
 // Minimal WebGL runtime for full-bleed fragment-shader backgrounds.
 //
-// Every effect is a single fragment shader drawn over two triangles that cover
-// the viewport, so the runtime never needs a scene graph — and therefore never
-// needs three.js. That keeps the whole visual layer at a few KB instead of the
-// ~150KB gzip three.js would add to a site that otherwise ships almost no JS.
+// Every effect is a single fragment shader drawn over two triangles covering
+// the viewport, so there is no scene graph to maintain.
 //
-// The approach (fullscreen quad, `resolution`/`time`/`pointer` uniforms, colour
-// grading applied as a CSS filter rather than in GLSL) is ported from ThreeUI
-// by Meng To (MIT) — see src/components/Visuals/shaders/ for the effects and
-// their attribution. This file is our own Vue implementation of that idea.
+// Approach ported from ThreeUI by Meng To (MIT) — see shaders/NOTICE.md.
 //
 // Everything runs inside onMounted, so `nuxi generate` prerenders the markup
-// without ever touching WebGL and the canvas simply stays empty until hydration.
+// without touching WebGL; the canvas stays empty until hydration.
 
 import { onBeforeUnmount, onMounted, shallowRef } from 'vue'
 
@@ -86,6 +81,9 @@ export function useShaderCanvas({ effect, getSettings }) {
   // Drives the CSS fallback: when WebGL is unavailable the component shows a
   // static gradient instead of an empty black rectangle.
   const supported = shallowRef(true)
+  // "There is something to show" — the first frame has drawn, or we've fallen
+  // back to CSS. Lets the component fade in instead of snapping to full opacity.
+  const ready = shallowRef(false)
 
   onMounted(() => {
     const root = rootRef.value
@@ -103,7 +101,9 @@ export function useShaderCanvas({ effect, getSettings }) {
     })
 
     if (!gl) {
+      // No WebGL: the CSS gradient fallback is what shows, and it is ready now.
       supported.value = false
+      ready.value = true
       return
     }
 
@@ -126,7 +126,6 @@ export function useShaderCanvas({ effect, getSettings }) {
     let frame = 0
     let visible = true
     let contextLost = false
-    let startTime = 0
     // Accumulated shader time. Tracked separately from wall-clock so that
     // pausing (offscreen, hidden tab) freezes the animation rather than
     // letting it jump forward when it resumes.
@@ -134,8 +133,7 @@ export function useShaderCanvas({ effect, getSettings }) {
     let lastTimestamp = 0
 
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    // ThreeUI's own components only honour reduced-motion in about a third of
-    // cases, so we enforce it centrally: one static frame, no rAF loop.
+    // Enforced centrally: one static frame, no rAF loop.
     let reducedMotion = reducedMotionQuery.matches
 
     function setup() {
@@ -186,15 +184,20 @@ export function useShaderCanvas({ effect, getSettings }) {
       const width = Math.max(1, Math.floor(rect.width * ratio))
       const height = Math.max(1, Math.floor(rect.height * ratio))
 
-      if (canvas.width === width && canvas.height === height) return
+      const resized = canvas.width !== width || canvas.height !== height
+      if (resized) {
+        canvas.width = width
+        canvas.height = height
+      }
 
-      canvas.width = width
-      canvas.height = height
+      // Re-uploaded unconditionally, not just on a size change: after a context
+      // restore the canvas is the same size but the new program's uniforms start
+      // at zero, and both shaders divide by resolution.
       gl.viewport(0, 0, width, height)
       if (uniforms.resolution) gl.uniform2f(uniforms.resolution, width, height)
 
       // A resize while paused would otherwise leave a stretched stale frame.
-      if (!frame) draw(lastTimestamp || 0)
+      if (resized && !frame) draw(lastTimestamp || 0)
     }
 
     function onPointerMove(event) {
@@ -220,7 +223,6 @@ export function useShaderCanvas({ effect, getSettings }) {
         // these effects is an uninteresting flat gradient.
         elapsed = effect.staticTime ?? 0
       } else {
-        if (!startTime) startTime = timestamp
         const delta = lastTimestamp ? timestamp - lastTimestamp : 0
         // Clamp so a backgrounded tab or a long frame can't lurch the animation.
         elapsed += Math.min(delta, 100) * 0.001 * (settings.speed ?? 1)
@@ -241,6 +243,7 @@ export function useShaderCanvas({ effect, getSettings }) {
       }
 
       gl.drawArrays(gl.TRIANGLES, 0, 6)
+      ready.value = true
     }
 
     function loop(timestamp) {
@@ -294,14 +297,20 @@ export function useShaderCanvas({ effect, getSettings }) {
     }
 
     function onContextRestored() {
+      // Only clear the flag on success: a failed restore leaves stale uniform
+      // locations and no bound program, and must stay parked.
+      if (!setup()) return
       contextLost = false
-      if (setup()) {
-        resize()
-        start()
-      }
+      resize()
+      start()
     }
 
-    if (!setup()) return
+    if (!setup()) {
+      // Release the context: a GPU that can't compile the shader would otherwise
+      // leak one live context per mount until the browser force-loses others.
+      onBeforeUnmount(() => gl.getExtension('WEBGL_lose_context')?.loseContext())
+      return
+    }
 
     const resizeObserver = new ResizeObserver(resize)
     resizeObserver.observe(root)
@@ -363,5 +372,5 @@ export function useShaderCanvas({ effect, getSettings }) {
     })
   })
 
-  return { rootRef, canvasRef, supported }
+  return { rootRef, canvasRef, supported, ready }
 }
