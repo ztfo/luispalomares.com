@@ -11,12 +11,12 @@
       v-show="project.projectType === activeTab"
       :key="project.id"
       :project="project"
-      :class="{ rise: intro }"
+      :class="revealClass"
       :style="{ '--rise-index': introIndex(project) }"
     )
     ClientsCard(
       v-show="activeTab === 'main'"
-      :class="{ rise: intro }"
+      :class="revealClass"
       :style="{ '--rise-index': clientsIndex }"
     )
 </template>
@@ -37,12 +37,33 @@ const activeTab = ref('main')
 // animation, so a tab switch would replay the cascade. A switch can only happen
 // after mount, so dropping the class there ends the intro exactly when it stops
 // being wanted — no timer to keep in sync with the delays or the duration.
-const intro = ref(true)
+//
+// The flag lives in shared state rather than the component, because this page
+// is remounted every time a visitor comes back from a project. Replaying the
+// cascade there means a column of invisible cards for as long as the stagger
+// runs, which reads as the page blanking rather than as an intro.
+const introPlayed = useState('home-intro-played', () => false)
+const intro = ref(!introPlayed.value)
+
+onMounted(() => {
+  introPlayed.value = true
+})
 
 function handleTabChange(tab) {
   activeTab.value = tab
   intro.value = false
+  settle.value = false
 }
+
+// First visit gets the staggered cascade. A return from a project gets the same
+// motion without the stagger, so the column carries itself in instead of
+// snapping on — the delays are what made a return read as the page blanking.
+// A tab switch gets neither: those cards were already on screen.
+const settle = ref(introPlayed.value)
+const revealClass = computed(() => {
+  if (intro.value) return 'rise'
+  return settle.value ? 'rise-settle' : null
+})
 
 // Cards share the left panel's ordinal scale. They start at 6, alongside the
 // footer rather than after it, so the two columns land together.

@@ -52,6 +52,13 @@ export const ribbonField = {
       return fract(p.x * p.y);
     }
 
+    // A soft elliptical falloff. Separate x/y radii because uv is normalised
+    // per axis: on a tall panel an isotropic falloff would read as a column.
+    float cloud(vec2 uv, vec2 centre, vec2 radii) {
+      vec2 d = (uv - centre) / radii;
+      return exp(-dot(d, d));
+    }
+
     // A soft horizontal band whose centre line wobbles with two sines.
     float ribbon(vec2 uv, float offset, float width, float phase) {
       float y = 0.55 + 0.20 * sin((uv.x * 2.15) + phase) + 0.045 * sin((uv.x * 7.0) - phase * 0.7);
@@ -94,6 +101,17 @@ export const ribbonField = {
       bloom += exp(-pow(distance(uv, vec2(0.71, 0.75 + 0.025 * cos(t))), 2.0) / 0.030);
       col += sky * bloom * 0.34;
 
+      // Second cluster, hugging the top-left corner above the heading. uv.y
+      // runs bottom-up here (gl_FragCoord), so ~0.97 is the top edge. Two lobes
+      // on different periods, so it breathes instead of pulsing as one blob.
+      // It is added outside rightFade — that fade exists to keep the copy
+      // column black, and this sits above the copy — so its reach is set by the
+      // radii alone: wide and shallow, fading out before the paragraph.
+      float corner = cloud(uv, vec2(0.10, 0.99 + 0.010 * sin(t * 0.8)), vec2(0.26, 0.085));
+      corner += 0.55 * cloud(uv, vec2(0.35, 0.955 + 0.012 * cos(t * 1.1)), vec2(0.17, 0.055));
+      col += mint * corner * 0.26;
+      col += green * corner * 0.20;
+
       // Dot-matrix texture: the ribbons are only visible through this grid,
       // which is what gives the effect its screen-print feel.
       vec2 grid = fract(gl_FragCoord.xy / 7.0) - 0.5;
@@ -104,13 +122,16 @@ export const ribbonField = {
 
       float micro = hash(gl_FragCoord.xy + time) * 0.035;
       float alpha = clamp((glow * 1.55 + bloom * 0.50) * dots * rightFade, 0.0, 1.0);
-      alpha *= 1.0 - centerDark * 0.56;
+      alpha *= 1.0 - centerDark * 0.72;
+      // Added after the fades rather than folded into glow, so the corner
+      // survives rightFade and centerDark zeroing everything on the left.
+      alpha = clamp(alpha + corner * dots * 0.62, 0.0, 1.0);
 
       // Matches --black so the canvas is indistinguishable from the panel
       // wherever the effect fades out.
       vec3 base = vec3(0.004, 0.016, 0.035);
       vec3 finalColor = mix(base, col, clamp(alpha * 1.55, 0.0, 1.0));
-      finalColor += micro * rightFade;
+      finalColor += micro * max(rightFade, corner);
 
       gl_FragColor = vec4(finalColor, 1.0);
     }

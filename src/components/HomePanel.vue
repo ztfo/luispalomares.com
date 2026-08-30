@@ -8,18 +8,18 @@
         a.link(href="https://www.linkedin.com/in/luis-palomares/", target="_blank" @click="trackClick('LinkedIn Profile')")
             span product leader&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
-            | &nbsp;
+        | &nbsp;
         span .
         | &nbsp;I've championed tech initiatives that guard families against wire fraud in real estate, amplify transparency in mortgage lending, and open credit avenues for immigrants, steering startups from 
         a.link(href="https://tucson.com/business/article_cf74558c-5f18-552b-81a0-cf60679257cf.html", target="_blank" @click="trackClick('Tucson Tech Article')")
             span seed&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
-            | &nbsp;
+        | &nbsp;
         | to 
         a.link(href="https://www.businesswire.com/news/home/20250715516305/en/CertifID-Raises-%2447.5-Million-Series-C-Led-by-Centana-Growth-Partners", target="_blank" @click="trackClick('CertifID Series C Article')")
             span Series C&nbsp;
             font-awesome-icon.is-size-7.icon.is-small.has-text-grey(icon="arrow-up-right-from-square")
-            | &nbsp;
+        | &nbsp;
         span .
     p.is-size-6.mb-2.rise(style="--rise-index: 3")
         | Product @&nbsp;

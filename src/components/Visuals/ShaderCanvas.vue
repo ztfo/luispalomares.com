@@ -89,9 +89,12 @@ const gradeStyle = computed(() => {
 // No WebGL (old browser, blocklisted GPU, headless): fall back to a static
 // wash in the same palette instead of a black hole where the effect should be.
 .shader-canvas.is-unsupported {
+  // The third stop stands in for the top-left cluster the ribbon shader
+  // paints. Placements whose mask closes that corner simply never show it.
   background:
     radial-gradient(circle at 78% 38%, rgba(62, 113, 250, 0.16), transparent 55%),
-    radial-gradient(circle at 62% 78%, rgba(66, 184, 131, 0.12), transparent 55%);
+    radial-gradient(circle at 62% 78%, rgba(66, 184, 131, 0.12), transparent 55%),
+    radial-gradient(circle at 8% 4%, rgba(66, 184, 131, 0.10), transparent 45%);
 
   .shader-canvas__surface {
     display: none;
