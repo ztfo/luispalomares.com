@@ -125,9 +125,9 @@ export default {
 // dissolve at the boundary rather than clipping mid-mark.
 .clients-marquee {
     // Render height of every mark; widths follow from each crop's aspect ratio.
-    --logo-h: 96px;
+    --logo-h: 110px;
     @media screen and (max-width: 768px) {
-        --logo-h: 68px;
+        --logo-h: 78px;
     }
 
     // Full width plus the card's 3rem padding on each side, then pulled back
@@ -142,9 +142,9 @@ export default {
     --clients-fade: linear-gradient(
         to right,
         transparent 0,
-        rgba(0, 0, 0, 0.5) 18%,
+        rgba(0, 0, 0, 0.65) 18%,
         #000 50%,
-        rgba(0, 0, 0, 0.5) 82%,
+        rgba(0, 0, 0, 0.65) 82%,
         transparent 100%
     );
     -webkit-mask-image: var(--clients-fade);
@@ -169,12 +169,5 @@ export default {
     flex: none;
     margin-right: 3.5rem;
     background-repeat: no-repeat;
-    opacity: 0.88;
-    transition: opacity 0.4s;
-
-    &:hover,
-    &:focus-visible {
-        opacity: 1;
-    }
 }
 </style>
