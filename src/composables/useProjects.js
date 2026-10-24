@@ -130,7 +130,7 @@ export const projects = [
     ],
     overview: 'llü is my music project. I write and produce dance music, illustrate the artwork, and built the site myself. My next release, Buena Suerte, is on the way.',
     wins: [
-      'Singles: La Luna (2024), El Diablito (2025), and The Feeling (2025).',
+      'Singles: La Luna (2024), El Diablito (2025), and El Cotorro (2025).',
       'Arreglo started here, as a tool to finish these songs.',
     ],
     links: [
