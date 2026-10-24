@@ -22,15 +22,15 @@ export const projects = [
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
-      { value: '$283M', label: 'fraud blocked in 2025' },
-      { value: '3,000+', label: 'title companies' },
-      { value: '3', label: 'flagship launches' },
+      { value: '7-figure', label: 'ARR in year one' },
+      { value: '48x', label: 'Match request growth' },
+      { value: '100%', label: 'customers migrated, no volume lost' },
     ],
-    overview: 'I joined CertifID as one of its first ten employees and grew from contract design engineer to Director of Product as we went from seed to Series C. Today I lead a small product team.',
+    overview: 'I joined CertifID as one of its first ten employees and built its design function from scratch, then grew into Director of Product as we went from seed to Series C. Today I lead a small product team.',
     wins: [
-      'Redesigned the core app ahead of our Series A.',
-      'Launched PayoffProtect (1M+ payoffs verified) and CertifID Match.',
-      'Pitched and prototyped a unified closing platform, then led the build, starting with the Client Experience in May 2026.',
+      'Launched PayoffProtect: seven-figure ARR in its first year, now our top revenue product.',
+      'Launched CertifID Match: 48x request growth over eight quarters, used by about 60% of active customers.',
+      'Pitched and prototyped a unified closing platform, then led the build: the Client Experience launched in May 2026, with every customer migrated six months ahead of plan and no volume lost.',
     ],
     links: [
       { label: 'Website', url: 'https://certifid.com' },
