@@ -17,20 +17,21 @@ export const projects = [
     company: 'CertifID',
     role: 'Director of Product',
     stage: 'Series C',
-    timeline: '2018 – now',
+    timeline: '2019 – now',
     title: 'Designing a future safe from wire fraud.',
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
-      { value: '7-figure', label: 'ARR in year one' },
-      { value: '48x', label: 'Match request growth' },
-      { value: '100%', label: 'customers migrated, no volume lost' },
+      { value: '7-figure', label: 'ARR in PayoffProtect\'s first year' },
+      { value: '~70%', label: 'of eligible customers on the new platform in five months' },
+      { value: '58%', label: 'of billable volume beyond wire protection, up from 37%' },
     ],
-    overview: 'I joined CertifID as one of its first ten employees and built its design function from scratch, then grew into Director of Product as we went from seed to Series C. Today I lead a small product team.',
+    overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path, and working with such a talented team on a powerful mission has been the magic I\'ve been looking for.',
     wins: [
-      'Launched PayoffProtect: seven-figure ARR in its first year, now our top revenue product.',
-      'Launched CertifID Match: 48x request growth over eight quarters, used by about 60% of active customers.',
-      'Pitched and prototyped a unified closing platform, then led the build: the Client Experience launched in May 2026, with every customer migrated six months ahead of plan and no volume lost.',
+      'Built the product design function and design system from scratch, and led our first large redesign.',
+      'Launched PayoffProtect: seven-figure ARR in its first year, now our largest product by volume.',
+      'Launched identity verification: 48x request growth over eight quarters.',
+      'Drove the product vision behind the largest release in company history: a full closing platform with identity, documents, and payments.',
     ],
     links: [
       { label: 'Website', url: 'https://certifid.com' },
@@ -44,18 +45,19 @@ export const projects = [
     company: 'InHouse',
     role: 'Co-founder & CEO',
     stage: 'Seed',
-    timeline: '2015 – 2019',
+    timeline: '2014 – 2019',
     title: 'Collaborating with transparency in the home buying process.',
     backgroundImage: '/img/inhouse.jpg',
     logo: '/img/inhouse-logo.svg',
     stats: [
-      { value: 'Top-20', label: 'US lender as a customer' },
-      { value: 'Seed', label: 'led by the Arizona Founders Fund' },
+      { value: '27', label: 'states' },
+      { value: '2,000+', label: 'users' },
+      { value: '1/3', label: 'lower co-marketing costs' },
     ],
-    overview: 'I co-founded InHouse in college and grew it into a co-marketing platform for mortgage lenders and real estate agents. We raised a seed round and served lenders nationally before winding it down in 2019.',
+    overview: 'At InHouse, I co-founded and scaled a college side-gig into a national provider for top mortgage brands in the US. Although we eventually closed the business, the invaluable lessons learned continue to shape my career and decision-making.',
     wins: [
-      'Built co-marketing tools that kept lenders and agents RESPA-compliant.',
-      'Signed a top-20 US lender on a private-label deal, plus customers like Long Realty and NOVA Home Loans.',
+      'Partnered with Top 20 national mortgage brands, plus customers like Long Realty and NOVA Home Loans.',
+      'Streamlined RESPA compliance for lenders and agents co-marketing together.',
       'Won "most likely to launch" at the University of Arizona\'s 2015 New Venture Competition.',
     ],
     links: [
@@ -67,7 +69,7 @@ export const projects = [
   {
     id: 'fractional',
     company: 'Fractional Product',
-    role: 'Product, Design & Engineering',
+    role: 'Product & Design Advisor',
     stage: 'Fractional',
     timeline: 'Ongoing',
     title: 'Product, design, and front-end for teams that need a builder.',
@@ -76,12 +78,12 @@ export const projects = [
       { value: '4', label: 'client teams' },
       { value: '3', label: 'industries: fintech, proptech, philanthropy' },
     ],
-    overview: 'Fractional product, design, and front-end work for teams that need someone to take an idea all the way to shipped code.',
+    overview: 'Selected advisory work helping early-stage companies turn napkin sketch ideas into products people use, from product strategy and design through functional frontends.',
     wins: [
       'Nova Credit: design, front-end, web, and growth.',
       'Homeward: design and front-end.',
       'GivingData: brand and marketing site.',
-      'TitleSentry: built a compliance platform for title agencies from zero. It\'s now in closed alpha.',
+      'TitleSentry: a compliance tracker for title agencies.',
     ],
     links: [
       { label: 'Work with me', url: 'mailto:hello@builtwithwords.ai' },
@@ -92,12 +94,19 @@ export const projects = [
     id: 'homeservices',
     company: 'HomeServices of America',
     role: 'Product Designer',
-    stage: 'Enterprise',
-    timeline: '2018',
+    stage: 'Innovation Lab',
+    timeline: '2019',
     title: 'Agent websites and a CRM for a family of brokerage brands.',
     backgroundImage: '/img/homeservices.jpg',
     logo: '/img/homeservices-logo.svg',
-    overview: 'Between InHouse and CertifID, I spent eight months as a product designer at HomeServices of America, the Berkshire Hathaway company behind BHHS and its sister brands. I designed the agent website and CRM system used across them.',
+    stats: [
+      { value: '7', label: 'pilot brokerages in the beta roll-out' },
+    ],
+    overview: 'At Merlin Labs, the real estate innovation lab of HomeServices of America and Berkshire Hathaway, I designed the agent websites and CRM system built for its brokerage brands.',
+    wins: [
+      'Led the design and development of a custom Salesforce platform for real estate client and transaction management.',
+      'Helped relaunch and finish a delayed project by reassessing product priorities.',
+    ],
     links: [
       { label: 'Website', url: 'https://www.homeservices.com' },
     ],
@@ -115,7 +124,7 @@ export const projects = [
     stats: [
       { value: 'Live', label: 'on Figma Community' },
     ],
-    overview: 'A Figma plugin I built to finish my own songs: name your patterns, pick a genre, and get a full arrangement in minutes.',
+    overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered tool that could take my track ideas and turn them into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
     wins: [
       'A working beta of a VST plugin that brings Arreglo into the DAW.',
       'v2 with sign-in and paid credits is built and ready to launch.',
@@ -138,7 +147,7 @@ export const projects = [
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
     ],
-    overview: 'reflip turns a short video into an 8-pad instrument, and every post ships with its kit so anyone can remix it. Pre-launch, waitlist open.',
+    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. It\'s in beta now, with a waitlist open for launch.',
     wins: [
       'The whole audio and video pipeline runs in the browser, with no server rendering.',
       'Every remix stays traceable to its source.',
@@ -156,7 +165,7 @@ export const projects = [
     stats: [
       { value: '~100', label: 'markets mapped' },
     ],
-    overview: 'A craft-market directory for vendors that covers where markets are, what booths cost, and what sellers make. AI agents keep it current, and I review what they find before it goes live. Coming soon.',
+    overview: 'Archipelago is a vendor-first craft market directory. We help vendors discover markets, read honest reviews from other sellers, and make data-driven decisions about where to sell their products. Coming soon.',
     wins: [
       'An agent pipeline that discovers and enriches markets, with a hard monthly cost cap.',
       'A review queue, so nothing publishes unchecked.',
@@ -174,7 +183,7 @@ export const projects = [
     stats: [
       { value: '3', label: 'singles out' },
     ],
-    overview: 'My music project. I write and produce dance music, make the artwork, and built the site. The Latebloomer EP returns soon as Buena Suerta, with more tracks.',
+    overview: 'llü is my music project. I write and produce dance music, illustrate the artwork, and built the site myself. My next release, Buena Suerte, is on the way.',
     wins: [
       'Singles: La Luna (2024), El Diablito (2025), and The Feeling (2025).',
       'Arreglo started here, as a tool to finish these songs.',
