@@ -1,0 +1,30 @@
+<svg width="142" height="44" viewBox="0 0 142 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="reflip-mark" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5CCAFF"/>
+<stop offset="1" stop-color="#A8F0E0"/>
+</linearGradient>
+</defs>
+<g fill="url(#reflip-mark)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H44V44H0Z M4 4V40H40V4Z"/>
+<rect x="9" y="9" width="7" height="7"/>
+<rect x="18.5" y="9" width="7" height="7"/>
+<rect x="28" y="9" width="7" height="7"/>
+<rect x="9" y="18.5" width="7" height="7"/>
+<rect x="9" y="28" width="7" height="7"/>
+<g opacity="0.28">
+<rect x="18.5" y="18.5" width="7" height="7"/>
+<rect x="28" y="18.5" width="7" height="7"/>
+<rect x="18.5" y="28" width="7" height="7"/>
+<rect x="28" y="28" width="7" height="7"/>
+</g>
+</g>
+<g fill="#FFFFFF">
+<path d="M56 16H60V36H56Z M56 16H68V20H56Z"/>
+<path d="M72 16H88V20H72Z M72 16H76V36H72Z M72 32H88V36H72Z M84 16H88V28H84Z M72 24H88V28H72Z"/>
+<path d="M96 8H100V36H96Z M96 8H106V12H96Z M92 16H104V20H92Z"/>
+<path d="M110 8H114V36H110Z"/>
+<path d="M118 16H122V36H118Z M118 8H122V12H118Z"/>
+<path d="M126 16H130V44H126Z M126 16H142V20H126Z M138 16H142V36H138Z M126 32H142V36H126Z"/>
+</g>
+</svg>

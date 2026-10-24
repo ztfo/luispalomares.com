@@ -131,7 +131,6 @@ export const projects = [
     wins: [
       'A working beta of a VST plugin that brings Arreglo into the DAW.',
       'v2 with sign-in and paid credits is built and ready to launch.',
-      'Next: letting Claude arrange directly inside FL Studio.',
     ],
     links: [
       { label: 'Website', url: 'https://arreglo.ai' },
@@ -148,10 +147,11 @@ export const projects = [
     title: 'Finger-drum your own videos into loops anyone can remix.',
     headline: 'In beta, waitlist open',
     backgroundImage: '/img/reflip.jpg',
+    logo: '/img/reflip-logo.svg',
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
     ],
-    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. It\'s in beta now, with a waitlist open for launch.',
+    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. It\'s in beta now, with a waitlist open.',
     wins: [
       'The whole audio and video pipeline runs in the browser, with no server rendering.',
       'Every remix stays traceable to its source.',
@@ -167,10 +167,7 @@ export const projects = [
     title: 'Helping craft vendors find their next great market.',
     headline: 'AI agents mapping craft markets',
     backgroundImage: '/img/archipelago.jpg',
-    stats: [
-      { value: '~100', label: 'markets mapped' },
-    ],
-    overview: 'Archipelago is a vendor-first craft market directory. We help vendors discover markets, read honest reviews from other sellers, and make data-driven decisions about where to sell their products. Coming soon.',
+    overview: 'Archipelago is a vendor-first craft market directory. We help vendors discover markets, read honest reviews from other sellers, and make data-driven decisions about where to sell their products. It\'s in closed alpha, gathering market data across states and major cities.',
     wins: [
       'An agent pipeline that discovers and enriches markets, with a hard monthly cost cap.',
       'A review queue, so nothing publishes unchecked.',
