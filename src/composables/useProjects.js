@@ -7,6 +7,8 @@
 //   headline on the homepage card.
 // - `wins`: one-liners, shown as "Key wins" on main quests and "Highlights" on
 //   side quests.
+// - `clients` ({ name, logo, text }): a "Notable clients" list, each line led
+//   by a small white logo — for quests about the work rather than one company.
 // - `logo` / `backgroundImage`: without a logo the company name is set as a
 //   wordmark; without a banner the card shows its loading dots and the page
 //   drops its hero.
@@ -56,9 +58,9 @@ export const projects = [
     ],
     overview: 'At InHouse, I co-founded and scaled a college side-gig into a national provider for top mortgage brands in the US. Although we eventually closed the business, the invaluable lessons learned continue to shape my career and decision-making.',
     wins: [
+      'Raised a seed round led by the Arizona Founders Fund, its first Tucson investment.',
       'Partnered with Top 20 national mortgage brands, plus customers like Long Realty and NOVA Home Loans.',
       'Streamlined RESPA compliance for lenders and agents co-marketing together.',
-      'Won "most likely to launch" at the University of Arizona\'s 2015 New Venture Competition.',
     ],
     links: [
       { label: 'Website (archived)', url: 'https://web.archive.org/web/20180525031450/https://getinhouse.io/' },
@@ -79,14 +81,15 @@ export const projects = [
       { value: '3', label: 'industries: fintech, proptech, philanthropy' },
     ],
     overview: 'Selected advisory work helping early-stage companies turn napkin sketch ideas into products people use, from product strategy and design through functional frontends.',
-    wins: [
-      'Nova Credit: design, front-end, web, and growth.',
-      'Homeward: design and front-end.',
-      'GivingData: brand and marketing site.',
-      'TitleSentry: a compliance tracker for title agencies.',
+    clients: [
+      { name: 'Nova Credit', logo: '/img/novacredit-logo.svg', text: 'Marketing site, landing pages, and growth experiments for the credit bureau helping newcomers bring their credit history to the US.' },
+      { name: 'Homeward', logo: '/img/homeward-logo.svg', text: 'Designed and built the marketing site, then migrated it to Webflow, for the company helping people buy their next home before selling their last.' },
+      { name: 'GivingData', logo: '/img/givingdata-logo.svg', text: 'Brand identity, plus the design and build of the marketing site, for the grants management platform.' },
+      { name: 'TitleSentry', logo: '/img/titlesentry-logo.svg', text: 'A compliance tracker for title agencies.' },
     ],
     links: [
       { label: 'Work with me', url: 'mailto:hello@builtwithwords.ai' },
+      { label: 'Dribbble', url: 'https://dribbble.com/luispalomares' },
     ],
     projectType: 'main',
   },
