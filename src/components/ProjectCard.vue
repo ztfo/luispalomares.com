@@ -95,6 +95,15 @@ export default {
 }
 .card-description {
     margin-bottom: 5rem;
+    // Bulma's level halves never shrink, so a long title pushes the logo out
+    // of the column; let the text side wrap instead.
+    .level-left {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+    .level-right {
+        margin-left: 1.5rem;
+    }
 }
 .card-headline {
     margin-top: 0.35rem;

@@ -156,9 +156,15 @@ useHead({
 .projects-container {
     height: 100%;
 }
+// The hover zoom scales a card ~1% past each edge. The 1rem gutter (pulled
+// back out by the negative margin, so nothing shifts) gives it room, and
+// overflow-x keeps anything else from turning into a sideways scroll.
 .projects {
     height: calc(100vh - 11rem);
-    overflow: scroll;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
     @media screen and (max-width: 768px) {
         height: auto;
     }
