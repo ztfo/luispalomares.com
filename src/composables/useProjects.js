@@ -3,8 +3,9 @@
 //
 // Adding a quest is one object here plus its images in /public/img. Only `id`,
 // `company`, `title`, `overview` and `projectType` are required:
-// - `stats` (0–3, real and sourced numbers only): the first doubles as the
-//   headline on the homepage card.
+// - `headline`: the short line under the title on the homepage card — broad
+//   and punchy; the specifics belong in `stats` and `wins` on the quest page.
+// - `stats` (0–3, real and sourced numbers only).
 // - `wins`: one-liners, shown as "Key wins" on main quests and "Highlights" on
 //   side quests.
 // - `clients` ({ name, logo }): a "Notable clients" row of small white logos —
@@ -21,6 +22,7 @@ export const projects = [
     stage: 'Series C',
     timeline: '2019 – now',
     title: 'Designing a future safe from wire fraud.',
+    headline: 'Seed to Series C, from early employee to Director of Product',
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
@@ -49,6 +51,7 @@ export const projects = [
     stage: 'Seed',
     timeline: '2014 – 2019',
     title: 'Collaborating with transparency in the home buying process.',
+    headline: 'Co-founded and scaled to 27 states',
     backgroundImage: '/img/inhouse.jpg',
     logo: '/img/inhouse-logo.svg',
     stats: [
@@ -75,6 +78,7 @@ export const projects = [
     stage: 'Fractional',
     timeline: 'Ongoing',
     title: 'Product, design, and front-end for teams that need a builder.',
+    headline: 'From napkin sketch to shipped product',
     backgroundImage: '/img/fractional.jpg',
     overview: 'Selected advisory work helping early-stage companies turn napkin sketch ideas into products people use, from product strategy and design through functional frontends.',
     clients: [
@@ -117,6 +121,7 @@ export const projects = [
     stage: 'Side Project',
     timeline: '2024 – now',
     title: 'AI-powered music arrangement generator for Figma.',
+    headline: 'Live on Figma, now in beta as a VST',
     backgroundImage: '/img/arreglo-ai.jpg',
     logo: '/img/arreglo-ai-logo.svg',
     stats: [
@@ -141,6 +146,7 @@ export const projects = [
     stage: 'Side Project',
     timeline: '2026',
     title: 'Finger-drum your own videos into loops anyone can remix.',
+    headline: 'In beta, waitlist open',
     backgroundImage: '/img/reflip.jpg',
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
@@ -159,6 +165,7 @@ export const projects = [
     stage: 'Side Project',
     timeline: '2025 – now',
     title: 'Helping craft vendors find their next great market.',
+    headline: 'AI agents mapping craft markets',
     backgroundImage: '/img/archipelago.jpg',
     stats: [
       { value: '~100', label: 'markets mapped' },
@@ -177,6 +184,7 @@ export const projects = [
     stage: 'Music',
     timeline: '2024 – now',
     title: 'Dance music, written and produced as llü.',
+    headline: 'Three singles out, more on the way',
     backgroundImage: '/img/llu.jpg',
     stats: [
       { value: '3', label: 'singles out' },

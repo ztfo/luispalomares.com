@@ -14,9 +14,7 @@ NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handle
                 div
                     .is-size-6
                         span {{ project.title }}
-                    p.card-stat.is-size-7(v-if="headline")
-                        span.card-stat-value {{ headline.value }}
-                        | &nbsp;{{ headline.label }}
+                    p.card-headline.is-size-7(v-if="project.headline") {{ project.headline }}
             .level-right.is-hidden-mobile
                 img.logo(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
                 span.wordmark(v-else) {{ project.company }}
@@ -29,11 +27,6 @@ export default {
     name: 'ProjectCardComponent',
     props: {
         project: Object,
-    },
-    computed: {
-        headline() {
-            return this.project.stats?.[0];
-        },
     },
     methods: {
         handleClick() {
@@ -103,12 +96,10 @@ export default {
 .card-description {
     margin-bottom: 5rem;
 }
-.card-stat {
+.card-headline {
     margin-top: 0.35rem;
-}
-.card-stat-value {
     color: var(--green);
-    font-weight: 700;
+    font-weight: 600;
 }
 .logo {
     max-width: 150px;
