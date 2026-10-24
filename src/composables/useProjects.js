@@ -26,14 +26,14 @@ export const projects = [
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
-      { value: '7-figure', label: 'ARR in PayoffProtect\'s first year' },
+      { value: '7-figure', label: 'product launches' },
       { value: '~70%', label: 'of eligible customers on the new platform in five months' },
       { value: '58%', label: 'of billable volume beyond wire protection, up from 37%' },
     ],
     overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path, and working with such a talented team on a powerful mission has been the magic I\'ve been looking for.',
     wins: [
       'Built the product design function and design system from scratch, and led our first large redesign.',
-      'Launched PayoffProtect: seven-figure ARR in its first year, now our largest product by volume.',
+      'Launched payoff verification: seven-figure ARR in its first year, now our largest product by volume.',
       'Launched identity verification: 48x request growth over eight quarters.',
       'Drove the product vision behind the largest release in company history: a full closing platform with identity, documents, and payments.',
     ],
