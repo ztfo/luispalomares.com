@@ -129,8 +129,13 @@ export default {
     align-items: center;
     position: relative;
     z-index: 1;
+    // Square marks (llü) would fill the column's full width; cap the height
+    // and keep the mark right-aligned in its box.
     img {
         width: 100%;
+        max-height: 52px;
+        object-fit: contain;
+        object-position: right center;
     }
 }
 </style>

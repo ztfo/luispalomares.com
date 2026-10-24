@@ -101,7 +101,10 @@ export default {
     color: var(--green);
     font-weight: 600;
 }
+// The height cap is for square marks (llü): wordmarks hit the width first,
+// so a 44px-square logo lands at Arreglo's mark height instead of 150px.
 .logo {
     max-width: 150px;
+    max-height: 52px;
 }
 </style>

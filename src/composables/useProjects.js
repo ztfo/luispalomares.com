@@ -22,7 +22,7 @@ export const projects = [
     stage: 'Series C',
     timeline: '2019 – now',
     title: 'Designing a future safe from wire fraud.',
-    headline: 'Seed to Series C, from early employee to Director of Product',
+    headline: 'Seed to Series C',
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
@@ -115,6 +115,31 @@ export const projects = [
     projectType: 'main',
   },
   {
+    id: 'llu',
+    company: 'llü',
+    role: 'Producer',
+    stage: 'Music',
+    timeline: '2024 – now',
+    title: 'Dance music, written and produced as llü.',
+    headline: 'Three singles out, more on the way',
+    backgroundImage: '/img/llu.jpg',
+    logo: '/img/llu-logo.svg',
+    stats: [
+      { value: '3', label: 'singles out' },
+    ],
+    overview: 'llü is my music project. I write and produce dance music, illustrate the artwork, and built the site myself. My next release, Buena Suerte, is on the way.',
+    wins: [
+      'Singles: La Luna (2024), El Diablito (2025), and The Feeling (2025).',
+      'Arreglo started here, as a tool to finish these songs.',
+    ],
+    links: [
+      { label: '7thst.music', url: 'https://7thst.music' },
+      { label: 'Spotify', url: 'https://open.spotify.com/artist/1t00W56dAWaTPJ7YcRwY91' },
+      { label: 'SoundCloud', url: 'https://soundcloud.com/llu-official' },
+    ],
+    projectType: 'side',
+  },
+  {
     id: 'arreglo',
     company: 'Arreglo.ai',
     role: 'Founder & Developer',
@@ -171,30 +196,6 @@ export const projects = [
     wins: [
       'An agent pipeline that discovers and enriches markets, with a hard monthly cost cap.',
       'A review queue, so nothing publishes unchecked.',
-    ],
-    projectType: 'side',
-  },
-  {
-    id: 'llu',
-    company: 'llü',
-    role: 'Producer',
-    stage: 'Music',
-    timeline: '2024 – now',
-    title: 'Dance music, written and produced as llü.',
-    headline: 'Three singles out, more on the way',
-    backgroundImage: '/img/llu.jpg',
-    stats: [
-      { value: '3', label: 'singles out' },
-    ],
-    overview: 'llü is my music project. I write and produce dance music, illustrate the artwork, and built the site myself. My next release, Buena Suerte, is on the way.',
-    wins: [
-      'Singles: La Luna (2024), El Diablito (2025), and The Feeling (2025).',
-      'Arreglo started here, as a tool to finish these songs.',
-    ],
-    links: [
-      { label: '7thst.music', url: 'https://7thst.music' },
-      { label: 'Spotify', url: 'https://open.spotify.com/artist/1t00W56dAWaTPJ7YcRwY91' },
-      { label: 'SoundCloud', url: 'https://soundcloud.com/llu-official' },
     ],
     projectType: 'side',
   },
