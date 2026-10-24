@@ -27,7 +27,7 @@ export const projects = [
     logo: '/img/certifid-logo.svg',
     stats: [
       { value: '7-figure', label: 'product launches' },
-      { value: '~70%', label: 'of eligible customers on the new platform in five months' },
+      { value: '~90%', label: 'of all customers on the new experience since launch' },
       { value: '58%', label: 'of billable volume beyond wire protection, up from 37%' },
     ],
     overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path, and working with such a talented team on a powerful mission has been the magic I\'ve been looking for.',
