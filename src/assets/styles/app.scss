@@ -161,6 +161,16 @@ p {
     background-color: var(--thin-glass);
 }
 
+// Stand-in for a logo SVG: the company name, set to sit where a mark would.
+.wordmark {
+    display: inline-block;
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
 .simple-divider {
     background: var(--gradient-green-blue);
     height: 1px;
