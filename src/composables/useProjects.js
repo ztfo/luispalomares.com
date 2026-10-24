@@ -62,8 +62,8 @@ export const projects = [
     overview: 'At InHouse, I co-founded and scaled a college side-gig into a national provider for top mortgage brands in the US. Although we eventually closed the business, the invaluable lessons learned continue to shape my career and decision-making.',
     wins: [
       'Raised a seed round led by the Arizona Founders Fund, its first Tucson investment.',
-      'Partnered with Top 20 national mortgage brands, plus customers like Long Realty and NOVA Home Loans.',
-      'Streamlined RESPA compliance for lenders and agents co-marketing together.',
+      'Partnered with Top 20 national mortgage brands, plus customers like Long Realty.',
+      'Built NLIST, a white-label platform for NOVA Home Loans that automated co-branded, RESPA-compliant marketing for its loan officers.',
     ],
     links: [
       { label: 'Website (archived)', url: 'https://web.archive.org/web/20180525031450/https://getinhouse.io/' },
@@ -99,14 +99,16 @@ export const projects = [
     stage: 'Innovation Lab',
     timeline: '2019',
     title: 'Agent websites and a CRM for a family of brokerage brands.',
+    headline: 'Built for 42,000+ agents',
     backgroundImage: '/img/homeservices.jpg',
     logo: '/img/homeservices-logo.svg',
     stats: [
+      { value: '42,000+', label: 'agents across its brands' },
       { value: '7', label: 'pilot brokerages in the beta roll-out' },
     ],
-    overview: 'At Merlin Labs, the real estate innovation lab of HomeServices of America and Berkshire Hathaway, I designed the agent websites and CRM system built for its brokerage brands.',
+    overview: 'Merlin Labs is an innovation lab formed by HomeServices of America to design and build digital products for its 42,000+ real estate agents. I joined its product design team, bringing years of real estate experience to help create a platform that empowers agents with modern technology and makes buying and selling a home delightful and simple for consumers.',
     wins: [
-      'Designed custom agent websites and a CMS, and led the design and development of the Salesforce-powered CRM, transaction management, and accounting.',
+      'Key contributor to the platform\'s custom agent websites and CMS, and its Salesforce-powered CRM, transaction management, and accounting.',
     ],
     links: [
       { label: 'Website', url: 'https://www.homeservices.com' },
@@ -185,7 +187,7 @@ export const projects = [
   {
     id: 'archipelago',
     company: 'Archipelago',
-    role: 'Founder & Developer',
+    role: 'Co-founder & Developer',
     stage: 'Side Project',
     timeline: '2025 – now',
     title: 'Helping craft vendors find their next great market.',
