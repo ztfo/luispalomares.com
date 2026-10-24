@@ -106,7 +106,7 @@ export const projects = [
     ],
     overview: 'At Merlin Labs, the real estate innovation lab of HomeServices of America and Berkshire Hathaway, I designed the agent websites and CRM system built for its brokerage brands.',
     wins: [
-      'Led the design and development of a custom Salesforce platform for real estate client and transaction management.',
+      'Designed custom agent websites and a CMS, and led the design and development of the Salesforce-powered CRM, transaction management, and accounting.',
     ],
     links: [
       { label: 'Website', url: 'https://www.homeservices.com' },
