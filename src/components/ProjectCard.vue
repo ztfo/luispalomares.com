@@ -1,6 +1,6 @@
 <template lang="pug">
 NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handleClick")
-    .card.project.mb-5(:style="{ backgroundImage: 'url(' + project.backgroundImage + ')' }")
+    .card.project.mb-5(:style="project.backgroundImage ? { backgroundImage: 'url(' + project.backgroundImage + ')' } : null")
         .has-text-centered(v-if="!project.backgroundImage")
             .dots
                 span.dot1 &middot;
@@ -9,11 +9,15 @@ NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handle
     .levels.card-description
         .level
             .level-left
-                img.logo.is-hidden-desktop.mb-4(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
-                .is-size-6 
-                    span {{ project.title }}
+                img.logo.is-hidden-desktop.mb-4(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+                span.wordmark.is-hidden-desktop.mb-4(v-else) {{ project.company }}
+                div
+                    .is-size-6
+                        span {{ project.title }}
+                    p.card-headline.is-size-7(v-if="project.headline") {{ project.headline }}
             .level-right.is-hidden-mobile
-                img.logo(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+                img.logo(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+                span.wordmark(v-else) {{ project.company }}
 </template>
 
 <script>
@@ -71,9 +75,9 @@ export default {
     justify-content: center;
     background-size: cover;
     background-repeat: no-repeat;
-    @media (max-width: 768px) {
-        background-position: center;
-    }
+    // Centred at every width: banners are composed around their middle, and
+    // a top-left anchor crops whatever sits on the right edge.
+    background-position: center;
 }
 .link-block {
     display: block;
@@ -92,7 +96,15 @@ export default {
 .card-description {
     margin-bottom: 5rem;
 }
+.card-headline {
+    margin-top: 0.35rem;
+    color: var(--green);
+    font-weight: 600;
+}
+// The height cap is for square marks (llü): wordmarks hit the width first,
+// so a 44px-square logo lands at Arreglo's mark height instead of 150px.
 .logo {
     max-width: 150px;
+    max-height: 52px;
 }
 </style>

@@ -9,7 +9,8 @@
                 br
                 span {{ project.title }}
         .project-logo.column.is-half-mobile
-            img(:src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+            img(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+            span.wordmark.is-size-4(v-else) {{ project.company }}
     ProjectContentComponent(v-if="project", :project="project")
 </template>
 
@@ -128,8 +129,13 @@ export default {
     align-items: center;
     position: relative;
     z-index: 1;
+    // Square marks (llü) would fill the column's full width; cap the height
+    // and keep the mark right-aligned in its box.
     img {
         width: 100%;
+        max-height: 52px;
+        object-fit: contain;
+        object-position: right center;
     }
 }
 </style>
