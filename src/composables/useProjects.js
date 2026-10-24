@@ -7,8 +7,8 @@
 //   headline on the homepage card.
 // - `wins`: one-liners, shown as "Key wins" on main quests and "Highlights" on
 //   side quests.
-// - `clients` ({ name, logo, text }): a "Notable clients" list, each line led
-//   by a small white logo — for quests about the work rather than one company.
+// - `clients` ({ name, logo }): a "Notable clients" row of small white logos —
+//   for quests about the work rather than one company.
 // - `logo` / `backgroundImage`: without a logo the company name is set as a
 //   wordmark; without a banner the card shows its loading dots and the page
 //   drops its hero.
@@ -76,16 +76,11 @@ export const projects = [
     timeline: 'Ongoing',
     title: 'Product, design, and front-end for teams that need a builder.',
     backgroundImage: '/img/fractional.jpg',
-    stats: [
-      { value: '4', label: 'client teams' },
-      { value: '3', label: 'industries: fintech, proptech, philanthropy' },
-    ],
     overview: 'Selected advisory work helping early-stage companies turn napkin sketch ideas into products people use, from product strategy and design through functional frontends.',
     clients: [
-      { name: 'Nova Credit', logo: '/img/novacredit-logo.svg', text: 'Marketing site, landing pages, and growth experiments for the credit bureau helping newcomers bring their credit history to the US.' },
-      { name: 'Homeward', logo: '/img/homeward-logo.svg', text: 'Designed and built the marketing site, then migrated it to Webflow, for the company helping people buy their next home before selling their last.' },
-      { name: 'GivingData', logo: '/img/givingdata-logo.svg', text: 'Brand identity, plus the design and build of the marketing site, for the grants management platform.' },
-      { name: 'TitleSentry', logo: '/img/titlesentry-logo.svg', text: 'A compliance tracker for title agencies.' },
+      { name: 'Nova Credit', logo: '/img/novacredit-logo.svg' },
+      { name: 'Homeward', logo: '/img/homeward-logo.svg' },
+      { name: 'GivingData', logo: '/img/givingdata-logo.svg' },
     ],
     links: [
       { label: 'Work with me', url: 'mailto:hello@builtwithwords.ai' },

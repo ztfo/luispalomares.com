@@ -30,7 +30,6 @@
             ul
                 li(v-for="client in project.clients" :key="client.name")
                     img(:src="client.logo" :alt="`${client.name} logo`" :title="client.name")
-                    p {{ client.text }}
     .project-links(v-if="project.links")
         a.link(v-for="link in project.links" :key="link.url" :href="link.url" target="_blank" @click="trackLinkClick(link)")
             font-awesome-icon(icon="link")
@@ -120,28 +119,19 @@ export default {
     }
 }
 
-// Logos sit in a fixed column so the copy lines up however wide each mark is;
-// capped on both axes because the marks range from 4:1 to 7:1.
-.project-clients li {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    padding: 0.9rem 0;
-
-    & + li {
-        border-top: 1px solid var(--thin-glass);
-    }
+// Capped on both axes because the marks range from 4:1 to 7:1, so no one
+// logo outweighs the others in the row.
+.project-clients ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2.5rem;
+    padding: 0.5rem 0;
 
     img {
+        display: block;
         max-width: 8rem;
         max-height: 24px;
-        margin-top: 0.15rem;
-    }
-
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 0.6rem;
     }
 }
 
