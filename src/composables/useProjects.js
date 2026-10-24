@@ -107,7 +107,6 @@ export const projects = [
     overview: 'At Merlin Labs, the real estate innovation lab of HomeServices of America and Berkshire Hathaway, I designed the agent websites and CRM system built for its brokerage brands.',
     wins: [
       'Led the design and development of a custom Salesforce platform for real estate client and transaction management.',
-      'Helped relaunch and finish a delayed project by reassessing product priorities.',
     ],
     links: [
       { label: 'Website', url: 'https://www.homeservices.com' },
@@ -142,7 +141,7 @@ export const projects = [
   {
     id: 'arreglo',
     company: 'Arreglo.ai',
-    role: 'Founder & Developer',
+    role: 'Co-founder & Developer',
     stage: 'Side Project',
     timeline: '2024 – now',
     title: 'AI-powered music arrangement generator for Figma.',
