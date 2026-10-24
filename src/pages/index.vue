@@ -88,18 +88,18 @@ const description =
 const ogImage = `${siteUrl}/img/certifid.jpg`
 
 useSeoMeta({
-  title: 'Luis Palomares — Product Leader, Designer & Founder in Austin',
+  title: 'Luis Palomares | Product Leader, Designer & Founder in Austin',
   description,
-  ogTitle: 'Luis Palomares — Product Leader, Designer & Founder',
+  ogTitle: 'Luis Palomares | Product Leader, Designer & Founder',
   ogDescription: description,
   ogType: 'website',
   ogUrl: siteUrl,
   ogImage,
-  ogImageAlt: 'Luis Palomares — Product Leader, Designer & Founder',
+  ogImageAlt: 'Luis Palomares | Product Leader, Designer & Founder',
   ogSiteName: 'Luis Palomares',
   ogLocale: 'en_US',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Luis Palomares — Product Leader, Designer & Founder',
+  twitterTitle: 'Luis Palomares | Product Leader, Designer & Founder',
   twitterDescription: description,
   twitterImage: ogImage,
 })

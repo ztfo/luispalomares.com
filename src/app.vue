@@ -9,6 +9,6 @@
 // that don't (e.g. the error page).
 useHead({
   titleTemplate: (title) =>
-    title || 'Luis Palomares — Product Leader, Designer & Founder',
+    title || 'Luis Palomares | Product Leader, Designer & Founder',
 })
 </script>

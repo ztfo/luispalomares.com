@@ -25,21 +25,21 @@ const ogImage = p.backgroundImage ? `${siteUrl}${p.backgroundImage}` : undefined
 // Trailing slash matches how GitHub Pages serves directory indexes (the
 // slash-less form 301s), keeping canonical/og URLs redirect-free.
 const pageUrl = `${siteUrl}/project/${p.id}/`
-const title = `${p.company} — ${p.title} | Luis Palomares`
+const title = `${p.company}: ${p.title} | Luis Palomares`
 
 useSeoMeta({
   title,
   description,
-  ogTitle: `${p.company} — ${p.title}`,
+  ogTitle: `${p.company}: ${p.title}`,
   ogDescription: description,
   ogType: 'article',
   ogUrl: pageUrl,
   ogImage,
-  ogImageAlt: ogImage && `${p.company} — ${p.title}`,
+  ogImageAlt: ogImage && `${p.company}: ${p.title}`,
   ogSiteName: 'Luis Palomares',
   ogLocale: 'en_US',
   twitterCard: ogImage ? 'summary_large_image' : 'summary',
-  twitterTitle: `${p.company} — ${p.title}`,
+  twitterTitle: `${p.company}: ${p.title}`,
   twitterDescription: description,
   twitterImage: ogImage,
 })

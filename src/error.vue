@@ -19,7 +19,7 @@ const message = computed(() =>
 )
 
 useSeoMeta({
-  title: `${props.error?.statusCode || 'Error'} — Luis Palomares`,
+  title: `${props.error?.statusCode || 'Error'} | Luis Palomares`,
   robots: 'noindex',
 })
 
