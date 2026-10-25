@@ -26,16 +26,16 @@ export const projects = [
     backgroundImage: '/img/certifid.jpg',
     logo: '/img/certifid-logo.svg',
     stats: [
-      { value: '7-figure', label: 'product launches' },
-      { value: '~90%', label: 'of all customers on the new experience since launch' },
-      { value: '58%', label: 'of billable volume beyond wire protection, up from 37%' },
+      { value: '~60%', label: 'of billable volume from new products beyond our core' },
+      { value: '7-figure', label: 'ARR in year one for a new product launch' },
     ],
     overview: 'At CertifID, I collaborate with some of the most talented and driven individuals I know. Joining early in its journey felt like a continuation of my entrepreneurial path, and working with such a talented team on a powerful mission has been the magic I\'ve been looking for.',
     wins: [
-      'Built the product design function and design system from scratch, and led our first large redesign.',
-      'Launched payoff verification: seven-figure ARR in its first year, now our largest product by volume.',
-      'Launched identity verification: 48x request growth over eight quarters.',
-      'Drove the product vision behind the largest release in company history: a full closing platform with identity, documents, and payments.',
+      'Built the product design function and design system from scratch.',
+      'Led our first major redesign early on, which set the foundation for the product as it scaled.',
+      'Helped launch our biggest product at the time, which has been our highest-volume product ever since.',
+      'Partnered with the team to take several new products from concept to launch, each growing into a meaningful share of our volume.',
+      'Led our second redesign more recently, a company-wide effort that rebuilt our platform on a modern foundation. Every request now runs on it, and about 90% of customers have the new experience turned on.',
     ],
     links: [
       { label: 'Website', url: 'https://certifid.com' },
