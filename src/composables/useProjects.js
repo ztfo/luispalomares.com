@@ -171,15 +171,15 @@ export const projects = [
     stage: 'Side Project',
     timeline: '2026',
     title: 'Finger-drum your own videos into loops anyone can remix.',
-    headline: 'In beta, waitlist open',
+    headline: 'Now a native iOS app',
     backgroundImage: '/img/reflip.png',
     logo: '/img/reflip-logo.svg',
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
     ],
-    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. It\'s in beta now, with a waitlist open.',
+    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. Now a native iOS app, with a web page for every flip.',
     wins: [
-      'The whole audio and video pipeline runs in the browser, with no server rendering.',
+      'The whole audio and video pipeline runs on the phone, with no server rendering.',
       'Every remix stays traceable to its source.',
     ],
     projectType: 'side',
