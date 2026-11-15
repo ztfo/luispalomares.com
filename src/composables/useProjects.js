@@ -183,6 +183,10 @@ export const projects = [
       'Every remix stays traceable to its source.',
       'Coming next: a feed for finding flips and re-flipping each other\'s.',
     ],
+    links: [
+      { label: 'reflip.me', url: 'https://reflip.me' },
+      { label: 'Make a flip', url: 'https://reflip.me/make' },
+    ],
     projectType: 'side',
   },
   {
