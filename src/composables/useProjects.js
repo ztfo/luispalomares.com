@@ -177,9 +177,9 @@ export const projects = [
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
     ],
-    overview: 'Chop your video into pads. Drum a loop over it. Post a link anyone can play, and re-flip. Now a native iOS app, with a web page for every flip.',
+    overview: 'Record a clip and reflip chops it into 16 pads. Finger-drum a loop over it, post a link anyone can play, and re-flip anyone else\'s flip into your own.',
     wins: [
-      'The whole audio and video pipeline runs on the phone, with no server rendering.',
+      'Shared flips play in any browser, no app needed.',
       'Every remix stays traceable to its source.',
     ],
     projectType: 'side',
