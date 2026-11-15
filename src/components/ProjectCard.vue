@@ -120,6 +120,12 @@ export default {
         .level-left {
             width: 100%;
         }
+        // A text-only name (Archipelago) lines up on the right like the emblems.
+        .wordmark.is-hidden-desktop {
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+        }
     }
 }
 .card-headline {
