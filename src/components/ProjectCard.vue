@@ -7,16 +7,16 @@ NuxtLink.link-block(v-if="project" :to="`/project/${project.id}`" @click="handle
                 span.dot2 &middot;
                 span.dot3 &middot;
     .levels.card-description
-        .level
+        .level(:class="{ 'is-side': isSide }")
             .level-left
-                img.logo.is-hidden-desktop.mb-4(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+                img.logo.is-hidden-desktop.mb-4(v-if="project.logo" :class="{ 'is-emblem': isSide }" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
                 span.wordmark.is-hidden-desktop.mb-4(v-else) {{ project.company }}
                 div
                     .is-size-6
                         span {{ project.title }}
                     p.card-headline.is-size-7(v-if="project.headline") {{ project.headline }}
             .level-right.is-hidden-mobile
-                img.logo(v-if="project.logo" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
+                img.logo(v-if="project.logo" :class="{ 'is-emblem': isSide }" :src="project.logo", :alt="`${project.company} logo`" :title="project.company")
                 span.wordmark(v-else) {{ project.company }}
 </template>
 
@@ -27,6 +27,11 @@ export default {
     name: 'ProjectCardComponent',
     props: {
         project: Object,
+    },
+    computed: {
+        isSide() {
+            return this.project?.projectType === 'side';
+        },
     },
     methods: {
         handleClick() {
@@ -105,6 +110,18 @@ export default {
         margin-left: 1.5rem;
     }
 }
+// Side quests top-align the emblem with the title, so it lands in the same spot
+// whether the title runs one line or two.
+.card-description .level.is-side {
+    align-items: flex-start;
+    // Below desktop the emblem sits above the title; a full-width column lets it
+    // reach the right edge even when the title is short (llü).
+    @media screen and (max-width: 1023px) {
+        .level-left {
+            width: 100%;
+        }
+    }
+}
 .card-headline {
     margin-top: 0.35rem;
     color: var(--green);
@@ -115,5 +132,18 @@ export default {
 .logo {
     max-width: 150px;
     max-height: 52px;
+}
+// Side quests: every square emblem is drawn on the same 44-unit grid and sits at the
+// right end of its lockup, so one height makes them all the same size, and right
+// alignment lines them up in the same spot on every card.
+.logo.is-emblem {
+    height: 44px;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    &.is-hidden-desktop {
+        display: block;
+        margin-left: auto;
+    }
 }
 </style>
