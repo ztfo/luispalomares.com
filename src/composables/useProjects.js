@@ -77,7 +77,7 @@ export const projects = [
     role: 'Product & Design Advisor',
     stage: 'Fractional',
     timeline: 'Ongoing',
-    title: 'Product, design, and front-end for teams that need a builder.',
+    title: 'Product, design, and frontend for teams that need a builder.',
     headline: 'From napkin sketch to shipped product',
     backgroundImage: '/img/fractional.jpg',
     overview: 'Selected advisory work helping early-stage companies turn napkin sketch ideas into products people use, from product strategy and design through functional frontends.',
