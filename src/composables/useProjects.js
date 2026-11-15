@@ -141,30 +141,6 @@ export const projects = [
     projectType: 'side',
   },
   {
-    id: 'arreglo',
-    company: 'Arreglo.ai',
-    role: 'Co-founder & Developer',
-    stage: 'Side Project',
-    timeline: '2024 – now',
-    title: 'AI-powered music arrangement generator for Figma.',
-    headline: 'Live on Figma, now in beta as a VST',
-    backgroundImage: '/img/arreglo-ai.jpg',
-    logo: '/img/arreglo-ai-logo.svg',
-    stats: [
-      { value: 'Live', label: 'on Figma Community' },
-    ],
-    overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered tool that could take my track ideas and turn them into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
-    wins: [
-      'A working beta of a VST plugin that brings Arreglo into the DAW.',
-      'v2 with sign-in and paid credits is built and ready to launch.',
-    ],
-    links: [
-      { label: 'Website', url: 'https://arreglo.ai' },
-      { label: 'Figma Community', url: 'https://www.figma.com/community/plugin/1473434918581718662/arreglo' },
-    ],
-    projectType: 'side',
-  },
-  {
     id: 'reflip',
     company: 'reflip',
     role: 'Founder & Developer',
@@ -186,6 +162,30 @@ export const projects = [
     links: [
       { label: 'reflip.me', url: 'https://reflip.me' },
       { label: 'Make a flip', url: 'https://reflip.me/make' },
+    ],
+    projectType: 'side',
+  },
+  {
+    id: 'arreglo',
+    company: 'Arreglo.ai',
+    role: 'Co-founder & Developer',
+    stage: 'Side Project',
+    timeline: '2024 – now',
+    title: 'AI-powered music arrangement generator for Figma.',
+    headline: 'Live on Figma, now in beta as a VST',
+    backgroundImage: '/img/arreglo-ai.jpg',
+    logo: '/img/arreglo-ai-logo.svg',
+    stats: [
+      { value: 'Live', label: 'on Figma Community' },
+    ],
+    overview: 'Arreglo started as a personal tool I built to help me finish songs. I was getting stuck on arrangements and decided to create an AI-powered tool that could take my track ideas and turn them into complete arrangement concepts in minutes. What began as a solution for my own workflow became polished enough to share as a Figma plugin, helping other musicians overcome the same creative blocks I was facing.',
+    wins: [
+      'A working beta of a VST plugin that brings Arreglo into the DAW.',
+      'v2 with sign-in and paid credits is built and ready to launch.',
+    ],
+    links: [
+      { label: 'Website', url: 'https://arreglo.ai' },
+      { label: 'Figma Community', url: 'https://www.figma.com/community/plugin/1473434918581718662/arreglo' },
     ],
     projectType: 'side',
   },
