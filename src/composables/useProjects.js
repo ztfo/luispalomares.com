@@ -172,7 +172,7 @@ export const projects = [
     timeline: '2026',
     title: 'Finger-drum your own videos into loops anyone can remix.',
     headline: 'In beta, waitlist open',
-    backgroundImage: '/img/reflip.jpg',
+    backgroundImage: '/img/reflip.png',
     logo: '/img/reflip-logo.svg',
     stats: [
       { value: '4 weeks', label: 'from idea to beta' },
