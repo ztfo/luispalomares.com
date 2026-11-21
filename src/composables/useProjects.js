@@ -120,7 +120,7 @@ export const projects = [
     company: 'llü',
     role: 'Producer',
     stage: 'Music',
-    timeline: '2024 – now',
+    timeline: '2007 – now',
     title: 'Dance music, written and produced as llü.',
     headline: 'Three singles out, more on the way',
     backgroundImage: '/img/llu.jpg',
@@ -128,7 +128,7 @@ export const projects = [
     stats: [
       { value: '3', label: 'singles out' },
     ],
-    overview: 'llü is my music project. I write and produce dance music, illustrate the artwork, and built the site myself. My next release, Buena Suerte, is on the way.',
+    overview: 'llü is my music project. I\'ve made music and beats since 2007 under a few artist names, with 7th Street Records as the constant. I write and produce dance music and illustrate the artwork. My next release, Buena Suerte, is on the way.',
     wins: [
       'Singles: La Luna (2024), El Diablito (2025), and El Cotorro (2025).',
       'Arreglo started here, as a tool to finish these songs.',
