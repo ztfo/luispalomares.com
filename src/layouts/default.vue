@@ -1,23 +1,83 @@
 <template lang="pug">
 .home(:class="{ 'detail-first': detailOpen }")
-  .home-panel.left
-    ShaderCanvas.panel-shader(effect="ribbon-field" :opacity="0.55")
+  .home-panel.left(ref="leftPanel")
+    ShaderCanvas.panel-shader(
+      effect="ribbon-field"
+      :opacity="0.55"
+      :placement="placement"
+      :params="panelLayout"
+      :class="{ 'is-corners': placement === 0 }"
+    )
     .panel-scrim
     .panel-content
-      .long-divider
+      .long-divider(ref="divider")
       HomePanel
       Footer.rise(style="--rise-index: 6")
   .home-panel.right
     .inner-scroll(ref="innerScroll")
       slot
+  DitherSwitcher(v-if="ditherPreview" :modelValue="placement" @update:modelValue="setPlacement")
 </template>
 
 <script setup>
 import HomePanel from '@/components/HomePanel.vue'
 import Footer from '@/components/Footer.vue'
 import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
+import DitherSwitcher from '@/components/DitherSwitcher.vue'
 
 const route = useRoute()
+const router = useRouter()
+
+// Prototype: ?dither=0..4 picks where the panel shader paints (0 is the
+// current corners) and shows a switcher. Read after mount so the prerendered
+// HTML always matches the default, and kept across navigation so opening a
+// project doesn't drop it.
+const placement = ref(0)
+const ditherPreview = ref(false)
+function readDither() {
+  const raw = route.query.dither
+  if (raw === undefined) return
+  const n = Number(raw)
+  ditherPreview.value = true
+  placement.value = Number.isInteger(n) && n >= 0 && n <= 4 ? n : 0
+}
+watch(() => route.query.dither, readDither)
+
+// Where the content column sits inside the panel, for placements that line up
+// with it (the header strip, the edge seam). Measured, not assumed, because
+// the panel's padding differs between desktop and the stacked phone layout.
+const leftPanel = ref(null)
+const divider = ref(null)
+const panelLayout = ref({})
+function measurePanel() {
+  const panel = leftPanel.value
+  const line = divider.value
+  if (!panel || !line) return
+  // Offsets rather than bounding rects: the divider rises in with a transform,
+  // and a rect taken mid-animation would land the strip a few pixels low.
+  let left = 0
+  let top = 0
+  for (let el = line; el && el !== panel; el = el.offsetParent) {
+    left += el.offsetLeft
+    top += el.offsetTop
+  }
+  panelLayout.value = {
+    contentLeft: left,
+    contentRight: left + line.offsetWidth,
+    dividerTop: top,
+  }
+}
+let panelObserver = null
+onMounted(() => {
+  readDither()
+  measurePanel()
+  panelObserver = new ResizeObserver(measurePanel)
+  panelObserver.observe(leftPanel.value)
+})
+onBeforeUnmount(() => panelObserver?.disconnect())
+function setPlacement(n) {
+  router.replace({ query: { ...route.query, dither: String(n) } })
+}
 
 // On mobile the panels stack bio-first, so opening a quest used to render the
 // detail a full screen below the fold: the tap looked like it did nothing.
@@ -96,11 +156,14 @@ watch(
     }
 }
 // Shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
-// Two openings, both in empty corners — full-bleed, the dot matrix fights the
-// body copy. Mask layers composite additively by default, so listing them is a
-// union; the shader paints a cluster under each one.
 .panel-shader {
   z-index: 0;
+}
+// Corners placement: two openings, both in empty corners — full-bleed, the dot
+// matrix fights the body copy. Mask layers composite additively by default, so
+// listing them is a union; the shader paints a cluster under each one. The
+// other placements shape themselves in the shader.
+.panel-shader.is-corners {
   --panel-shader-mask:
     radial-gradient(
       ellipse 76% 58% at 88% 78%,

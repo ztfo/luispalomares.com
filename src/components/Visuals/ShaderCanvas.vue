@@ -17,6 +17,11 @@ const props = defineProps({
   pointerAmount: { type: Number, default: undefined },
   smoothing: { type: Number, default: undefined },
   fidelity: { type: Number, default: undefined },
+  // Where an effect paints within its box, for effects that declare it
+  // (ribbon-field: 0 corners, 1 edge seam, 2 horizon, 3 full field, 4 header strip).
+  placement: { type: Number, default: undefined },
+  // Further effect scalars by name, e.g. layout measured by the parent.
+  params: { type: Object, default: undefined },
 
   // Colour grading. Applied as a CSS filter on the canvas rather than in GLSL:
   // it costs nothing on the GPU and means one shader can be re-tinted per
@@ -36,8 +41,10 @@ const settings = computed(() => {
   // Iterate the props, not the defaults: an effect that omits a key from its
   // defaults would otherwise silently ignore that prop.
   for (const key of Object.keys(props)) {
-    if (key !== 'effect' && props[key] !== undefined) merged[key] = props[key]
+    if (key === 'effect' || key === 'params' || props[key] === undefined) continue
+    merged[key] = props[key]
   }
+  if (props.params) Object.assign(merged, props.params)
   return merged
 })
 
