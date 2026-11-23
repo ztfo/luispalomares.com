@@ -1,10 +1,14 @@
 <template lang="pug">
 .home(:class="{ 'detail-first': detailOpen }")
-  .home-panel.left
-    ShaderCanvas.panel-shader(effect="ribbon-field" :opacity="0.55")
+  .home-panel.left(ref="leftPanel")
+    ShaderCanvas.panel-shader(
+      effect="ribbon-field"
+      :opacity="0.55"
+      :params="panelLayout"
+    )
     .panel-scrim
     .panel-content
-      .long-divider
+      .long-divider(ref="divider")
       HomePanel
       Footer.rise(style="--rise-index: 6")
   .home-panel.right
@@ -18,6 +22,30 @@ import Footer from '@/components/Footer.vue'
 import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
 
 const route = useRoute()
+
+// Where the content column ends inside the panel. The shader's edge seam sits
+// in the gutter to the right of it, so it's measured rather than assumed: the
+// gutter is narrower in the stacked phone layout than on desktop.
+const leftPanel = ref(null)
+const divider = ref(null)
+const panelLayout = ref({})
+function measurePanel() {
+  const panel = leftPanel.value
+  const line = divider.value
+  if (!panel || !line) return
+  // Offsets rather than bounding rects: the divider rises in with a transform,
+  // and a rect taken mid-animation would be a few pixels off.
+  let left = 0
+  for (let el = line; el && el !== panel; el = el.offsetParent) left += el.offsetLeft
+  panelLayout.value = { contentRight: left + line.offsetWidth }
+}
+let panelObserver = null
+onMounted(() => {
+  measurePanel()
+  panelObserver = new ResizeObserver(measurePanel)
+  panelObserver.observe(leftPanel.value)
+})
+onBeforeUnmount(() => panelObserver?.disconnect())
 
 // On mobile the panels stack bio-first, so opening a quest used to render the
 // detail a full screen below the fold: the tap looked like it did nothing.
@@ -96,28 +124,10 @@ watch(
     }
 }
 // Shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
-// Two openings, both in empty corners — full-bleed, the dot matrix fights the
-// body copy. Mask layers composite additively by default, so listing them is a
-// union; the shader paints a cluster under each one.
+// The shader paints only a full-height seam along the panel's right edge, in
+// the gutter beside the projects column, so the copy column needs no mask.
 .panel-shader {
   z-index: 0;
-  --panel-shader-mask:
-    radial-gradient(
-      ellipse 76% 58% at 88% 78%,
-      #000 0%,
-      rgba(0, 0, 0, 0.62) 42%,
-      transparent 76%
-    ),
-    // Above the heading. Kept short vertically so it fades out well before
-    // "Hi, I'm Luis." rather than sitting behind it.
-    radial-gradient(
-      ellipse 46% 17% at 0% 0%,
-      #000 0%,
-      rgba(0, 0, 0, 0.58) 44%,
-      transparent 80%
-    );
-  -webkit-mask-image: var(--panel-shader-mask);
-  mask-image: var(--panel-shader-mask);
 }
 
 // Keeps the brightest ribbons from lifting the panel off --black.

@@ -170,6 +170,11 @@ export function useShaderCanvas({ effect, getSettings }) {
         pointer: uniformNames.pointer
           ? gl.getUniformLocation(compiled.program, uniformNames.pointer)
           : null,
+        // Device pixels per CSS pixel, for effects that place things in CSS px
+        // (a gutter, a strip under a divider) rather than as a share of the canvas.
+        pixelRatio: uniformNames.pixelRatio
+          ? gl.getUniformLocation(compiled.program, uniformNames.pixelRatio)
+          : null,
       }
 
       // Effect-specific floats (fidelity, spread, …) declared by the module.
@@ -198,6 +203,7 @@ export function useShaderCanvas({ effect, getSettings }) {
       // at zero, and both shaders divide by resolution.
       gl.viewport(0, 0, width, height)
       if (uniforms.resolution) gl.uniform2f(uniforms.resolution, width, height)
+      if (uniforms.pixelRatio) gl.uniform1f(uniforms.pixelRatio, ratio)
 
       // A resize while paused would otherwise leave a stretched stale frame.
       if (resized && !frame) draw(lastTimestamp || 0)

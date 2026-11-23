@@ -17,6 +17,8 @@ const props = defineProps({
   pointerAmount: { type: Number, default: undefined },
   smoothing: { type: Number, default: undefined },
   fidelity: { type: Number, default: undefined },
+  // Further effect scalars by name, e.g. layout measured by the parent.
+  params: { type: Object, default: undefined },
 
   // Colour grading. Applied as a CSS filter on the canvas rather than in GLSL:
   // it costs nothing on the GPU and means one shader can be re-tinted per
@@ -36,8 +38,10 @@ const settings = computed(() => {
   // Iterate the props, not the defaults: an effect that omits a key from its
   // defaults would otherwise silently ignore that prop.
   for (const key of Object.keys(props)) {
-    if (key !== 'effect' && props[key] !== undefined) merged[key] = props[key]
+    if (key === 'effect' || key === 'params' || props[key] === undefined) continue
+    merged[key] = props[key]
   }
+  if (props.params) Object.assign(merged, props.params)
   return merged
 })
 
@@ -89,12 +93,14 @@ const gradeStyle = computed(() => {
 // No WebGL (old browser, blocklisted GPU, headless): fall back to a static
 // wash in the same palette instead of a black hole where the effect should be.
 .shader-canvas.is-unsupported {
-  // The third stop stands in for the top-left cluster the ribbon shader
-  // paints. Placements whose mask closes that corner simply never show it.
-  background:
-    radial-gradient(circle at 78% 38%, rgba(62, 113, 250, 0.16), transparent 55%),
-    radial-gradient(circle at 62% 78%, rgba(66, 184, 131, 0.12), transparent 55%),
-    radial-gradient(circle at 8% 4%, rgba(66, 184, 131, 0.10), transparent 45%);
+  // Stands in for the ribbon shader's edge seam: a wash along the right edge,
+  // clear of the copy.
+  background: linear-gradient(
+    270deg,
+    rgba(62, 113, 250, 0.16) 0%,
+    rgba(66, 184, 131, 0.10) 9%,
+    transparent 22%
+  );
 
   .shader-canvas__surface {
     display: none;
