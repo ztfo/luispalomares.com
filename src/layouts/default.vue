@@ -4,9 +4,7 @@
     ShaderCanvas.panel-shader(
       effect="ribbon-field"
       :opacity="0.55"
-      :placement="placement"
       :params="panelLayout"
-      :class="{ 'is-corners': placement === 0 }"
     )
     .panel-scrim
     .panel-content
@@ -16,36 +14,18 @@
   .home-panel.right
     .inner-scroll(ref="innerScroll")
       slot
-  DitherSwitcher(v-if="ditherPreview" :modelValue="placement" @update:modelValue="setPlacement")
 </template>
 
 <script setup>
 import HomePanel from '@/components/HomePanel.vue'
 import Footer from '@/components/Footer.vue'
 import ShaderCanvas from '@/components/Visuals/ShaderCanvas.vue'
-import DitherSwitcher from '@/components/DitherSwitcher.vue'
 
 const route = useRoute()
-const router = useRouter()
 
-// Prototype: ?dither=0..4 picks where the panel shader paints (0 is the
-// current corners) and shows a switcher. Read after mount so the prerendered
-// HTML always matches the default, and kept across navigation so opening a
-// project doesn't drop it.
-const placement = ref(0)
-const ditherPreview = ref(false)
-function readDither() {
-  const raw = route.query.dither
-  if (raw === undefined) return
-  const n = Number(raw)
-  ditherPreview.value = true
-  placement.value = Number.isInteger(n) && n >= 0 && n <= 4 ? n : 0
-}
-watch(() => route.query.dither, readDither)
-
-// Where the content column sits inside the panel, for placements that line up
-// with it (the header strip, the edge seam). Measured, not assumed, because
-// the panel's padding differs between desktop and the stacked phone layout.
+// Where the content column ends inside the panel. The shader's edge seam sits
+// in the gutter to the right of it, so it's measured rather than assumed: the
+// gutter is narrower in the stacked phone layout than on desktop.
 const leftPanel = ref(null)
 const divider = ref(null)
 const panelLayout = ref({})
@@ -54,30 +34,18 @@ function measurePanel() {
   const line = divider.value
   if (!panel || !line) return
   // Offsets rather than bounding rects: the divider rises in with a transform,
-  // and a rect taken mid-animation would land the strip a few pixels low.
+  // and a rect taken mid-animation would be a few pixels off.
   let left = 0
-  let top = 0
-  for (let el = line; el && el !== panel; el = el.offsetParent) {
-    left += el.offsetLeft
-    top += el.offsetTop
-  }
-  panelLayout.value = {
-    contentLeft: left,
-    contentRight: left + line.offsetWidth,
-    dividerTop: top,
-  }
+  for (let el = line; el && el !== panel; el = el.offsetParent) left += el.offsetLeft
+  panelLayout.value = { contentRight: left + line.offsetWidth }
 }
 let panelObserver = null
 onMounted(() => {
-  readDither()
   measurePanel()
   panelObserver = new ResizeObserver(measurePanel)
   panelObserver.observe(leftPanel.value)
 })
 onBeforeUnmount(() => panelObserver?.disconnect())
-function setPlacement(n) {
-  router.replace({ query: { ...route.query, dither: String(n) } })
-}
 
 // On mobile the panels stack bio-first, so opening a quest used to render the
 // detail a full screen below the fold: the tap looked like it did nothing.
@@ -156,31 +124,10 @@ watch(
     }
 }
 // Shader stack on the left panel: canvas (0) -> scrim (1) -> copy (2).
+// The shader paints only a full-height seam along the panel's right edge, in
+// the gutter beside the projects column, so the copy column needs no mask.
 .panel-shader {
   z-index: 0;
-}
-// Corners placement: two openings, both in empty corners — full-bleed, the dot
-// matrix fights the body copy. Mask layers composite additively by default, so
-// listing them is a union; the shader paints a cluster under each one. The
-// other placements shape themselves in the shader.
-.panel-shader.is-corners {
-  --panel-shader-mask:
-    radial-gradient(
-      ellipse 76% 58% at 88% 78%,
-      #000 0%,
-      rgba(0, 0, 0, 0.62) 42%,
-      transparent 76%
-    ),
-    // Above the heading. Kept short vertically so it fades out well before
-    // "Hi, I'm Luis." rather than sitting behind it.
-    radial-gradient(
-      ellipse 46% 17% at 0% 0%,
-      #000 0%,
-      rgba(0, 0, 0, 0.58) 44%,
-      transparent 80%
-    );
-  -webkit-mask-image: var(--panel-shader-mask);
-  mask-image: var(--panel-shader-mask);
 }
 
 // Keeps the brightest ribbons from lifting the panel off --black.
